@@ -1,0 +1,109 @@
+[
+    {
+        "title":"13 a 14 de Outubro",
+        "id":422,
+        "menutype":"mainmenu",
+        "diarias":"13/10/2022 14/10/2022",
+        "tabela":
+        {
+            "temas": ["Crianças de 2 e 3 anos","Criaças de 4 a 14 Anos"],
+            "periodo":"13 a 14 de Outubro",
+            "mes": "Outubro"
+        },
+        "menuid": 416,
+        "imageSequence":10,
+        "items": 
+        [
+            {
+                "title": "Manhã 8h - 12h",
+                "products": 
+                [
+                    {
+                        "title": "Manhã - Crianças de 2 a 3 anos",
+                        "price": 157.50,
+                        "discount":0,
+                        "ordem":1
+                    },
+                    {
+                        "title": "Manhã - Crianças de 4 a 14 anos",
+                        "price": 137.50,
+                        "discount":0,
+                        "ordem":2
+                    }
+                ]
+            },
+            {
+                "title": "Soneca 9h - 13h",
+                "products": 
+                [
+                    {
+                        "title": "Soneca - Crianças de 2 a 3 anos",
+                        "price": 197.50,
+                        "discount":0,
+                        "ordem":1
+                    },
+                    {
+                        "title": "Soneca - Crianças de 4 a 14 anos",
+                        "price": 172.50,
+                        "discount":0,
+                        "ordem":2
+                    }
+                ]
+            },
+            {
+                "title": "Tarde 14h - 18h",
+                "products": 
+                [
+                    {
+                        "title": "Tarde - Crianças de 2 a 3 anos",
+                        "price": 197.50,
+                        "discount":0,
+                        "ordem":1
+                    },
+                    {
+                        "title": "Tarde - Crianças de 4 a 14 anos",
+                        "price": 172.50,
+                        "discount":0,
+                        "ordem":2
+                    }
+                ]
+            },
+            {
+                "title": "Semi Integral 8h - 16h",
+                "products": 
+                [
+                    {
+                        "title": "Semi Integral - Crianças de 2 a 3 anos",
+                        "price": 370,
+                        "discount":0,
+                        "ordem":1
+                    },
+                    {
+                        "title": "Semi Integral - Crianças de 4 a 14 anos",
+                        "price": 322.50,
+                        "discount":0,
+                        "ordem":2
+                    }
+                ]
+            },
+            {
+                "title": "Integral 8h - 18h",
+                "products": 
+                [
+                    {
+                        "title": "Integral - Crianças de 2 a 3 anos",
+                        "price": 412,
+                        "discount":0,
+                        "ordem":1
+                    },
+                    {
+                        "title": "Integral - Crianças de 4 a 14 anos",
+                        "price": 360,
+                        "discount":0,
+                        "ordem":2
+                    }
+                ]
+            }
+        ]
+    }
+]

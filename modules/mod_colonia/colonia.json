@@ -1,0 +1,128 @@
+[
+    {
+        "title":"09 a 13 de Dezembro",
+        "id":759,
+        "menutype":"hidden",
+        "diarias":"09/12/2023 13/12/2023",
+        "divisao":4,
+        "tipodevenda":1,
+        "diaspermitido":3,
+        "menuid": 512,
+        "imageSequence":8,
+        "textPayment": "Por",
+        "exibirDadosCrianca": "1",
+        "textoProdutoTitulo": "",
+        "textoProdutoInscricao": "",
+        "textoFormTitulo": "",
+        "textoLabelNome": "",
+        "tabela": "{}",
+        "items": 
+        [
+
+            {
+                "title": "Manhã 8h - 12h",
+                "products": 
+                [
+                    {
+                        "title": "Manhã - Crianças de 2 a 3 anos",
+                        "price": 706.47,
+                        "discount":0,
+                        "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
+                        "ordem":1
+                    },
+                    {
+                        "title": "Manhã - Crianças de 4 a 14 anos",
+                        "price": 604.82,
+                        "discount":0,
+                        "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
+                        "ordem":2
+                    }
+                ]
+            },
+
+            {
+                "title": "Soneca 9h - 13h",
+                "products": 
+                [
+                    {
+                        "title": "Soneca - Crianças de 2 a 3 anos",
+                        "price": 864.03,
+                        "discount":0,
+                        "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Almoço;</li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
+                        "ordem":1
+                    },
+                    {
+                        "title": "Soneca - Crianças de 4 a 14 anos",
+                        "price": 742.05,
+                        "discount":0,
+                        "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Almoço;</li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
+                        "ordem":2
+                    }
+                ]
+            },
+
+            {
+                "title": "Tarde 14h - 18h",
+                "products": 
+                [
+                    {
+                        "title": "Tarde - Crianças de 2 a 3 anos",
+                        "price": 833.53,
+                        "discount":0,
+                        "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da tarde com frutas e uma fonte de proteínas e carboidratos;</li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
+                        "ordem":1
+                    },
+                    {
+                        "title": "Tarde - Crianças de 4 a 14 anos",
+                        "price": 706.47,
+                        "discount":0,
+                        "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da tarde com frutas e uma fonte de proteínas e carboidratos;</li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
+                        "ordem":2
+                    }
+                ]
+            },
+
+            {
+                "title": "Semi Integral 8h - 16h",
+                "products": 
+                [
+                    {
+                        "title": "Semi Integral - Crianças de 2 a 3 anos",
+                        "price": 1646.73,
+                        "discount":0,
+                        "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Almoço;<li>Lanche da tarde com frutas e uma fonte de proteínas e carboidratos;</li></li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
+                        "ordem":1
+                    },
+                    {
+                        "title": "Semi Integral - Crianças de 4 a 14 anos",
+                        "price": 1412.94,
+                        "discount":0,
+                        "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Almoço;<li>Lanche da tarde com frutas e uma fonte de proteínas e carboidratos;</li></li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
+                        "ordem":2
+                    }
+                ]
+            },
+
+            {
+                "title": "Integral 8h - 18h",
+                "products": 
+                [
+                    {
+                        "title": "Integral - Crianças de 2 a 3 anos",
+                        "price": 1722.97,
+                        "discount":0,
+                        "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Almoço;<li>Lanche da tarde com frutas e uma fonte de proteínas e carboidratos;</li></li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
+                        "ordem":1
+                    },
+                    {
+                        "title": "Integral - Crianças de 4 a 14 anos",
+                        "price": 1514.59,
+                        "discount":0,
+                        "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Almoço;<li>Lanche da tarde com frutas e uma fonte de proteínas e carboidratos;</li></li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
+                        "ordem":2
+                    }
+                ]
+            }
+        ]
+    }
+]

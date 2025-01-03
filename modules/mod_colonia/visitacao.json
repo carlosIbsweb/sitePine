@@ -1,0 +1,43 @@
+[
+    {
+        "title":"Domingo, 02 de Junho",
+        "id":635,
+        "menutype":"mainmenu",
+        "diarias":"02/06/2024",
+        "divisao":5,
+        "tipodevenda":2,
+        "diaspermitido":3,
+        "menuid": 463,
+        "imageSequence":5,
+        "textPayment": "Visitação",
+        "exibirDadosCrianca": "0",
+        "textoProdutoTitulo": "Inscrição",
+        "textoProdutoInscricao": "Inscrever",
+        "textoFormTitulo": "Dados de Inscrição",
+        "textoLabelNome": "Nome",
+        "tabela": "{}",
+        "items": 
+        [
+            {
+                "title": "02 de Junho",
+                "products":
+                [
+                    {
+                        "title": "9h às 13h",
+                        "price": 95,
+                        "discount":0,
+                        "description" : "<p>Explore a Natureza e Divirta-se em Família na Pine Tree Farm.</p>",
+                        "ordem":1
+                    },
+                    {
+                        "title": "14h30 às 18h30",
+                        "price": 95,
+                        "discount":0,
+                        "description" : "<p>Explore a Natureza e Divirta-se em Família na Pine Tree Farm.</p>",
+                        "ordem":1
+                    }
+                ]
+            }
+        ]
+    }
+]

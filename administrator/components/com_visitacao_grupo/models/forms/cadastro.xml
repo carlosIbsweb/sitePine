@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <fieldset>
+    <field name="id" type="text" readonly="true" class="readonly" default="0" description="JGLOBAL_FIELD_ID_DESC"/>
+    <field name="ordering"/>
+    <field name="state" default="1" type="list" label="JSTATUS" description="JFIELD_PUBLISHED_DESC" class="inputbox" size="1">
+      <option value="1">JPUBLISHED</option>
+      <option value="0">JUNPUBLISHED</option>
+      <option value="2">JARCHIVED</option>
+      <option value="-2">JTRASHED</option>
+    </field>
+    <field name="checked_out" type="hidden" filter="unset"/>
+    <field name="checked_out_time" default="0000-00-00 00:00:00" type="hidden" filter="unset"/>
+    <field name="created_by" type="createdby" default="0" label="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_CREATED_BY" description="COM_VISITACAO_GRUPO_FORM_DESC_CADASTRO_CREATED_BY" hidden="true" hint="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_CREATED_BY"/>
+    <field name="modified_by" type="modifiedby" default="0" label="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_MODIFIED_BY" description="COM_VISITACAO_GRUPO_FORM_DESC_CADASTRO_MODIFIED_BY" hidden="true" hint="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_MODIFIED_BY"/>
+    <field name="nome" filter="safehtml" type="text" readonly="true" label="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_NOME" description="COM_VISITACAO_GRUPO_FORM_DESC_CADASTRO_NOME" hint="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_NOME"/>
+    <field name="telefone" filter="safehtml" type="text" readonly="true" label="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_TELEFONE" description="COM_VISITACAO_GRUPO_FORM_DESC_CADASTRO_TELEFONE" hint="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_TELEFONE"/>
+    <field name="email" filter="safehtml" type="text" readonly="true" label="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_EMAIL" description="COM_VISITACAO_GRUPO_FORM_DESC_CADASTRO_EMAIL" hint="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_EMAIL"/>
+    <field name="idadecriancas" filter="safehtml" type="text" readonly="true" label="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_IDADECRIANCAS" description="COM_VISITACAO_GRUPO_FORM_DESC_CADASTRO_IDADECRIANCAS" hint="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_IDADECRIANCAS"/>
+    <field name="numerocriancas" filter="safehtml" type="text" readonly="true" label="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_NUMEROCRIANCAS" description="COM_VISITACAO_GRUPO_FORM_DESC_CADASTRO_NUMEROCRIANCAS" hint="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_NUMEROCRIANCAS"/>
+    <field name="adultos" filter="safehtml" type="text" readonly="true" label="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_ADULTOS" description="COM_VISITACAO_GRUPO_FORM_DESC_CADASTRO_ADULTOS" hint="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_ADULTOS"/>
+    <field name="opcoes" filter="safehtml" type="text" readonly="true" label="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_OPCOES" description="COM_VISITACAO_GRUPO_FORM_DESC_CADASTRO_OPCOES" hint="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_OPCOES"/>
+    <field name="date" default="0000-00-00 00:00:00" type="calendar" class="inputbox" format="%Y-%m-%d %H:%M:%S" showtime="true" translateformat="true" label="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_DATE" description="COM_VISITACAO_GRUPO_FORM_DESC_CADASTRO_DATE" hint="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_DATE"/>
+    <field name="visita" filter="safehtml" type="text" readonly="true" label="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_VISITA" description="COM_VISITACAO_GRUPO_FORM_DESC_CADASTRO_VISITA" hint="COM_VISITACAO_GRUPO_FORM_LBL_CADASTRO_VISITA"/>
+    <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
+  </fieldset>
+</form>

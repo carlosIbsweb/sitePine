@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_s7dpayments</name>
+    <creationDate>2016-06-07</creationDate>
+        <copyright>Copyright (C) 2016. Todos os direitos reservados.</copyright>
+    <license>GNU General Public License versão 2 ou posterior; consulte o arquivo License. txt</license>
+    <author>carlos</author>
+    <authorEmail>carlosnaluta@gmail.com</authorEmail>
+    <authorUrl>http://site7dias.com.br</authorUrl>
+    <version>1.0.0</version>
+    <description>Componente de Pagamento via Pagseguro. Uso exclusivo por Site 7 Dias.</description>
+    
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>s7dpayments.php</filename>
+        <filename>controller.php</filename>
+        <folder>assets</folder>
+        <folder>library</folder>
+        <folder>payments</folder>
+        <folder>tmpl</folder>
+    </files>
+    <languages folder="languages/site">
+            <language tag="en-GB">en-GB/en-GB.com_s7dpayments.ini</language>
+    </languages>
+    <languages folder="languages/administrator">
+            <language tag="en-GB">en-GB/en-GB.com_s7dpayments.ini</language>
+    </languages>
+    <administration>
+        <menu img="media/com_s7dpayments/images/s_com_s7dpayments.png" >COM_S7DPAYMENTS</menu>
+        <submenu>
+            <menu link="option=com_s7dpayments&amp;view=payments" view="payments" img="media/com_s7dpayments/images/s_payments.png" alt="S7dpayments/Payments">COM_S7DPAYMENTS_TITLE_PAYMENTS</menu>
+            <menu link="option=com_s7dpayments&amp;view=courses" view="courses" img="media/com_s7dpayments/images/s_courses.png" alt="S7dpayments/Courses">COM_S7DPAYMENTS_TITLE_COURSES</menu>
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>s7dpayments.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="languages/administrator">
+            <language tag="en-GB">en-GB/en-GB.com_s7dpayments.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_s7dpayments.sys.ini</language>
+        </languages>
+    </administration>
+    <plugins>
+        <plugin group="search" plugin="s7dpayments"/>
+    </plugins>
+    
+</extension>
