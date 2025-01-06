@@ -110,7 +110,7 @@
    <div class="dCartBottom">
    <a href="#" class="dBtnCont nav-link dropdown-toggle" id="cart-nova-inscricao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Efetuar outra inscrição</a>
    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cart-nova-inscricao">
-      <a class="dropdown-item" href="<?= $menuAlias.'/'.s7dPayments::getCategory(s7dPayments::getCategory($items->catid,'parent_id'),'alias');?>?store=course&cat=<?= $items->catid;?>&courseId=<?= $items->id; ?>" class="dSbtn">
+      <a class="dropdown-item" href="<?= $menuAlias.'/'.s7dPayments::getCategory(s7dPayments::getCategory($items->catid,'parent_id'),'alias');?>" class="dSbtn">
                      <?= '<strong><i class="fa fa-reply-all"></i> '.$catTitle.'</strong> ' ?>
                      </a>
       <div class="dropdown-divider"></div>
