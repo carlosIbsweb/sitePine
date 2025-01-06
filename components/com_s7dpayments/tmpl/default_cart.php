@@ -29,6 +29,8 @@
    if(isset($_GET['opa'])):
    paymentsCart::notCli();
    endif;
+
+   $itemAlias = $active->alias;
    
    ?>
 <div class="pineCart">
@@ -106,7 +108,16 @@
       </div>
    </form>
    <div class="dCartBottom">
-      <a href="<?= $url;?>?store" class="dBtnCont">Efetuar outra inscrição</a>
+   <a href="#" class="dBtnCont nav-link dropdown-toggle" id="cart-nova-inscricao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Efetuar outra inscrição</a>
+   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cart-nova-inscricao">
+      <a class="dropdown-item" href="<?= $menuAlias.'/'.s7dPayments::getCategory(s7dPayments::getCategory($items->catid,'parent_id'),'alias');?>?store=course&cat=<?= $items->catid;?>&courseId=<?= $items->id; ?>" class="dSbtn">
+                     <?= '<strong><i class="fa fa-reply-all"></i> '.$catTitle.'</strong> ' ?>
+                     </a>
+      <div class="dropdown-divider"></div>
+      <a href="<?= $pUrl[0];?>" class="dropdown-item"><i class="fa fa-desktop"></i><strong> Escolher outra semana</strong></a>
+   </div>
+<?php /*
+      <a href="<?= $url;?>?store" class="dBtnCont">Efetuar outra inscrição</a>*/ ?>
       <?php if (empty($ifCartItem)): ?>
       <label class="dBtnClear" for="delItemClear" title="Limpar carrinho">Limpar carrinho</label>
       <div class="dEnPag">
