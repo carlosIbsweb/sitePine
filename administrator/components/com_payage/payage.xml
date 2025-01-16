@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.7.0" method="upgrade">
+<name>com_payage</name>
+<creationDate>5 August 2022</creationDate>
+<author>Les Arbres Design</author>
+<copyright>Les Arbres Design 2014-2022</copyright>
+<license>GNU/GPL</license>
+<authorUrl>www.lesarbresdesign.info</authorUrl>
+<version>2.29</version>
+<description>A payment system for multiple applications and multiple payment gateways</description>
+
+<scriptfile>install.php</scriptfile>
+
+<files folder="site">
+	<filename>payage.php</filename>
+	<filename>index.html</filename>
+ </files>
+
+<administration>
+	<menu>PAYAGE</menu>
+	<submenu>
+		<menu controller="payment">COM_PAYAGE_PAYMENTS</menu>
+		<menu controller="payment" task="unconfirmed">COM_PAYAGE_UNCONFIRMED_PAYMENTS</menu>
+		<menu controller="account">COM_PAYAGE_ACCOUNTS</menu>
+		<menu controller="report">COM_PAYAGE_REPORTS</menu>
+		<menu controller="syslog">COM_PAYAGE_SYSTEM_LOG</menu>
+		<menu controller="about">COM_PAYAGE_ABOUT</menu>
+	</submenu>
+
+	<files folder="admin">
+		<filename>payage.php</filename>
+		<filename>api.php</filename>
+		<filename>config.xml</filename>
+		<filename>index.html</filename>
+		<folder>assets</folder>
+		<folder>controllers</folder>
+		<folder>helpers</folder>
+		<folder>models</folder>
+		<folder>forms</folder>
+		<folder>views</folder>
+		<folder>language</folder>
+	</files>
+
+</administration>
+
+<updateservers>
+    <server type="collection" priority="2" name="Payage Gateways"><![CDATA[https://www.lesarbresdesign.info/jupdate?product=payage&type=collection]]></server>
+    <server type="extension" priority="2" name="Payage Component"><![CDATA[https://www.lesarbresdesign.info/jupdate?product=payage]]></server>
+</updateservers>
+
+</extension>

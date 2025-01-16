@@ -1,0 +1,53 @@
+.wkcontact label {display:initial}
+#general .control-label {display:none}
+#general .controls {margin-left:0}
+.frmb-control li {display:inherit; width:auto; line-height:initial; height:auto}
+#attrib-wkform .form-actions {padding: 0;margin-top: 5px;margin-bottom: 18px;background-color: transparent;borderder:none}
+.wkcontact .wkcontact-header {background-color:#1e7ed8;padding:10px 20px;font-weight:400;color:#fff;margin:0;font-size: 19px;}
+.wkcontact .build-wrap {padding:20px;background-color: #eee;}
+.wkcontact .form-actions {padding: 0 !important;float: right; border:none}
+.wkcontact .wkheader-right {float:right;font-size:14px;font-weight:100;position:relative;}
+.wkcontact .wkinputok, .wkcontact .addcol {cursor:pointer}
+.wkcontact .addcol:before {content:"";width:20px;height:20px;float:left;color:;background:url(../images/i-col.png) no-repeat;}
+.wkcontact .wkcol {position:absolute;right:0; border-radius:4px; margin-right:-10px;margin-top:20px; display:none;background-color:#edeef0; box-shadow:0 0 8px rgba(0, 0, 0, 0.65); padding:20px;z-index:999;max-width: 300px;;}
+.wkcontact .wkcol ul li {display: inline-flex;}
+.wkcontact .wkcol:before {    content: " ";
+    position: absolute;
+    top: -21px;
+    right: 30px;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #797979 transparent;}
+.wkcontact .wkcol:after {    content: " ";
+    position: absolute;
+    top: -20px;
+    right: 30px;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #edeef0 transparent;}
+.wkcontact .wkcol input {float:left;}
+.wkcontact .wkcol ul {display:table;margin:0;}
+.wkcontact .wkinputok {float:left;background-color:#1e7ed8;border-radius:4px;padding:4px 10px;width: 20%; text-align:center; margin-left:5px}
+#attrib-wkbodyadmin .control-label, #attrib-wkbodyuser .control-label {
+    width: 100%;
+    font-weight: bold;
+}
+#attrib-wkbodyadmin .controls, #attrib-wkbodyuser .controls {margin-left:0}
+.wkModalType {background-color:#ffffff;border: 1px dotted #666;margin-top:20px;padding: 5px 20px;display:table;color:#000;}
+.wkModalTypeError {background-color:#b33333;border: 4px solid #e08c8c;margin-top:20px;padding: 5px 20px;display:table;color:#fff;}
+#jform_params_wkTypeDesc-lbl {margin-top: -8px;color: #3071a9;}
+.paramsWkHeader {
+    color: white;
+    font-weight: 600;
+    background: #5a5a5a;
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-radius: 4px;
+    }
+.paramsWkHeader label {padding:5px 20px;min-width: 400px;font-weight: 600;text-align: left;}
+#jform_params_wkMailUser-lbl {font-size: 13px;font-weight:600 !important;background-color:#eee;padding:6px;min-width:400px;}

@@ -1,0 +1,86 @@
+/* LAD Admin CSS 2.01 for Joomla 4 */
+
+body {-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:grayscale}
+input,select {margin-bottom:0!important}
+img {max-width:none!important}
+table.table th {white-space:normal!important}
+table.table td {padding: 8px 12px;vertical-align:middle}
+table.table input[type="checkbox"] {margin-top:0}
+table.table-centered td, table.table-centered th {text-align:center}
+table tr.lad-row-error > td {background-color:#f2dede !important}
+table.table-bordered {border:1px solid #ddd !important;}
+table.table-bordered th, table.table-bordered td {border:1px solid #dee2e6 !important;}
+table.table-condensed th, table.table-condensed td {padding:4px 6px!important}
+span.icon-downarrow,span.icon-uparrow {margin:0}
+.form-horizontal .control-group {margin-bottom:12px!important}
+legend + .control-group {margin-top:0!important}
+.tooltip {font-size:13px!important;font-weight:bold;opacity:1!important}
+label.hasPopover::after {content:"i";color:#1976d2;margin-left:5px;font-family:Georgia,serif;font-size:130%;font-style:italic;font-weight:bold}
+.ui-datepicker {z-index:10!important}
+input[type="file"] {padding:7px;line-height:normal!important;border-radius:5px;border:1px solid #ccc;height:auto!important}
+.width-auto {width:auto!important}
+select.width-auto {max-width:none}
+select {background-color:white !important}
+#j-main-container {padding:5px}
+.alert {padding:8px 35px 8px 14px;margin-bottom:18px;background-color:#fcf8e3;border-radius:3px}
+.alert-error {background-color:#f2dede;border-color:#ebccd1;color:#a94442}
+.alert-info {background-color:#d9edf7;border-color:#bce8f1;color:#31708f}
+.tbody-icon span {border:none!important}    
+.btn-micro {padding:1px 13px !important;} 
+.form-control.input-mini {width:65px}
+.form-control.input-small {width:120px;padding-left:3px;padding-right:3px}
+.form-control.input-medium {width: 180px}
+.form-control.input-large {width:270px;}
+.form-control.input-xlarge {width:350px;}
+.form-control.input-xxlarge {width:550px;}
+.form-control.input-full {width:100%;}
+.form-control.lad-input-inline {display:inline;}
+.report_totals {font-size:larger;font-weight:bold;border-top:2px solid black;border-bottom:2px solid black}
+.lad_error_msg {color:red;font-weight:bold}
+.lad-width-auto-fields input,.lad-width-auto-fields textarea,.lad-width-auto-fields select {width:auto!important}
+.lad-control-text {margin-top:5px}
+.lad-fieldset {display:inline-block;vertical-align:top;margin:5px 10px;padding:5px 10px;width:98%;min-width:min-content}
+.lad-fieldset legend {float:none;width:auto;margin-bottom:0;padding:0 10px 0 10px}
+.lad-border {border:1px #CCC solid;border-radius:4px}
+.lad-half {width:45%}
+.lad-full-width {width:100%}
+.lad-field-inline {display:inline-block !important;}                  
+.lad_order_btn {color:white !important;background-color:#ff9800 !important;width:35px !important;padding:1px 0 !important}
+.table thead th {background-color:#E1F5FE}
+@media screen and (max-width:850px) {
+    .lad-half {width:95%} }
+.lad-bold {font-weight:bold}
+.lad-emphasis {color:#3f51b5}
+.lad-larger {font-size:larger}
+.lad-fixed-font {font-family:courier;padding:6px}
+.lad-small {font-size:small}
+.lad-left {float:left}
+.lad-leftindent {margin-left:25px}
+.lad-key-cell:hover {background-color:#f0f8ff!important}
+.lad-key {cursor:pointer}
+.lad-key:hover {color:blue;text-decoration:underline}
+span.lad_info {display:inline-block;vertical-align:top;padding-top:3px;margin-left:3px}
+.lad-scroll-container {width:100%;overflow-x:scroll}
+table.lad-report-table td {padding:6px!important}
+.lad-filterform select {width:auto}
+.lad-filterform label {display:inline-block;vertical-align:middle;margin-bottom:0}
+.lad-filterform input[type=checkbox] {margin:0 5px}
+.lad-filterform input[type=text].hasDatepicker {width:7.5em}
+.lad-filterform button {vertical-align:bottom}
+.lad-filterform div.lad-filterform-left {float:left; white-space:nowrap}
+.lad-filterform div.lad-filterform-right {float:right}
+.lad-list-icon {vertical-align:middle}
+.lad-break-word {word-wrap:break-word;word-break:break-all;overflow-wrap:break-word}
+svg > g:last-child > g:last-child {pointer-events:none}
+.icon-lad {background:url(lad_20.png) no-repeat;height:24px;width:32px}
+
+/* Payage specific */
+
+.field-calendar {display:inline-block}
+.field-calendar .input-append {margin-bottom:0}
+.field-calendar input[type=text] {width:7.5em}
+.payment-fieldset {max-width:33%;font-size:90%}
+@media screen and (max-width:768px) {.payment-fieldset {max-width:95%} }
+table.payment_details td {vertical-align:top}
+table.payment_details td:nth-child(1) {padding-right:8px;color:#807f7f}
+table.payment_details td:nth-child(2) {word-wrap:break-word;word-break:break-all;overflow-wrap:break-word}

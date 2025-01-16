@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.5" type="plugin" group="system" method="upgrade">
+    <name>PLG_SYS_SCRIPTSDOWN</name>
+    <author>Michael Richey</author>
+    <creationDate>Jan 2011</creationDate>
+    <copyright>Copyright (C) 2011 Michael Richey. All rights reserved.</copyright>
+    <license>GNU General Public License</license>
+    <authorEmail>support@richeyweb.com</authorEmail>
+    <authorUrl>http://www.richeyweb.com</authorUrl>
+    <version>3.0.7</version>
+    <description>PLG_SYS_SCRIPTSDOWN_XML_DESC</description>
+    <files>
+        <filename plugin="scriptsdown">scriptsdown.php</filename>
+        <folder>forms</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">en-GB.plg_system_scriptsdown.ini</language>
+        <language tag="en-GB">en-GB.plg_system_scriptsdown.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="include" type="radio" default="0"
+                       label="PLG_SYS_SCRIPTSDOWN_INCLUDE_LABEL"
+                       description="PLG_SYS_SCRIPTSDOWN_INCLUDE_DESC"
+                >
+                    <option value="1">JYes</option>
+                    <option value="0">JNo</option>
+                </field>
+                <field name="scripts" multiple="true"
+                       type="subform" layout="joomla.form.field.subform.repeatable-table"
+                       label="PLG_SYS_SCRIPTSDOWN_SCRIPTS_LABEL"
+                       description="PLG_SYS_SCRIPTSDOWN_SCRIPTS_DESC"
+                       formsource="plugins/system/scriptsdown/forms/exclude.xml"
+                />
+                <field name="declarations" type="radio" default="0"
+                       label="PLG_SYS_SCRIPTSDOWN_DECLARATIONS_LABEL"
+                       description="PLG_SYS_SCRIPTSDOWN_DECLARATIONS_DESC"
+                >
+                    <option value="1">JYes</option>
+                    <option value="0">JNo</option>
+                </field>
+                <field name="comments" type="radio" default="0"
+                       label="PLG_SYS_SCRIPTSDOWN_COMMENTS_LABEL"
+                       description="PLG_SYS_SCRIPTSDOWN_COMMENTS_DESC"
+                >
+                    <option value="1">JYes</option>
+                    <option value="0">JNo</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+    <updateservers>
+        <server type="extension" priority="1" name="RicheyWeb Update Site">https://cdn.richeyweb.com/updates/scriptsdown.xml</server>
+    </updateservers>   
+</extension>

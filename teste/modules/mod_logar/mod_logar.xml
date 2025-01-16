@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="1.7"
+	client="site"
+	method="upgrade">
+	<name>Logar</name>
+	<author>Carlos </author>
+	<creationDate>Abril 2015</creationDate>
+	<copyright>Copyright (C) 2015 - Teste</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>carlos@ibsweb.com.br</authorEmail>
+	<authorUrl>www.site7dias.com.br</authorUrl>
+	<version>2.0</version>
+	<description>Logar</description>
+	<files>
+		<filename module="mod_logar">mod_logar.php</filename>
+		<folder>js</folder>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>		<filename>mod_logar.xml</filename>
+	</files>
+	
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_SYNDICATION_FEEDS" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="herisson"
+					type="text"
+					default="Viu assim funciona"
+					label="Escreve aqui Herisson"
+					size="20"
+					description="nome de herisson" />
+				
+
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="0"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

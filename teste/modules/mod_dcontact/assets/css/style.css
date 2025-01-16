@@ -1,0 +1,14 @@
+#dcontact-form .form-group {-webkit-animation-fill-mode: inherit !important; animation-fill-mode: inherit !important;}
+#dcontact-form .dselecionar {float: right;}
+#dcontact-form .center-block {max-width:600px;}
+#dcontact-form .denvia {float: left;margin-top: 20px;}
+#dcontact-form .inpdbanco {display: block}
+.blockdform .sppb-row-container {border:1px solid #ccc; background:#fff; border-radius:6px; padding-top:40px; padding-bottom:20px}
+.blockdform {background:#eee}
+.blockdform .sppb-row-container:before {content:""; border:4px solid #a50021; width:160px; display:block; margin:0 auto; margin-top:-40px; margin-bottom:40px}
+#dcontact-form .dstatus {margin-top:10px; font-weight:400}
+@media screen and (max-width:990px){
+    #dcontact-form .denvia {margin-right:auto}
+    #dcontact-form .dselecionar {float:initial}
+    #dcontact-form .dfone, #dcontact-form .dmail {padding-right:15px}
+}

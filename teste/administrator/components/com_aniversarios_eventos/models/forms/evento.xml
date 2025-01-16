@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <fieldset>
+    <field name="id" type="text" readonly="true" class="readonly" default="0" description="JGLOBAL_FIELD_ID_DESC"/>
+    <field name="ordering"/>
+    <field name="state" default="1" type="list" label="JSTATUS" description="JFIELD_PUBLISHED_DESC" class="inputbox" size="1">
+      <option value="1">JPUBLISHED</option>
+      <option value="0">JUNPUBLISHED</option>
+      <option value="2">JARCHIVED</option>
+      <option value="-2">JTRASHED</option>
+    </field>
+    <field name="checked_out" type="hidden" filter="unset"/>
+    <field name="checked_out_time" default="0000-00-00 00:00:00" type="hidden" filter="unset"/>
+    <field name="created_by" type="createdby" default="0" label="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_CREATED_BY" description="COM_ANIVERSARIOS_EVENTOS_FORM_DESC_EVENTO_CREATED_BY" hidden="true" hint="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_CREATED_BY"/>
+    <field name="modified_by" type="modifiedby" default="0" label="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_MODIFIED_BY" description="COM_ANIVERSARIOS_EVENTOS_FORM_DESC_EVENTO_MODIFIED_BY" hidden="true" hint="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_MODIFIED_BY"/>
+    <field name="nomeresp" filter="safehtml" type="text" readonly="true" label="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_NOMERESP" description="COM_ANIVERSARIOS_EVENTOS_FORM_DESC_EVENTO_NOMERESP" hint="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_NOMERESP"/>
+    <field name="telefone" filter="safehtml" type="text" readonly="true" label="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_TELEFONE" description="COM_ANIVERSARIOS_EVENTOS_FORM_DESC_EVENTO_TELEFONE" hint="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_TELEFONE"/>
+    <field name="email" filter="safehtml" type="text" readonly="true" label="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_EMAIL" description="COM_ANIVERSARIOS_EVENTOS_FORM_DESC_EVENTO_EMAIL" hint="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_EMAIL"/>
+    <field name="nomecria" filter="safehtml" type="text" readonly="true" label="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_NOMECRIA" description="COM_ANIVERSARIOS_EVENTOS_FORM_DESC_EVENTO_NOMECRIA" hint="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_NOMECRIA"/>
+    <field name="idade" filter="safehtml" type="text" readonly="true" label="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_IDADE" description="COM_ANIVERSARIOS_EVENTOS_FORM_DESC_EVENTO_IDADE" hint="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_IDADE"/>
+    <field name="escola" filter="safehtml" type="text" readonly="true" label="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_ESCOLA" description="COM_ANIVERSARIOS_EVENTOS_FORM_DESC_EVENTO_ESCOLA" hint="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_ESCOLA"/>
+    <field name="diafesta" filter="safehtml" type="text" readonly="true" label="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_DIAFESTA" description="COM_ANIVERSARIOS_EVENTOS_FORM_DESC_EVENTO_DIAFESTA" hint="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_DIAFESTA"/>
+    <field name="numerocria" filter="safehtml" type="text" readonly="true" label="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_NUMEROCRIA" description="COM_ANIVERSARIOS_EVENTOS_FORM_DESC_EVENTO_NUMEROCRIA" hint="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_NUMEROCRIA"/>
+    <field name="numeroadult" filter="safehtml" type="text" readonly="true" label="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_NUMEROADULT" description="COM_ANIVERSARIOS_EVENTOS_FORM_DESC_EVENTO_NUMEROADULT" hint="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_NUMEROADULT"/>
+    <field name="opcoesfestas" filter="safehtml" type="textarea" readonly="true" label="Opções de Festas" description="Opções de Festas" hint="Opções de Festas"/>
+    <field name="tema" filter="safehtml" type="text" readonly="true" label="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_TEMA" description="COM_ANIVERSARIOS_EVENTOS_FORM_DESC_EVENTO_TEMA" hint="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_TEMA"/>
+    <field name="checkbox" filter="safehtml" type="text" readonly="true" label="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_CHECKBOX" description="COM_ANIVERSARIOS_EVENTOS_FORM_DESC_EVENTO_CHECKBOX" hint="COM_ANIVERSARIOS_EVENTOS_FORM_LBL_EVENTO_CHECKBOX"/>
+    <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
+  </fieldset>
+</form>

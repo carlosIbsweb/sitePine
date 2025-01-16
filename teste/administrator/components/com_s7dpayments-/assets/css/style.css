@@ -1,0 +1,109 @@
+.table-pine {
+  -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none !important;
+    margin-top: 40px;
+}
+
+.table-pine thead {
+background:  #333;
+color: #fff;
+}
+.table-pine thead th {
+  border-color:#333 !important;
+}
+.table-pine tr {
+ 
+}
+.table-pine .tresph {
+  display:none;
+}
+.table-pine .table-cri{
+  color:#fff;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background: transparent !important;
+}
+.table-pine .criTi {
+  color:#1978b9 !important;
+  font-size: 14px;
+}
+.table-pine .table-cri td {
+  color:#404040;
+  font-size: 14px;
+  padding: 2px !important;
+  display:block;
+}
+.table-pine .table-action tr > td, .table-pine .table-action tr > th {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  text-align:center;
+  vertical-align:middle;
+}
+
+.table-pine .pPrice {
+  text-align:right !important;
+  font-size: 16px;
+  border-left:none !important;
+  padding: 20px 10px;
+  border-right:none !important;
+}
+.table-pine .pPrice strong {
+  color:#333333;
+  font-size: 18px
+}
+.table-pine .table-cri tr > td, .table-pine .table-cri tr > th {
+  border: none !important;
+}
+.com_s7dpayments h3, .com_s7dpayments h5, .com_s7dpayments h6 {
+  margin: 0
+}
+.com_s7dpayments .control-group {
+  margin-bottom:10px !important
+}
+.com_s7dpayments .form-horizontal .control-label {
+  padding-top: 0px 
+}
+@media screen and (max-width: 767px)
+{
+  .table-pine thead {
+   display:none;
+}
+.table-pine tr {
+ 
+}
+.table-pine .tresph {
+  font-weight: 600;
+  display:block;
+  padding: 5px 0 !important;
+  background: #3c3c3c;
+  color: #e4e4e4;
+}
+.table-pine {
+  width: 100%;
+}
+.table-pine td, .table-pine th {
+  display:block;
+  width: 100%;
+  padding: 5px 0 !important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none !important;
+  margin: 0;
+}
+.table-pine .table-action tbody > tr.criRow {
+  background: #ddd;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  float:left;
+  width: 100%;
+}
+.table-cri tr {
+  padding:0 !important;
+  border:none;
+}
+
+
+}

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="1.7"
+	client="site"
+	method="upgrade">
+	<name>S7D Scroll</name>
+	<author>Carlos </author>
+	<creationDate>Outubro 2016</creationDate>
+	<copyright>Copyright (C) 2016 - Site 7 Dias</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>carlos@ibsweb.com.br</authorEmail>
+	<authorUrl>www.site7dias.com.br</authorUrl>
+	<version>1.0</version>
+	<description>Exibição de Scroll.</description>
+	<files>
+		<filename module="mod_s7d_scroll">mod_s7d_scroll.php</filename>
+		<folder>assets</folder>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>		<filename>mod_s7d_scroll.xml</filename>
+	</files>
+	
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_SYNDICATION_FEEDS" />
+	<config>
+		<fields name="params">
+		
+			<fieldset name="basic">
+
+				<field name="stylemode" type="list" default="" label="Modo" description="">
+			  		<option value="s1">Artigos</option>
+			  		<option value="s2">Links</option>
+				</field>
+			
+			<field
+			name="qnt"
+			type="text"
+			label="Quantidade de items"
+			description="Quantidade de items no scroll."
+            default="6"	/>
+
+            <field
+			name="gwidth"
+			type="text"
+			label="Largura"
+			description="Largura das imagens."
+            default=""	/>
+
+            <field
+			name="gheight"
+			type="text"
+			label="Altura das imagens."
+			description="Altura do Scroll."
+            default=""	/>
+		
+				
+			</fieldset>
+
+			<fieldset
+				name="sartigos" label="Artigos" addfieldpath="/modules/mod_s7d_scroll/elements">
+
+				<field 
+				name="catid" 
+				type="category" 
+				extension="com_content" 
+				label="Categorias"
+				multiple="true"
+				description="Para usar como artigos relacionados basta deixar vazio." 
+				/>
+			
+
+			<field name="ecat" class="btn-group btn-group-yesno radio" type="radio" default="1" label="Exibir Título da Categoria" description="">
+			  	<option value="1">Exibir</option>
+			  	<option value="0">Ocutar</option>
+			</field>
+			
+			<field name="etit" class="btn-group btn-group-yesno radio" type="radio" default="1" label="Exibir Título do Artigo" description="">
+			  	<option value="1">Exibir</option>
+			  	<option value="0">Ocutar</option>
+			</field>
+			
+				<field name="srel" class="btn-group btn-group-yesno radio" type="radio" default="0" label="Artigos Relacionados" description="">
+			  	<option value="1">Sim</option>
+			  	<option value="0">Não</option>
+			</field>
+
+			<field
+			name="qntArticles"
+			type="text"
+			label="Quantidade de artigos"
+			description="Quantidade de artigos para o scroll."
+            default="12"	/>
+
+			</fieldset>
+
+			<fieldset
+				name="slinks" label="Links" addfieldpath="/modules/mod_s7d_scroll/elements">
+				<field 
+					name="links" 
+					type="textarea" 
+					label="Images e Links"
+					rows="6"
+				/>
+			</fieldset>
+
+			<fieldset
+				name="spersonalizar" label="Personalizar" addfieldpath="/modules/mod_s7d_scroll/elements">
+			<field
+			name="tclass"
+			type="text"
+			label="Custom Class"
+			description="Classe personalizada" />
+
+			<field
+			name="smscroll"
+			type="text"
+			label="Margin Scroll"
+			description="Margin para o Sroll"
+            default="10px" />
+
+			<field
+			name="spimg"
+			type="text"
+			label="Padding Item"
+			description="Padding dos items de imagem"
+            default="10px 0" />
+
+            <field name="spalign" type="list" default="left" label="Alinhamento do Título" description="">
+              	<option value="left">Left</option>
+              	<option value="right">Right</option>
+              	<option value="center">Center</option>
+              	<option value="justify">Justify</option>
+            </field>
+            
+
+            <field
+			name="sbradius"
+			type="text"
+			label="Border radius"
+			description=""
+            default="4px" />
+
+            <field name="sbhover" class="btn-group btn-group-yesno radio" type="radio" default="1" label="Border Hover" description="">
+			  	<option value="1">Sim</option>
+			  	<option value="0">Não</option>
+			</field>
+
+			<field name="sbcolor" 
+				type="color" 
+				default="#eee"
+				label="Border Hover Color"
+				description="Cor da borda no efeito hover." />
+
+			<field name="sbackimg" 
+				type="color" 
+				default=""
+				label="Background image"
+				description="Cor do fundo da imagem." />
+
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="0"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

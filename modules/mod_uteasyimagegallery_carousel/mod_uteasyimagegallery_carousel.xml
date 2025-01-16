@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>UT Easy Image Gallery Carousel</name>
+	<creationDate>December 2023</creationDate>
+	<author>Unitemplates</author>
+	<authorEmail>info@unitemplates.com</authorEmail>
+	<authorUrl>https://www.unitemplates.com</authorUrl>
+	<copyright>Copyright (C) 2020 - 2023 Unitemplates. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<version>2.0.0</version>
+	<description>Module to display carousel of albums or album images from SP Easy Image Gallery component.</description>
+
+	<updateservers>
+		<server type="extension" priority="1" name="UT Easy Image Gallery Carousel">https://update.unitemplates.com/extensions/mod_uteasyimagegallery_carousel.xml</server>
+	</updateservers>
+
+	<files>
+		<filename module="mod_uteasyimagegallery_carousel">mod_uteasyimagegallery_carousel.php</filename>
+		<folder>assets</folder>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_uteasyimagegallery_carousel.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/administrator/components/com_speasyimagegallery/models/fields">
+
+				<field name="layout" type="list" default="album" label="MOD_UTEIG_CAROUSEL_LAYOUT_TYPE" description="MOD_UTEIG_CAROUSEL_LAYOUT_TYPE_DESC">
+					<option value="album">MOD_UTEIG_CAROUSEL_LAYOUT_ALBUM</option>
+					<option value="albums">MOD_UTEIG_CAROUSEL_LAYOUT_ALBUMS</option>
+				</field>
+				<field name="fullscreen" type="radio" class="btn-group" default="0" label="MOD_UTEIG_CAROUSEL_FULLSCREEN" description="MOD_UTEIG_CAROUSEL_FULLSCREEN_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="fullscreen_offset" type="text"  label="MOD_UTEIG_CAROUSEL_FULLSCREEN_OFFSET" description="MOD_UTEIG_CAROUSEL_FULLSCREEN_OFFSET_LABEL" showon="fullscreen:1" />
+				<field name="image_as" type="list" default="image" label="MOD_UTEIG_CAROUSEL_IMAGE_AS" description="MOD_UTEIG_CAROUSEL_IMAGE_AS_DESC">
+					<option value="background">Background</option>
+					<option value="image">Image</option>
+				</field>
+
+				<field name="spacer1" type="spacer" hr="true" showon="layout:albums" />
+				<field name="spacer2" type="spacer" label="MOD_UTEIG_CAROUSEL_ALBUMS_LIST_OPTIONS" showon="layout:albums" />
+				<field name="catid" type="category" label="MOD_UTEIG_CAROUSEL_CHOOSE_ALBUMS_CATEGORY" description="MOD_UTEIG_CAROUSEL_CHOOSE_ALBUMS_CATEGORY_DESC" extension="com_speasyimagegallery" showon="layout:albums">
+					<option value="">MOD_UTEIG_CAROUSEL_SELECT_CATEGORY</option>
+				</field>
+				<field name="album_image_size" type="list" label="MOD_UTEIG_CAROUSEL_ALBUM_IMAGE_SIZE" description="MOD_UTEIG_CAROUSEL_ALBUM_IMAGE_SIZE_DESC" showon="layout:albums" default="thumb">
+					<option value="thumb">MOD_UTEIG_CAROUSEL_THUMB</option>
+					<option value="original">MOD_UTEIG_CAROUSEL_ORIGINAL</option>
+				</field>
+				<field name="show_album_title" type="radio" class="btn-group" label="MOD_UTEIG_CAROUSEL_SHOW_ALBUMS_TITLE" description="MOD_UTEIG_CAROUSEL_SHOW_ALBUMS_TITLE_DESC" default="1" showon="layout:albums">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="show_album_desc" type="radio" class="btn-group" label="MOD_UTEIG_CAROUSEL_SHOW_ALBUMS_DESC" description="MOD_UTEIG_CAROUSEL_SHOW_ALBUMS_DESC_DESC" default="1" showon="layout:albums">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="show_album_count" type="radio" class="btn-group" label="MOD_UTEIG_CAROUSEL_SHOW_ALBUMS_COUNT" description="MOD_UTEIG_CAROUSEL_SHOW_ALBUMS_COUNT_DESC" default="1" showon="layout:albums">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="show_album_button" type="radio" class="btn-group" label="MOD_UTEIG_CAROUSEL_SHOW_ALBUMS_BUTTON" description="MOD_UTEIG_CAROUSEL_SHOW_ALBUMS_BUTTON_DESC" default="1" showon="layout:albums">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field name="spacer3" type="spacer" hr="true" showon="layout:album" />
+				<field name="spacer4" type="spacer" label="MOD_UTEIG_CAROUSEL_ALBUM_OPTIONS" showon="layout:album" />
+				<field name="album_id" type="albums" label="MOD_UTEIG_CAROUSEL_CHOOSE_ALBUM" description="MOD_UTEIG_CAROUSEL_CHOOSE_ALBUM_DESC" showon="layout:album" />
+				<field name="album_limit" type="number" label="MOD_UTEIG_CAROUSEL_GLOBAL_LIMIT" description="MOD_UTEIG_CAROUSEL_GLOBAL_LIMIT_DESC" default="8" showon="layout:album" min="1" />
+				<field name="image_size" type="list" label="MOD_UTEIG_CAROUSEL_IMAGE_SIZE" description="MOD_UTEIG_CAROUSEL_IMAGE_SIZE_DESC" showon="layout:album" default="thumb">
+					<option value="original">MOD_UTEIG_CAROUSEL_ORIGINAL</option>
+					<option value="mini">MOD_UTEIG_CAROUSEL_MINI</option>
+					<option value="thumb">MOD_UTEIG_CAROUSEL_THUMB</option>
+					<option value="x_thumb">MOD_UTEIG_CAROUSEL_X_THUMB</option>
+					<option value="y_thumb">MOD_UTEIG_CAROUSEL_Y_THUMB</option>
+				</field>
+				<field name="show_image_title" type="radio" class="btn-group" label="MOD_UTEIG_CAROUSEL_SHOW_IMAGE_TITLE" description="MOD_UTEIG_CAROUSEL_SHOW_IMAGE_TITLE_DESC" default="1" showon="layout:album">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="show_image_desc" type="radio" class="btn-group" label="MOD_UTEIG_CAROUSEL_SHOW_IMAGE_DESC" description="MOD_UTEIG_CAROUSEL_SHOW_IMAGE_DESC_DESC" default="1" showon="layout:album">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="show_image_count" type="radio" class="btn-group" label="MOD_UTEIG_CAROUSEL_SHOW_IMAGE_COUNT" description="MOD_UTEIG_CAROUSEL_SHOW_IMAGE_COUNT_DESC" default="1" showon="layout:album">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field name="spacer5" type="spacer" label="MOD_UTEIG_CAROUSEL_GENERAL_OPTIONS" />
+				<field name="items" type="number" label="MOD_UTEIG_CAROUSEL_GLOBAL_ITEMS" description="MOD_UTEIG_CAROUSEL_GLOBAL_ITEMS_DESC" default="3" min="1" max="6" />
+				<field name="items_md" type="number" label="MOD_UTEIG_CAROUSEL_GLOBAL_ITEMS_MD" description="MOD_UTEIG_CAROUSEL_GLOBAL_ITEMS_MD_DESC" default="2" min="1" max="6" />
+				<field name="items_sm" type="number" label="MOD_UTEIG_CAROUSEL_GLOBAL_ITEMS_SM" description="MOD_UTEIG_CAROUSEL_GLOBAL_ITEMS_SM_DESC" default="1" min="1" max="6" />
+				<field name="margin" type="number" label="MOD_UTEIG_CAROUSEL_GLOBAL_MARGIN" description="MOD_UTEIG_CAROUSEL_GLOBAL_MARGIN_DESC" default="30" min="0" />
+				<field name="smartspeed" type="number" label="MOD_UTEIG_CAROUSEL_GLOBAL_SMARTSPEED" description="MOD_UTEIG_CAROUSEL_GLOBAL_SMARTSPEED_DESC" default="600" min="0" />
+				<field name="loop" type="list" label="MOD_UTEIG_CAROUSEL_GLOBAL_LOOP" description="MOD_UTEIG_CAROUSEL_GLOBAL_LOOP_DESC" default="true">
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+				<field name="autoplay" type="list" label="MOD_UTEIG_CAROUSEL_GLOBAL_AUTOPLAY" description="MOD_UTEIG_CAROUSEL_GLOBAL_AUTOPLAY_DESC" default="false">
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+				<field name="nav" type="list" label="MOD_UTEIG_CAROUSEL_GLOBAL_NAV" description="MOD_UTEIG_CAROUSEL_GLOBAL_NAV_DESC" default="true">
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+				<field name="nav_text" type="list" label="MOD_UTEIG_CAROUSEL_GLOBAL_NAV_TEXT" description="MOD_UTEIG_CAROUSEL_GLOBAL_NAV_TEXT_DESC" default="">
+					<option value="">Default</option>
+					<option value="text">Text</option>
+					<option value="angle">Angle</option>
+					<option value="angle-double">Angle Double</option>
+					<option value="arrow">Arrow</option>
+					<option value="long-arrow">Long Arrow</option>
+					<option value="chevron">Chevron</option>
+					<option value="caret">Caret</option>
+				</field>
+				<field name="dots" type="list" label="MOD_UTEIG_CAROUSEL_GLOBAL_DOTS" description="MOD_UTEIG_CAROUSEL_GLOBAL_DOTS_DESC" default="false">
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+				<field name="center" type="list" label="MOD_UTEIG_CAROUSEL_GLOBAL_CENTER" description="MOD_UTEIG_CAROUSEL_GLOBAL_CENTER_DESC" default="false">
+					<option value="true">JYES</option>
+					<option value="false">JNO</option>
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="moduleclass_sfx" type="textarea" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" rows="3"				/>
+				<field name="cache" type="list" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC" default="1" >
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field name="cache_time" type="text" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" default="900" />
+				<field name="cachemode" type="hidden" default="itemid" >
+					<option value="itemid">
+					</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

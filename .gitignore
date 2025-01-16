@@ -1,0 +1,10 @@
+/images
+/files
+/logs
+/cache
+/configuration.php
+**/error_log
+/administrator/error_log
+
+/templates/*
+!/templates/pine

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_pre_inscricao_colonia</name>
+    <creationDate>2021-10-21</creationDate>
+    <copyright>2020 Equipe IBS</copyright>
+    <license>GNU General Public License versão 2 ou posterior; consulte o arquivo License. txt</license>
+    <author>Equipe IBS</author>
+    <authorEmail>carlos@ibsweb.com.br</authorEmail>
+    <authorUrl>http://www.ibsweb.com.br</authorUrl>
+    <version>CVS: 1.0.0</version>
+    <description>COM_PRE_INSCRICAO_COLONIA_XML_DESCRIPTION</description>
+    
+    
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update> <!-- Runs on update -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/update.mysql.utf8.sql</file>
+        </sql>
+    </update>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>pre_inscricao_colonia.php</filename>
+        <filename>controller.php</filename>
+        <filename>router.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+    </files>
+    <media destination="com_pre_inscricao_colonia" folder="media">
+        <folder>js</folder>
+        <folder>css</folder>
+    </media>
+    <languages folder="site/languages">
+        
+			<language tag="en-GB">en-GB/en-GB.com_pre_inscricao_colonia.ini</language>
+			<language tag="pt-BR">pt-BR/pt-BR.com_pre_inscricao_colonia.ini</language>
+    </languages>
+    <administration>
+        <menu>COM_PRE_INSCRICAO_COLONIA</menu>
+        <submenu>
+            
+			<menu link="option=com_pre_inscricao_colonia&amp;view=inscricoes" view="inscricoes" alt="Pre_inscricao_colonia/Inscricoes">COM_PRE_INSCRICAO_COLONIA_TITLE_INSCRICOES</menu>
+
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <filename>pre_inscricao_colonia.php</filename>
+            <folder>controllers</folder>
+            <folder>assets</folder>
+            <folder>helpers</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+        <languages folder="administrator/languages">
+            
+			<language tag="en-GB">en-GB/en-GB.com_pre_inscricao_colonia.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_pre_inscricao_colonia.sys.ini</language>
+			<language tag="pt-BR">pt-BR/pt-BR.com_pre_inscricao_colonia.ini</language>
+			<language tag="pt-BR">pt-BR/pt-BR.com_pre_inscricao_colonia.sys.ini</language>
+        </languages>
+    </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0" />
+            </fieldset>
+        </fields>
+    </config>
+    <plugins>
+        <plugin group="search" plugin="pre_inscricao_colonia"/>
+    </plugins>
+    
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->

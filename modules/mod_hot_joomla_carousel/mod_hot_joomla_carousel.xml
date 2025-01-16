@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" client="site" method="upgrade">
+	<name>Hot Joomla Carousel</name> 
+	<author>HotThemes</author> 
+	<creationDate>2009-11-25</creationDate>
+	<copyright>Copyright 2018 by HotThemes</copyright>
+	<license>GNU General Public License version 3 or later</license>
+	<authorEmail>info@hotjoomlatemplates.com</authorEmail> 
+	<authorUrl>https://www.hotjoomlatemplates.com</authorUrl> 
+	<version>4.1.0</version> 
+	<description>HOT_JOOMLA_CAROUSEL_DESC</description>
+	<files>
+		<filename module="mod_hot_joomla_carousel">mod_hot_joomla_carousel.php</filename>
+		<filename>index.html</filename>
+		<folder>js</folder>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_hot_joomla_carousel.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_hot_joomla_carousel.sys.ini</language>
+	</languages>
+	<updateservers>
+		<server type="extension" priority="1" name="Hot Joomla Carousel Update">https://update.hotjoomlatemplates.com/mod_hot_joomla_carousel_update.xml</server>
+	</updateservers>
+	<config>
+		<fields name="params">
+			<fieldset name="system" label="LABEL_MODULE_PROPERTIES">
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+				<field name="uniqueid" type="text" default="" label="LABEL_ID" description="DESC_ID" />
+				<field name="carouselImagesPath" type="text" default="images/headers" label="LABEL_FOLDER" description="DESC_FOLDER" />
+				<field name="fullWidth" type="list" default="1" label="LABEL_FULL_WIDTH" description="DESC_FULL_WIDTH">
+					<option value="1">LABEL_FULL_SLIDE_WIDTH</option>
+					<option value="0">LABEL_CUSTOM_WIDTH</option>
+				</field>
+				<field name="slideWidth" type="text" default="25%" label="LABEL_SLIDE_WIDTH" description="DESC_SLIDE_WIDTH" />
+				<field name="responsiveWidth" type="text" default="767px" label="LABEL_RESPONSIVE_WIDTH" description="DESC_RESPONSIVE_WIDTH" />
+			</fieldset>
+			<fieldset name="style" label="LABEL_MODULE_STYLE">
+				<field name="slidePaddingVertical" type="text" default="5px" label="LABEL_SLIDE_PADDING_VERTICAL" description="DESC_SLIDE_PADDING" />
+				<field name="slidePaddingHorizontal" type="text" default="5px" label="LABEL_SLIDE_PADDING_HORIZONTAL" description="DESC_SLIDE_PADDING" />
+				<field name="slideMargin" type="text" default="10px" label="LABEL_SLIDE_MARGIN" description="DESC_SLIDE_MARGIN" />
+				<field name="backgroundColor" type="color" default="#eeeeee" label="LABEL_BACKGROUND_COLOR" description="DESC_COLOR" />
+				<field name="borderWidth" type="text" default="1px" label="LABEL_BORDER_WIDTH" description="DESC_BORDER_WIDTH" />
+				<field name="borderStyle" type="list" default="1" label="LABEL_BORDER_STYLE">
+					<option value="solid">Solid</option>
+					<option value="dotted">Dotted</option>
+					<option value="dashed">Dashed</option>
+					<option value="dotted">Dotted</option>
+					<option value="double">Double</option>
+				</field>
+				<field name="borderColor" type="color" default="#cccccc" label="LABEL_BORDER_COLOR" description="DESC_COLOR" />
+			</fieldset>
+			<fieldset name="navigation" label="LABEL_NAVIGATION">
+				<field name="navArrows" type="list" default="1" label="LABEL_NAVIGATION_ARROWS">
+					<option value="0">Disabled</option>
+					<option value="1">Enabled</option>
+				</field>
+				<field name="navArrowsPosition" type="text" default="30px" label="LABEL_NAV_ARROWS_POSITION" description="DESC_NAV_ARROWS_POSITION" />
+				<field name="navDots" type="list" default="1" label="LABEL_NAVIGATION_DOTS">
+					<option value="0">Disabled</option>
+					<option value="1">Enabled</option>
+				</field>
+				<field name="navDotsPosition" type="text" default="40px" label="LABEL_NAVIGATION_DOTS_POSITION" description="DESC_NAVIGATION_DOTS_POSITION" />
+			</fieldset>
+			<fieldset name="animation" label="LABEL_ANIMATION">
+				<field name="pauseTime" type="text" default="5000" label="LABEL_PAUSE" description="DESC_PAUSE" />
+			</fieldset>
+			<fieldset name="pro" label="Need More Features?">
+				<field name="note1" type="note" class="alert" label="Need Joomla articles in the carousel?" description="Beside more features for the image carousels, the PRO version of this module can also rotate Joomla articles. View Description tab for more details..." />
+			</fieldset>
+			
+		</fields>
+	</config>
+</extension>

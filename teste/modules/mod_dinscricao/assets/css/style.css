@@ -1,0 +1,47 @@
+.dinscricaobg {background:rgba(0,0,0,0.7);position:fixed;left:0;width:100%;height:100%;top:0;z-index:99998}
+.dinscricao {position:fixed;left:0;width:100%;height:100%;top:0;z-index:99999;overflow-y: auto;}
+.dinscricao .dinscricaoinner {width:100%; padding:20px; position:absolute;}
+.dinscricao .dinscricaocontent img {position:absolute; top:50%; margin-top:-68px; left:50%; margin-left:-68px;}
+.dinscricao .dinscricaocontent {background: #fff; border-radius:6px; box-shadow:0 0 4px #000; max-width:600px;width: 100%;height:460px;display: table;margin:0 auto;padding: 20px; position:relative}
+.dinscricao .dinscricaocontent .dinsclose {background:black; border:2px solid #4c4c4c;  cursor:pointer; color:#ffeded; position:absolute; right:0; top:0; width:30px; height:30px; border-radius:60px; text-align:center; line-height:25px; margin-right:-10px; margin-top:-10px}
+.dinscricao .g-recaptcha {margin-bottom:20px}
+.dinscricao .g-recaptcha {transform:scale(0.9);-webkit-transform:scale(0.8);transform-origin:0 0;-webkit-transform-origin:0 0;}
+#dfinalizarpag img {position:inherit !important; display:table; margin:0 auto; height:200px}
+#dfinalizarpag {text-align:center; }
+#dfinalizarpag h2 {color:#5a5a5a}
+#dfinalizarpag h3 {color:#2b8a44}
+#dfinalizarpag h5 {font-size:16px}
+.dinscricao .denvia {clear:both; float:left; margin-top:10px}
+.dinscricao .fcontact img {position:initial;float: left;margin:0;background: red;margin-left: 56px;}
+
+.dinscricao .dinscricaoheader {background: #b7223f;padding: 5px 20px;}
+.dinscricao .dinscricaoheader h2 {font-size: 22px;text-transform: uppercase;margin:0;color: #ffffff;font-weight: 600;}
+.dinscricao .dstatus img {position: initial !important;margin-top:10px; margin:0}
+.dinscricao .titleinsc {color: #232323;padding:10px 12px;font-size:18px;font-weight:400;text-transform:uppercase;}
+#dfinalizarpag p {font-size:18px; font-weight:400;}
+.dinscricao .dstatus {font-weight:400;}
+
+@media screen and (max-width:990px) {
+  .dinscricao .fcontact {display:none}
+}
+@media screen and (max-width:460px){
+  .dinscricao .g-recaptcha {transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;}
+  .dinscricao .g-recaptcha > div {max-width: 304px !important;padding:0;margin:0; width:100% !important}
+  .dinscricao .g-recaptcha iframe {position:absolute}
+}
+@media screen and (max-width:360px){
+  .dinscricao .g-recaptcha {transform:scale(0.6);-webkit-transform:scale(0.6);transform-origin:0 0;-webkit-transform-origin:0 0;}
+  .dinscricao .g-recaptcha > div {max-width: 100% !important; position:absolute; padding:0;margin:0; width:100% !important}
+  .dinscricao .g-recaptcha iframe {position:absolute;}
+.dinscricao .dstatus {margin-top:50px}
+  .dinscricao .dstatus {font-size:13px}
+  .dinscricao .dstatus img {}
+}
+
+@media screen and (max-width:320px){
+  .dinscricao .g-recaptcha {transform:scale(0.5);-webkit-transform:scale(0.5);transform-origin:0 0;-webkit-transform-origin:0 0;}
+  .dinscricao .g-recaptcha > div {max-width: 100% !important; position:absolute; padding:0;margin:0; width:100% !important}
+  .dinscricao .g-recaptcha iframe {position:absolute;}
+  .dinscricao .dstatus {margin-top:50px}
+  .dinscricao .dstatus img {}
+}

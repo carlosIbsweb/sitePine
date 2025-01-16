@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.0"
+	client="site"
+	method="upgrade">
+	<name>WK News</name>
+	<author>Carlos </author>
+	<creationDate>Novembro 2017</creationDate>
+	<copyright>Carlos Web Keys</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>jcarloswk@gmail.com</authorEmail>
+	<authorUrl>www.webkeys.com.br</authorUrl>
+	<version>1.1.10</version>
+	<description>MOD_WKNEWS_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_wknews">mod_wknews.php</filename>
+		<folder>assets</folder>
+		<folder>language</folder>
+		<folder>elements</folder>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>		<filename>mod_wknews.xml</filename>
+	</files>
+
+	 <languages>
+        <language tag="pt-BR">language/pt-BR/pt-BR.mod_wknews.ini</language>
+        <language tag="pt-BR">language/pt-BR/pt-BR.mod_wknews.sys.ini</language>
+    </languages>
+
+	<updateservers>
+		<server type="extension" priority="1" name="WK News Update">http://update.webkeys.com.br/mod_wknews_update.xml</server>
+	</updateservers>
+	
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_SYNDICATION_FEEDS" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="catid" type="category" default="" label="JCATEGORY" extension="com_content" required="true"	 multiple="true">
+					<option value="">JOPTION_ALL_CATEGORIES</option>
+				</field>
+
+				<field
+					name="ordering"
+					type="list"
+					label="Ordenar"
+					description=""
+					default="a_r"
+					>
+					<option value="a_r">Items recentes</option>
+					<option value="a_mr">Modificados recentemente</option>
+					<option value="a_rp">Items recentes inverso</option>
+					<option value="a_ma">Mais acessados</option>
+					<option value="a_rf">Items Destaques recentes</option>
+					<option	value="random">Aleatórios</option>
+				</field>
+
+				<field
+					name="show_featured"
+					type="list"
+					label="Artigos em Destaque"
+					description="Exibir artigos em destaque"
+					default=""
+					>
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+					<option value="2">Exibir somente artigos em destaque</option>
+				</field>
+				
+				<field
+					name="folder"
+					type="text"
+					label="Pasta das Miniaturas"
+					default="rnews"
+					description="Pasta onde serão armazenadas as miniaturas das imagens das intro"
+				/>
+
+
+			</fieldset>
+
+			<fieldset name="wkstyle" label="MOD_WKNEWS_LABEL_ENTRY_CONFIG" addfieldpath="/modules/mod_wknews/elements">
+				<field type="wkstyle"></field>
+				<field type="spacer" name="stylesettings" class="wkinfo" label="MOD_WKNEWS_DISPLAYSETTINGS" />
+
+				<field type="galeria" name="galeria" class=""  label="MOD_WKNEWS_DISPLAYSETTINGS" />
+
+
+
+				<field
+					name="format"
+					type="list"
+					label="Formato"
+					description="Formato de Exibição"
+					default=""
+					>
+					<option value="default">Default</option>
+					<option value="slider">Slider</option>
+					<option value="links">Links</option>
+					<option value="galeria">Galeria</option>
+				</field>
+
+				<field name="sliderItems" type="text"
+					description="Quantidade de Items no slider"
+					label="Slider Items"
+					required="false"
+					default="1"
+					size="30"
+				/>
+				
+				<field name="columns" type="groupedlist" default="1" label="MOD_WKNEWS_LABEL_COLUMNS" description="" showon="format:default[OR]format:galeria">
+			        <option value="1">1</option>
+			        <option value="2">2</option>
+			        <option value="3">3</option>
+			        <option value="4">4</option>
+			        <option value="5">5</option>
+			        <option value="6">6</option>
+				</field>
+				<field
+					name="inicio"
+					type="text"
+					label="Início de items"
+					description="De onde vai começar o primeiro item."
+					default="0"
+				/>
+
+				<field
+					name="count"
+					type="text"
+					label="Limite"
+					description="Limite de Artigos."
+					default="2"
+				/>
+
+				<field name="exLink" type="radio" default="1" label="Link" description="" class="btn-group btn-group-yesno radio wcontent">
+                	<option value="1">Exibir</option>
+  					<option value="0">Ocultar</option>
+				</field>
+
+			
+				<field type="spacer" name="spacerContent" class="wkinfo" label="MOD_WKNEWS_SPACERCONTENT" />
+
+				 <field name="excontent" type="radio" default="1" label="MOD_WKNEWS_LABEL_EXCONTENT" description="" class="btn-group btn-group-yesno radio">
+                	<option value="1">Exibir</option>
+  					<option value="0">Ocultar</option>
+				</field>
+
+				<field 
+					name="exsuspended" 
+					type="radio" 
+					default= "0" 
+					label="MOD_WKNEWS_LABEL_EXSUSPENDED" 
+					description= ""
+					showon = "excontent:1" 
+					class="btn-group btn-group-yesno radio wcontent"
+					>
+                	<option value="1">Sim</option>
+  					<option value="0">Não</option>
+				</field>
+				
+				<field type="spacer" name="spacerTitle" class="wkinfo wcontentSpace" label="MOD_WKNEWS_SPACERTITLE" />
+
+				<field name="extitle" type="radio" default="1" label="MOD_WKNEWS_LABEL_EXTITLE" description="" class="btn-group btn-group-yesno radio wcontent">
+                	<option value="1">Exibir</option>
+  					<option value="0">Ocultar</option>
+				</field>
+
+				  <field
+                    name="titlesize"
+                    type="text"
+                    showon="extitle:1"
+                    label="MOD_WKNEWS_LABEL_TITLE_SIZE"
+                    default="20"
+                    class="wcontent"
+                    description="MOD_WKNEWS_DESCRIPTION_WIDTH" />
+
+                    <field name="exstyletitle" type="radio" default="0" showon="extitle:1" label="MOD_WKNEWS_LABEL_EXSTYLETITLE" description="MOD_WKNEWS_LABEL_EXSTYLETITLEDESCRIPTION" class="btn-group btn-group-yesno radio wcontent">
+                		<option value="1">Sim</option>
+  						<option value="0">Não</option>
+					</field>
+
+					<field
+					name="titlecolor"
+					type="color"
+					class="wcontent"
+					label="MOD_WKNEWS_LABEL_TITLECOLOR"
+					default="#333"
+					description="MOD_WKNEWS_DESCRIPTION_TITLECOLOR" 
+					showon="extitle:1[AND]format!:slider" />
+
+					 <field
+                    name="titlecolorslider"
+                    type="color"
+                    class="wcontent"
+                    label="MOD_WKNEWS_LABEL_TITLECOLOR"
+                    default="#fff"
+                    description="MOD_WKNEWS_DESCRIPTION_TITLECOLOR"
+                    showon="extitle:1[AND]format:slider" />
+
+                    <field name="exstylehover" type="radio" showon="extitle:1" default="0" label="MOD_WKNEWS_LABEL_EXSTYLEHOVER" description="MOD_WKNEWS_LABEL_EXSTYLETITLEHOVERDESCRIPTION" class="btn-group btn-group-yesno radio wcontent">
+                		<option value="1">Sim</option>
+  						<option value="0">Não</option>
+					</field>
+
+					 <field
+                    name="titlehovercolor"
+                    type="color"
+                    class="wcontent"
+                    label="MOD_WKNEWS_LABEL_TITLEHOVERCOLOR"
+                    default="#333"
+                    description="MOD_WKNEWS_DESCRIPTION_TITLEHOVERCOLOR" 
+                    showon="exstylehover:1[OR]extitle:1" />
+
+
+				<field
+					name="textLimit"
+					type="text"
+					showon="extitle:1"
+					class="wcontent"
+					label="MOD_WKNEWS_LABEL_TEXTLIMIT"
+					default=""
+					description=""
+				/>
+
+				<field
+					name="titleWeight"
+					type="text"
+					showon="extitle:1"
+					class="wcontent"
+					label="MOD_WKNEWS_LABEL_TITLEWEIGHT"
+					default="400"
+					description=""
+				/>
+				
+				<field type="spacer" name="spacerIntro" class="wkinfo wcontentSpace" label="MOD_WKNEWS_SPACERINTRO" />
+
+				<field name="exintro" type="radio" default="0" label="MOD_WKNEWS_LABEL_EXINTRO" description="" class="btn-group btn-group-yesno radio wcontent">
+                	<option value="1">Exibir</option>
+  					<option value="0">Ocultar</option>
+				</field>
+
+				<field
+					name="introLimit"
+					type="text"
+					showon="exintro:1"
+					class="wcontent"
+					label="MOD_WKNEWS_LABEL_INTROLIMIT"
+					default=""
+					description=""
+				/>
+
+				<field name="exIntroTextColor" type="radio" default="0" label="MOD_WKNEWS_LABEL_EXSTYLEINTRO" description="MOD_WKNEWS_LABEL_EXSTYLEINTRODESCRIPTION" class="btn-group btn-group-yesno radio wcontent">
+                		<option value="1">Sim</option>
+  						<option value="0">Não</option>
+					</field>
+
+				 <field
+                    name="introTextColor"
+                    type="color"
+                    class="wcontent"
+                    label="MOD_WKNEWS_LABEL_TITLEINTROCOLOR"
+                    default="#333"
+                    description="MOD_WKNEWS_DESCRIPTION_TITLEINTROCOLOR" 
+                    showon="exIntroTextColor:1" />
+				
+				<field type="spacer" name="spacerDate" class="wkinfo wcontentSpace" label="MOD_WKNEWS_SPACERDATA" />
+
+				<field
+					name="pDate"
+					type="radio"
+					label="Data"
+					description="Exibir data de publicação do artigo."
+					class="btn-group btn-group-yesno radio wcontent"
+					default="1"
+					>
+					<option value="1">Exibir</option>
+					<option value="0">Ocultar</option>
+				</field>
+				
+				<field type="spacer" name="spacerHat" class="wkinfo wcontentSpace" label="MOD_WKNEWS_SPACERHAT" />
+
+				<field
+					name="exhat"
+					type="radio"
+					label="MOD_WKNEWS_LABEL_HATEXIBIR"
+					description=""
+					class="btn-group btn-group-yesno radio wcontent"
+					default="0"
+					>
+					<option value="1">Exibir</option>
+					<option value="0">Ocultar</option>
+				</field>
+
+                    <field
+                    name="hatsize"
+                    type="text"
+                    class="wcontent"
+                    label="MOD_WKNEWS_LABEL_HATTITLE"
+                    default="14"
+                    description="MOD_WKNEWS_DESCRIPTION_HATTITLE" showon="exhat:1" />
+
+                    <field
+                    name="hatcolor"
+                    type="color"
+                    class="wcontent"
+                    label="MOD_WKNEWS_LABEL_HATCOLOR"
+                    default="#333"
+                    description="MOD_WKNEWS_DESCRIPTION_HATCOLOR" showon="exhat:1" />
+
+                    <field 
+                    name="hatback"
+                    type="color"
+                    class="wcontent"
+                    label="MOD_WKNEWS_LABEL_HATBACK"
+                    default=""
+                    description="MOD_WKNEWS_DESCRIPTION_HATBACK" showon="exhat:1"/>
+
+				<field type="spacer" name="spacerImagem" class="wkinfo" label="MOD_WKNEWS_SPACERIMAGEM" showon="format!:links"/>
+
+				<field
+					name="eximagem"
+					type="radio"
+					label="Imagem"
+					showon="format!:links"
+					class="btn-group btn-group-yesno radio"
+					description="Exibir ou ocultar imagem de introdução."
+					default="1"
+					>
+					<option value="1">Exibir</option>
+					<option value="0">Ocultar</option>
+				</field>
+
+				<field name="imgfloat" type="groupedlist" default="top" label="MOD_WKNEWS_LABEL_WKIMGFLOAT" description="" showon="eximagem:1[AND]format!:links" >
+			        <option value="top">MOD_WKIMGFLOATTOP</option>
+			        <option value="left">MOD_WKIMGFLOATLEFT</option>
+			        <option value="right">MOD_WKIMGFLOATRIGHT</option>
+			        <option value="bottom">MOD_WKIMGFLOATBOTTOM</option>
+				</field>
+
+				<field
+                    name="imgWidth"
+                    type="text"
+                    label="MOD_WKNEWS_LABEL_WIDTHIMG"
+                    default="560"
+                    description="MOD_WKNEWS_DESCRIPTION_WIDTH"
+					showon="eximagem:1[AND]format!:links"
+                    />
+
+                    <field
+                    name="imgHeight"
+                    type="text"
+                    label="MOD_WKNEWS_LABEL_HEIGHTIMG"
+                    default="360"
+                    showon="eximagem:1[AND]format!:links"
+                    description="MOD_WKNEWS_DESCRIPTION_WIDTH" />
+
+                    <field
+                    name="blockImgWidth"
+                    type="text"
+                    label="MOD_WKNEWS_LABEL_WIDTH"
+                    default="100%"
+                    showon="eximagem:1[AND]format!:links"
+                    description="MOD_WKNEWS_DESCRIPTION_WIDTH" />
+
+                    <field
+					name="imgexborder"
+					type="radio"
+					label="MOD_WKNEWS_LABEL_IMGBORDERHOVER"
+					showon="eximagem:1[AND]format!:links"
+					class="btn-group btn-group-yesno radio"
+					description="Exibir ou ocultar borda da imagem."
+					default="0"
+					>
+					<option value="1">Exibir</option>
+					<option value="0">Ocultar</option>
+				</field>
+
+				<field
+                    name="imgbordercolor"
+                    type="color"
+                    showon="eximagem:1[AND]imgexborder:1[AND]format!:links"
+                    label="MOD_WKNEWS_LABEL_IMGBORDERCOLOR"
+                    default="#ad1212"
+                    description="MOD_WKNEWS_DESCRIPTION_IMGBORDERCOLOR" />
+
+                 <field
+                    name="imgborderwidth"
+                    type="text"
+                    showon="eximagem:1[AND]imgexborder:1[AND]format!:links"
+                    label="MOD_WKNEWS_LABEL_IMGBORDERWIDTH"
+                    default="3px"
+                    description="MOD_WKNEWS_DESCRIPTION_IMGBORDERWIDTH" />
+
+
+			</fieldset>
+
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="0"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+			</fieldset>
+			
+		</fields>
+	</config>
+</extension>

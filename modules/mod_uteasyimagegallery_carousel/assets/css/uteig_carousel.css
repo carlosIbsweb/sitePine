@@ -1,0 +1,13 @@
+/**
+* @package com_speasyimagegallery
+* @subpackage mod_uteasyimagegallery_carousel
+* @author Unitemplates https://www.unitemplates.com
+* @copyright Copyright (c) 2020 - 2023 Unitemplates
+* @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 or later
+*/
+
+.uteig-carousel-item-info{padding: 20px;height: 100%;text-align: center;color: #ffffff; display: flex;display: -webkit-flex;flex-direction: column;-webkit-flex-direction: column; justify-content: center;-webkit-justify-content:center;align-items: center;-webkit-align-items:center;}
+.uteig-carousel-item-info h3,
+.uteig-carousel-item-info h3 a{color: #ffffff;}
+.uteig-carousel-img{position: relative; background-position: center;background-size: cover;background-repeat: no-repeat;}
+.uteig-carousel-normal-img + .uteig-carousel-item-info{position: absolute;top: 0;left: 0;right: 0;bottom: 0;}

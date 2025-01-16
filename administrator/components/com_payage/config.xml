@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+
+	<fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
+		<field name="rules" type="rules" label="JCONFIG_PERMISSIONS_LABEL" filter="rules" component="com_payage" section="component">
+			<action name="core.admin" title="JACTION_ADMIN" description="JACTION_ADMIN_COMPONENT_DESC" />
+			<action name="core.manage" title="JACTION_MANAGE" description="JACTION_MANAGE_COMPONENT_DESC" />
+			<action name="core.edit" title="COM_PAYAGE_CREATE_EDIT_GATEWAYS" />
+			<action name="core.edit.state" title="COM_PAYAGE_CHANGE_PAYMENT_STATUS" />
+		</field>
+	</fieldset>
+
+	<fieldset name="basic" label="JOPTIONS">
+
+		<field name="hide_submenu" type="list" default="" label="COM_PAYAGE_HIDE_SUBMENU"
+            description="COM_PAYAGE_HIDE_SUBMENU_DESC" >
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+		<field name="time_to_keep_confirmed" type="text" default="1825" label="COM_PAYAGE_TIME_TO_KEEP_CONFIRMED" 
+			description="COM_PAYAGE_TIME_TO_KEEP_CONFIRMED_DESC" />
+		<field name="time_to_keep_unconfirmed" type="text" default="60" label="COM_PAYAGE_TIME_TO_KEEP_UNCONFIRMED" 
+			description="COM_PAYAGE_TIME_TO_KEEP_UNCONFIRMED_DESC" />
+		<field name="anonymise_days" type="text" default="0" label="COM_PAYAGE_ANONYMISE_AFTER" 
+			description="COM_PAYAGE_ANONYMISE_AFTER_DESC" />
+		<field name="time_to_keep_syslogs" type="text" default="365" label="COM_PAYAGE_TIME_TO_KEEP_SYSLOGS" 
+			description="COM_PAYAGE_TIME_TO_KEEP_SYSLOGS_DESC" />
+		<field name="error_email" type="text" default="" label="COM_PAYAGE_ERROR_EMAIL" 
+			description="COM_PAYAGE_ERROR_EMAIL_DESC" />
+
+	</fieldset>
+
+</config>

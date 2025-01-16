@@ -1,0 +1,1706 @@
+/*
+ * S7D Payments
+*/
+
+#login-form {float:left; width:100%; margin-top:20px}
+#dVideos .dVheader {
+    border: 1px solid #eee;
+    margin: 20px 0;
+    padding: 10px;
+}
+#dVideos .dVheader p {
+    font-size: 14px;
+    font-weight: 400;
+}
+#dVideos h2 {
+    color: #cc2c2c !important;
+    font-size: 24px;
+}
+#dVideos iframe {
+
+    }
+#dVideos .dluz {
+}
+#dVideos .mVideos {}
+#dVideos .mVideos a {
+    float: left;
+    background: #EFEFEF;
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    transition: ease-in 0.3s;
+    font-weight: 400;
+}
+#dVideos .dactive, #dVideos .mVideos a:hover {
+    background: #cc2c2c !important;
+    color: #fff;
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<\\\ Pagina de cursos ///>>>>>>>>>>>>>>>>>>>>>>>>>*/
+#dPagCourses {
+    margin-top: 20px;
+
+}
+#dPagCourses h3 {
+    margin: 0;
+    color: #2969B0;
+    font-size: 20px;
+    margin-top: 10px;
+}
+#dPagCourses p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+#dPagCourses .dPagItems {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+    float: left;
+    width: 100%;
+}
+#dPagCourse h3 {
+    color: #cc2c2c !important
+}
+#dPagCourse .dVideosList {
+    border: 1px solid #ddd;
+    padding: 20px 10px 10px 10px;
+    border-radius: 4px;
+    margin-top: 30px;
+}
+#dPagCourse .dPagCourseleft {padding-left: 0;}
+#dPagCourse .dPagCourseleft .dtopiclink {
+    clear:both;
+    float:left;
+    margin-bottom: 10px;
+}
+#dPagCourse .dPagCourseleft .dtopiclink a {
+    border-radius: 4px;
+    color:#252525;
+    transition:ease-in 0.3s;
+}
+#dPagCourse .dPagCourseleft .dtopiclink a:hover {
+    color: #d20e1c;
+}
+#dPagCourse .dPagCourseleft .dtopiclink a:before {
+   content:"\f086";
+   font-family:"FontAwesome";
+   margin-right:10px;
+   font-size: 22px;
+   color: #d20e1c;
+}
+#dPagCourse .dVideosList a {
+    background: #eee;
+    display: flex;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    color: #626160;
+}
+#dPagCourse .dVideosList a:hover {background:#d20e1c; color:#fff}
+#dPagCourse .dVideosList a:hover:before {color:#fff}
+#dPagCourse .dVideosList a:before {content:"\f03d";font-family:"FontAwesome"; transition:ease-in-out 0.3s; margin-right:5px;color: #585858;}
+#dPagCourse .dVideosList a:last-child {
+    margin: 0
+}
+#dPagCourse .dVideosList span {
+    position: absolute;
+    margin-top: -31px;
+    background: #fff;
+    padding: 0 5px;
+    color: #cc2c2c;
+    font-weight: 600
+}
+#dPagCourses .dPagCat {
+    background: #797979;
+    color: #fff;
+    margin-left:-10px;
+    padding: 2px 5px 2px 10px;
+    margin-bottom:20px;
+    clear:both;
+}
+#dPagCourse {margin-bottom:40px}
+#dPagCourse .dPagImg {
+    position:relative;
+    margin-top:30px;
+    overflow:hidden;
+    border-radius: 10px;
+    border: 4px solid #d20e1c;
+    padding: 0;
+}
+#dPagCourse .dPagImg img {
+    max-width: 100%;
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<\\\ Pagina da loja ///>>>>>>>>>>>>>>>>>>>>>>>>>*/
+#dStore {
+}
+#dStore .dStoreItems {
+ background:;
+ width: 48%;
+ border: 1px solid #ddd;
+ padding: 10px 10px 20px 10px;
+ float: left;
+ margin: 10px;
+ transition: ease-in-out 0.3s
+}
+#dStore .dStoreItems .dStoreImg {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+    float: left;
+    margin-bottom: 20px;
+}
+#dStore .dStoreItems .dSbtn {
+    border: 1px solid #ddd;
+    margin: 0 auto;
+    display: table;
+    color: #333333;
+    font-weight: 400;
+    border-radius: 4px;
+    padding: 2px 20px;
+    font-size: 16px;
+}
+#dStore .dStoreItems .dSbtn:before {
+    content: "\f055";
+    font-family: "FontAwesome";
+    margin-right: 5px;
+    color: #6f287e;
+}
+
+.dStoreItems:hover {
+   box-shadow: inset 0 1px 0 0 #6f287ea3, inset 0 -1px 0 0 #6f287ea3, inset -1px 0 0 0 #6f287ea3, inset 1px 0 0 0 #6f287ea3
+}
+#dStore .dStoreItems:hover .dSbtn {
+    background:#6f287e;
+    color:#fff;
+    transition: ease-in-out 0.3s
+}
+#dStore .dStoreItems:hover .dSbtn:before {
+    color:#fff;
+}
+
+#dStore .dStoreItems .dStoreImg img {
+    max-width: 100%;
+}
+#dStore .dStoreItems .dSprice {
+    margin: 0 auto;
+    font-weight: 600;
+    display: table;
+    padding: 0px 0;
+    margin-bottom: 10px;
+    font-size: 23px;
+    color: #149649;
+}
+
+/*--Loja Item--*/
+#dStoreItem {
+    display: table;
+    width: 100%;
+}
+#dStoreItem .dStoreItem {background: ;float: left;width: 60%;border-right: 1px solid #ddd;}
+#dStoreItem .dStoreItem h2 {
+    font-size: 22px;
+    color: #333333;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+#dStoreItem .dStoreDetails {
+    padding: 20px !important;
+    float: left;
+    background:;
+    width: 40%;
+}
+#dStoreItem .dStoreDetails ul li {
+    display: inline-block
+}
+#dStoreItem .dStoreDetails ul li.lCat {
+    display: inline-block;
+    background: #eee;
+    padding: 0 10px 0 0;
+}
+#dStoreItem .dStoreDetails ul {
+    margin: 0;
+    padding: 0
+}
+#dStoreItem .dStoreDetails ul li.lCat span {
+    margin-right: 30px;
+    position: relative;
+    color: white;
+    background: #6f287e;
+    padding: 2px 4px;
+}
+#dStoreItem .dStoreDetails ul li.lVideos {
+    margin-top: 20px;
+    padding: 5px 0;
+    display: block;
+}
+#dStoreItem .dStoreDetails ul li.lVideos span {
+    color: #D20E1C;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding-left: 20px;
+    padding-top: 5px;
+    display: block;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    margin-left: -20px;
+}
+#dStoreItem .dStoreDetails ul li.lVideos span:before {
+    content: "\f03d";
+    font-family: "FontAwesome";
+    margin-right: 6px;
+}
+#dStoreItem .dStoreDetails ul li.lVideos p {
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    color: #333333;
+}
+#dStoreItem .dStoreDetails ul li.lVideos p:before {
+    content: "";
+    background: #D20E1C;
+    width: 5px;
+    height: 5px;
+    display: inline-block;
+    float: left;
+    margin-top: 9px;
+    margin-right: 10px;
+}
+#dStoreItem .dStoreDetails ul li.lCat span:after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 4px solid #6f287e;
+}
+#dStoreItem .dStoreDetails ul li.lCat span:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: -9px;
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 8px solid #fff;
+}
+#dStoreItem .dStoreDetails {
+    float: left;
+    padding: 20px 0;
+}
+#dStoreItem .dStoreItem .dStoreDescription {
+    float: left;
+    margin-top: 20px;
+    background: #e6e6e6
+}
+#dStoreItem .dStoreItem .dStoreItemImg {
+    display: block;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+#dStoreItem .dStoreItem .dStoreItemImg img {
+    width: 100%
+}
+#dStoreItem .dStoreItem .dStoreItemDescription {
+    border-top: 1px solid #ddd;
+    padding: 10px 10px 10px 0
+}
+#dStoreItem .dStoreItem .dStoreItemDescription span {
+    font-size: 16px;
+    color: #264836;
+}
+#dStoreItem .dStoreItemDescription span.lTitleDesc:before {
+    font-family: "FontAwesome";
+    content: "\f1d8";
+    margin-right: 5px
+}
+#dStore .dStoreItems .dSpriceM {
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: 400;
+}
+#dStore .dStoreItems h4 {
+    text-align: center;
+    line-height: 1.2em;
+    float: left;
+    margin-top: 10px;
+    color: #6f287e;
+    clear: both;
+    width: 100%;
+    font-weight: 400;
+    height: 50px;
+    font-size: 22px;
+}
+#dStoreItem .criQnt {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background:#5a5a5a;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: -20px;
+    padding-left: 20px;
+    color:#fff;
+}
+#dStoreItem .criQnt span {
+    padding: 3px 10px;
+    color:#fff;
+    text-transform:uppercase;
+}
+.dheader {background: url(../images/bg-course.jpg);background-size: cover;background-attachment: fixed;background-position: center center;}
+.dheader h3 {color:white;font-size: 40px;padding: 10px 0;}
+.criQnt:before {content:"\f1ae"; margin-right:5px; font-family:"FontAwesome"; font-size:20px; font-weight: 100 !important; color:#e2e2e2;}
+
+.puToog {
+    display:none
+}
+#dStoreItem .lPrice {
+    color: #0e9c46;
+    font-size: 25px;
+    margin-top: 20px;
+    display: block !important;
+    width: 100%;
+    margin-left: -20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+#dStoreItem .lPriceV {font-weight:600}
+.dSpriceM {
+    font-size:16px !important;
+}
+.lPriceV.pAll span{
+    font-size: 14px;
+    color:#6f287e
+}
+#dStoreItem .lPrice .lPriceM {
+    font-size: 16px;
+    margin-right: 5px;
+    font-weight: 600
+}
+#dStoreItem .lPrice .lPriceIn, .dStoreItems .lPriceIn {
+    color: #828282;
+    font-size: 16px;
+    font-weight: 400;
+}
+.errorLimit {
+    background: #b55151;
+    margin-top: 10px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+/*<?php //BotÃ£o toogle diarias;?>
+                <div class="btnSem">
+                    <a class="btnSsem sact">Semana Completa</a>
+                    <a class="btnSdia">DiÃ¡rias</a>
+                </div>*/
+.btnSem {
+    display:flex;
+    margin-top: 10px;
+    border-radius: 60px;
+    position:relative;
+    padding: 0 20px
+
+}
+.btnSem a {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width: 100%;
+    background: #bac8d3;
+    color: #6f287e !important;
+    font-weight:500;
+    padding: 4px;
+    position:relative;
+    cursor: pointer;
+}
+.btnSem a.sact {
+    background: #24ad6f;
+    color:#fff !important;
+}
+.btnSem a.sact:before {
+    content:"\f05d";
+    font-family:"fontAwesome";
+    position:absolute;
+    top:0;
+    left:0;
+    color: #ffffff;
+    margin-top: 0px;
+    font-size: 20px;
+}
+.btnSem a.btnSsem.sact:before {
+    margin-left:10px
+}
+.btnSem a.btnSdia.sact:before {
+    right:0;
+    left:inherit;
+    margin-right:10px
+}
+.btnSem .btnSsem {
+    border-radius: 60px 0 0 60px
+}
+.btnSem .btnUniq {
+    border-radius: 60px 
+}
+.btnSem .btnSdia {
+    border-radius: 0 60px 60px 0
+}
+
+/***************
+ De
+****************/
+.dStoreItems .PriceDe {
+    margin: 0 auto;
+    display:table
+}
+
+#dStoreItem .lPrice .PriceDe .lPriceM {
+    font-size: 14px;
+}
+#dStoreItem .lPrice .PriceDe, .dStoreItems .PriceDe {
+    color: #d3171d;
+    font-weight: 400;
+}
+#dStoreItem .lPrice .PriceDe .lPriceInDe, .dStoreItems .PriceDe .lPriceInDe{
+    text-decoration:line-through;
+    font-size: 18px;
+}
+.errorLimit:before {
+    content: "\f056";
+    font-family: "FontAwesome";
+    margin-right: 10px
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<\\\ Carrinho ///>>>>>>>>>>>>>>>>>>>>>>>>>*/
+#dCart .dCartCourse {
+    width: 58% !important;
+    text-align: left !important;
+}
+#dCart .dCartQnt {
+    width: 6% !important
+}
+#dCart .dCartDel {
+    background: r;
+    width: 4% !important;
+    text-align: center;
+}
+#dCart .dCartCourse .dCartImg {
+    overflow: hidden;
+    float: left;
+    margin-right: 10px
+}
+#dCart .dCartCourse h4 {
+    float: left;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight:400
+}
+#dCart .dCartCourse h4 strong {
+    color:#6f287e
+}
+#dCart .dCartCourse h4 strong:after {
+    content:"\f101";
+    font-family:"FontAwesome";
+    margin-left:4px;
+    font-weight:400;
+    font-size:16px
+}
+#dCart .dCartCourse .dCartImg img {
+    height: 40px
+}
+#dCart .dCartItem {
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+}
+#dCart .dCartItem.ltem {
+    display: table;
+    width: 100%;
+    border: 1px solid #ff0e0e;
+}
+#dCart .dCartHeader span, #dCart .dCartItem span {
+    width: 16%;
+    display: block;
+    float: left;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+    height: 60px;
+    line-height: 40px;
+    text-align: center;
+}
+#dCart .dCartHeader {background:;display: table;width: 100%;background: #f3f3f3;font-size: 14px;}
+#dCart .dCartHeader span {
+    font-weight: 600;
+    height: 30px;
+    color: #333333;
+    border-bottom: 0;
+    line-height: 10px;
+}
+#dCart .dCartItem span:last-child, #dCart .dCartHeader span:last-child {
+    border-right: none;
+}
+.dSbtn span {
+    width: inherit !important;
+    margin: 0;
+    padding: 0 10px !important;
+    display: inline-block !important;
+    line-height: normal !important;
+    background: #f72433;
+    height: auto !important;
+    color: #fff;
+    
+}
+#dCart .delItem {
+    display: none
+}
+#dCart .delItemIcon:before {
+    content: "\f1f8";
+    font-family: "FontAwesome";
+    color: #d20e1c;
+    font-weight: normal;
+    font-size: 18px;
+    cursor: pointer;
+}
+.dCartBottom {
+background:;
+    margin-top: 20px;
+    float: left;
+    width: 100%;
+}
+.dCartBottom .dBtnCont {
+    background: #555;
+    color: #ffffff;
+    padding: 3px 10px;
+    float: left;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.dCartBottom .dBtnClear {
+    padding: 3px 10px;
+    float: left;
+    color: #d4171e;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.dCartBottom .dBtnClear:hover {
+    background: #d61f31;
+    color: #fff;
+}
+.dCartBottom .dBtnCont:before {
+    content: "\f122";
+    font-family: "FontAwesome";
+    margin-right: 10px
+}
+.dCartBottom .dBtnClear:before {
+    content: "\f01e";
+    font-family: "FontAwesome";
+    margin-right: 5px
+}
+.dCartBottom .dEnC {
+    float: right;
+    clear: both;
+    border: none;
+    background: #108a3b;
+    color: #fff;
+    padding: 4px 16px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+.dCartVazio {
+    float: left;
+    padding: 10px;
+    line-height: 10px;
+    margin-top: 20px
+}
+.dCartVazio:before {
+    content: "\f11a";
+    font-family: "FontAwesome";
+    float: left;
+    font-size: 30px;
+    margin-right: 10px;
+    color: #da362b;
+}
+.dCartBottom .dEnPag {
+    background: #f1f1f1;
+    float: right;
+    width: 26%;
+    padding: 10px 10px;
+    position:relative;
+}
+.dCartBottom .dEnPag:before {
+    content: "\f07a";
+    font-family: "FontAwesome";
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    text-align:center;
+    line-height: 30px;
+    position: absolute;
+    color: #ffffff;
+    top: 0;
+    left: 0;
+    margin-top:-10px;
+    margin-left: -10px;
+    border-radius: 60px;
+    padding: 4px;
+    background:#6f287e !important
+}
+.dCartBottom .dEnPag div.dPrice {
+    float: right;
+    background:;
+    font-size: 18px;
+    color: #333333;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.dCartBottom .dEnPag label {
+    color: #333333;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.dCartBottom .dEnPag .denm {
+    font-size: 14px !important;
+}
+.btn.btn-secondary.trans{
+    background-color: #337AB7;
+    border: 1px solid #2e6da4;
+    color: #ffffff;
+}
+.btn.btn-secondary.trans:hover{
+    background-color: #286090;
+    border: 1px solid #204d74;
+}
+.execucart.btn.btn-primary{
+    height: 54px;
+}
+.col-md-6.info_transfA strong{ color: #D9534F;}
+.col-md-6.info_transfB{ color: #337AB7 !important; }
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<\\\ Finalizando compra ///>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.descClose {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    width: auto;
+    z-index: 99999;
+}
+.descClose span {
+    background: #fff;
+    width: 300px;
+    display: table;
+    font-size: 16px;
+    margin: auto;
+    padding: 10px 20px 30px 20px;
+    position: relative;
+    text-align: center;
+    border-radius: 60px 10px;
+}
+.descClose.fTransf span {
+    width:auto !important;
+    padding: 30px 30px;
+    margin-top: -200px;
+}
+.descClose.fTransf .transfHeader {
+    background:#555;
+    color:#fff;
+    text-transform:uppercase;
+    padding: 20px;
+    margin-bottom: 27px;
+    font-size: 18px;
+}
+.descClose.fTransf {
+    top: 0;
+    margin: 20px;
+}
+.descClose.fTransf span  .btn {
+    padding: 8px 40px;
+    margin-top: 20px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.descClose span h3 {
+    font-weight: bold;
+}
+.descClose span img {
+    width: 100px;
+    margin: 0 auto;
+}
+.descClose:before {
+    background: rgba(0, 0, 0, 0.81);
+    bottom: 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: -199999999999999999999;
+}
+.descClose .desfexa {
+    background: red;
+    border-radius: 30px;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    margin-right: -14px;
+    margin-top: -14px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    cursor: pointer;
+}
+
+/*Voucher*/
+.voucher {
+    float: right;
+    padding-bottom: 10px !important;
+    padding: 4px 0;
+    max-width: 100%;
+    width: 80%;
+}
+
+.voucher input {
+    float:left;
+    border-radius: 0 0 0 0 !important;
+    width: 80%;
+}
+
+.voucher input[type="submit"] {
+    background:#6f287e;
+    border:none;
+    line-height: 32px;
+    margin-left: -10px;
+    font-weight: 600;
+    width: 20%;
+    color:#fff;
+    border-radius: 0 4px 4px 0 !important;
+}
+.dVoucher {
+    padding: 4px 10px !important;
+    color: #295a3a !important;
+    font-size: 16px !important;
+    width: 100%;
+    text-align: right;
+}
+
+.cf-alert {
+    margin-top: 20px;
+    font-weight: 600
+}
+/* Botao comprar*/
+#dStoreItem form {
+    /* float: right; */
+}
+.storeItems {
+    color:white;
+    font-size: 20px;
+    text-align:center;
+    background: #555;
+    padding: 16px;
+    line-height: 1.2em;
+    font-weight: 900;
+    text-transform:uppercase;
+}
+#dStoreItem .lBtnComprar {
+    background: #3cb76e;
+    float: left;
+    padding: 4px 30px;
+    color: #fff;
+    border-radius: 4px;
+    margin: 0;
+    font-size: 16px;
+    border: none;
+    margin-top: 10px;
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<\\\ Pagian principal ///>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.pagdefault {
+    margin:0 auto;
+    display:table;
+    padding:40px 0;
+}
+.pagdefault a {
+    padding:40px;
+    background: #606060;
+    color:#fff;
+    margin-right:20px;
+    float:left;
+    font-size:18px;
+    font-weight:normal;
+}
+.pagdefault a:hover {
+    color:#ffcaca;
+    background:#d20e1c;
+}
+.pagdefault a:active, .pagdefault a:focus {color:#ffeaea}
+.pagdefault a:hover:before {color:#eeeeee}
+.pagdefault a:before {
+    font-family:"FontAwesome";
+    margin-right:20px;
+    font-size:30px;
+    color:#999;
+    float:left;
+}
+.pagdefault a:nth-child(1):before {
+     content:"\f109";
+}
+.pagdefault a:nth-child(2):before {
+     content:"\f217";
+}
+.pagdefault a:last-child {
+    margin:0
+}
+.bTDmais.addDiarias {
+    display:flex;
+    border: 1px solid #6f287e;
+    border-radius: 60px;
+    margin: 20px;
+    padding: 4px;
+    align-items:center;
+    justify-content:center;
+    margin-top: 10px;
+    color:#6f287e;
+    font-weight: 500;
+    display: none;
+    cursor: pointer;
+}
+.bTDmais.addDiarias span {
+    font-weight: 600;
+    color:#24ad6f
+}
+.bTDmais.addDiarias i {
+    content:"\f25a";
+    font-family:"fontAwesome";
+    color:#3cb76e;
+    margin-right: 10px
+}
+.bTDmais.addDiarias:hover {
+    background:#6f287e;
+    color:#fff;
+}
+.bTDmais.addDiarias:hover i {
+    color:#fff
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<\\\ Menu principal ///>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.com-s7dpayments #sp-main-body, .com-ariquizlite #sp-main-body {font-weight: 400;padding-top:0 !important;}
+.dmenu {
+    background: #eee;
+    height: 40px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+.dmenu a {
+    background: #6f287e;
+    line-height: 40px;
+    display: table;
+    padding: 0 10px;
+    color: #fff;
+    position: relative;
+    float: left;
+    font-size: 14px;
+}
+.dmenu .dmmais a {
+    background: none;
+    font-size: 14px;
+    padding: 0 6px;
+    padding-left: 18px;
+    color: #6f287e;
+    font-weight: 600;
+}
+.dmenu .dmmais a:before {
+    content:"\f0da";
+    font-family:"FontAwesome";
+    position:absolute;
+    left:0;
+    margin-left:4px;
+    font-size:18px;
+    color: #6f287e;
+}
+.dmenu .dmmais a:last-child {
+    color: #884f94;
+}
+.dmenu .dmmais a:hover {
+    background:none;
+    color: #996ba2;
+}
+.dmenu .dmmais a:hover:after {
+    display:none;
+}
+.dmenu .dmmais a:after {
+    border-left: none;
+}
+.dmenu a:hover {
+    background: #985ca5;
+    color: #fff;
+}
+.dmenu a:hover:after {
+    border-left: 10px solid #985ca5;
+}
+.dmenu h4 {
+    float: left;
+    margin: 0;
+    line-height: 40px;
+    margin-left: 20px;
+    color: #666;
+    font-size: 15px;
+}
+.dmenu a.dmstore:before {
+    content: "\f108";
+    font-family: "FontAwesome";
+    margin-right: 16px
+}
+.dmenu a.dcourses:before {
+    content:"\f19d";
+    margin-right:16px;
+    font-family:"FontAwesome";
+    font-size: 16px;
+}
+.dmenu a.dmcourses:before {
+    content: "\f19d";
+    font-family: "FontAwesome";
+    margin-right: 5px;
+}
+.dmenu a.dmlogin:before {
+    content: "\f007";
+    font-family: "FontAwesome";
+    margin-right: 16px
+}
+.dmenu a.dmvideos {
+    background: #bbbbbb;
+    padding: 0 26px;
+}
+.dmenu a.dmvideos:after {
+    border-left: 10px solid #bbbbbb;
+}
+.dmenu a:after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: -10px;
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 1;
+    right: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 10px solid #6f287e;
+}
+.dmenu a.dmvideos:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 1px;
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 0;
+    left: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 14px solid #fff;
+}
+.dmenu .svin {
+    float: left;
+    display: block;
+    line-height: 40px;
+    font-size: 16px;
+}
+.dmenu .svin:before {
+    content: "\f03d";
+    float: left;
+    font-family: "FontAwesome";
+    font-size: 20px;
+    color: #d20e1c;
+    margin-left: 20px;
+    margin-right: 10px
+}
+.dmenu form {
+    float: left;
+    margin: 0;
+    padding: 0;
+    height:40px;
+    line-height:40px;
+    padding-right: 20px;
+}
+.dmenu form .dloguser {
+    float:left;
+    margin-right:10px;
+}
+.dmenu form .btnlog {
+    background: #d3171d;
+    line-height:20px;
+    border:none;
+    border-radius:4px;
+    color:#fff;
+}
+.dmenu .breadCrumbBack {background:none;color:#626160;margin-left:10px;display: none;}
+.dmenu .breadCrumbBack:after {display:none}
+.dmenu .breadCrumbBack:before {content:"\f112"; font-family:"FontAwesome"; margin-right:4px}
+.dmenu .breadCrumbBack:hover {background:none; color:#dc0707}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<\\\ Carrinho Lateral Modulo ///>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.dcartitems {
+    float: right;
+    font-weight: 100;
+    color: #5d5d5d;
+    background:;
+}
+.dcartitems span.dcartm {
+    float: right;
+    padding: 0;
+    font-size: 11px;
+}
+.dcartitems span.dmcartc {
+    float: right;
+    clear: both;
+    padding: 0;
+    font-weight: 600;
+    font-size: 13px;
+}
+.dcartitems span:after {
+    content: ""
+}
+.dcartitems a:before {
+    content: "\f07a";
+    font-family: "FontAwesome";
+    font-size: 30px;
+    color: #3cb76e;
+    margin-right: 0px;
+    font-weight: 100;
+    margin-top: 8px;
+    position: absolute;
+    left: 0;
+    margin-left: 8px;
+}
+.dcartitems a:hover:before {
+    color: #6f287e;
+}
+.dcartitems a:hover {
+    background: #fff;
+    color: #6f287e;
+}
+.dcartitems .mcart {
+    background: #fff;
+    border-radius: 99px 0;
+    color: #4e4e4e;
+    float: right;
+    margin: 0;
+    padding: 5px 30px 5px 48px;
+    line-height: 1.1em;
+}
+.dcartitems .mcart:after {
+    display: none
+}
+.dcartitems form {margin:0 !important;float: left;width: auto !important;}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<\\\ Pagina de Login ///>>>>>>>>>>>>>>>>>>>>>>>>>*/
+#dlogin .dlogin, #dlogin .dregister {
+    float: left;
+    width: 50%;
+    display: inline-block;
+    padding: 20px;
+}
+#dlogin .dlogin input[type=text], #dlogin .dlogin input[type=password] {
+    border: 1px solid #ddd;
+    width: 100%;
+    padding: 8px 10px;
+    outline: none;
+}
+#dlogin .dlogbtn {
+    float: left;
+    clear: both;
+    border: none;
+    background: #d20e1c;
+    padding: 5px 30px;
+    color: #fff;
+    margin-top: 10px;
+    border-radius: 4px;
+    outiline: none
+}
+#dlogin .dlogcad {
+    background: #2e8e3e;
+}
+#dlogin h3 {
+    border-bottom: 1px solid #ddd;
+    margin: 0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    line-height: 1.5em;
+    font-size: 20px;
+}
+#dlogin .dlogin {
+    border-right: 1px solid #eee
+}
+#dlogin .errorlogin {
+    background: #c13e47;
+    color: #fff;
+    padding: 5px 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#dlogin .dactiv {
+    background: #4d9258;
+}
+#dlogin .dactiv:before {
+    content: "\f234" !important;
+}
+#dlogin .errorlogin:before {
+    content: "\f235";
+    font-family: "FontAwesome";
+    margin-right: 5px;
+    font-size: 18px
+}
+#dlogin .container {
+    font-size:16px;
+    line-height: 1.5em;
+    border:1px solid #bfbfbf
+}
+#dlogin .container strong {
+    color:#6f287e;
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<\\\ Arquivos ///>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.darquivo {
+    background-color: white;
+}
+.darquivo h3 {
+    color: #d20e1c;
+    padding-left:30px;
+}
+.darquivo object {width:100% !important}
+.dfilelist a {
+    color: #333333;
+    vertical-align: middle;
+    display: table-cell;
+    padding-left: 30px;
+    font-size: 14px;
+    float: left;
+    clear: both;
+    margin-bottom: 10px;
+}
+.dfilelist a:before {
+    content:"";
+    position: absolute;
+    background:url(../images/lpdf.png) no-repeat;
+    width:24px;
+    height: 26px;
+    margin-left: -30px;
+    background-size: 24px;
+}
+.darquivo h3:before {
+    content:"";
+    position: absolute;
+    background:url(../images/lpdf.png) no-repeat;
+    width:24px;
+    height: 26px;
+    margin-top: 0px;
+    margin-left: -30px;
+}
+.darquivo p {
+    margin-bottom:20px;
+}
+
+.paymentsAlert {
+    margin-top: 20px;
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<\\\ Forum ///>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.payForum .payForumList .payForumItems:first-child {
+    border-top: 1px solid #eee;
+}
+.payForum .payForumItems {
+    /* background: red; */
+    float:left;
+    clear:both;
+    width:100%;
+    border: 1px solid #eee;
+    border-top: none;
+    padding:10px 10px 10px 10px;
+}
+
+.payForum .payForumItems a {
+    color: #3270e4;
+    font-weight:bold;
+}
+.payForum .payForumItems p {
+    padding-left:50px
+}
+.payForum .payForumItems a:before {
+    content:"\f007";
+    font-family:"FontAwesome";
+    float:left;
+    margin-right:10px;
+    font-weight:normal;
+    font-size:20px;
+    background: #9a9a9a;
+    width:40px;
+    height:40px;
+    text-align:center;
+    border-radius:60px;
+    line-height:40px;
+    color: #fff;
+}
+
+.payForum .btnforum {
+    float: right;
+    background: #655f5f;
+    padding:4px 10px;
+    border-radius:4px;
+    margin-bottom:20px;
+    color: #fff;
+}
+
+.payForum {
+    width:100%;
+    display:table;
+    margin-top:20px;
+
+}
+
+.payForumDados {border-top: 1px solid #efefef;padding: 4px 0;}
+.payForumItems .tname {
+    color: #616161;
+    font-weight:600;
+}
+
+.dPagTopic .dPagTopicHeader {
+    background: #f9f9f9;
+    padding:5px;
+}
+.dPagTopic .dPagTopicHeader h3 {
+    margin:0;
+    margin-left:60px;
+    color: #000000;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+.dPagTopic .dPagTopicHeader p {padding-left:60px;}
+.dPagTopic .dPagTopicHeader p.dDadosTopic span.tname {color: #333333;font-weight:600;}
+
+
+.dPagTopic .dPagTopicHeader .dImgUser, .dPagTopic .dPagTopicItems .dImgUser {
+    background: #4a4a4a;
+    width:50px;
+    height:50px;
+    border-radius:60px;
+    display:block;
+    float:left;
+}
+.dPagTopic .dPagTopicHeader .dImgUser:before, .dPagTopic .dPagTopicItems .dImgUser:before {
+    content:"\f007";
+    font-family:"FontAwesome";
+    font-size:26px;
+    color:#fff;
+    display:block;
+    line-height:50px;
+    width:50px;
+    height:50px;
+    text-align:center;
+}
+.dPagTopic .dPagTopicItems {
+    background:;
+    padding:10px 5px;
+    border-bottom:1px solid #eee;
+}
+
+.tabs nav li a.tarde-14h-18h i {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+.tabs nav li a.semi-integral-8h-16h i {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.dPagTopic {background:;margin-bottom:40px;margin-top: 40px;}
+.dPagTopicItems {margin-top:20px;}
+.dPagTopicItems a {color: #07c;}
+.dPagTopicItems a:hover {color: #005a9a;}
+.dPagTopic .dPagTopicItems .dImgUser {background:#999; width:40px; height:40px;}
+.dPagTopic .dPagTopicItems .dImgUser:before {font-size:16px; line-height:40px; text-align:center; width:40px;}
+.dPagTopic .dPagTopicItems p {padding-left:50px;}
+.dPagTopic .dPagTopicItems p.dMessage {color:#000}
+.dPagTopic .dPagTopicItems p.dDadosTopic span.tname {color: #da1c1c;font-weight: 600;font-size: 13px;}
+.dPagTopicMessage {display:table; position:relative; width: 60%;margin-top: 40px;float: left;}
+.dPagTopicMessage span.dPagLink:before {content:"\f127  Link"; cursor:pointer; font-family:"FontAwesome"; float:right;}
+.dPagTopicMessage textarea {width: 100%;height:200px;margin:0;float:left;padding:10px;border:1px solid #ddd;}
+.dPagTopicMessage input[type=submit] {float:left;clear:both;margin-top:20px;background: #d20e1c;border:none;color:#fff;float:right;padding: 5px 20px;}
+.dPagTopicMessage h5 {font-size:16px;color: #d20e1c;text-transform: uppercase;font-weight: 600;}
+#dPagLink {background:#000; position:absolute; right:0; padding:20px; top:0; margin-top:-80px;}
+#dPagLink:before {content:"\f0d7"; font-family:"FontAwesome"; font-size:60px;  color:#000; bottom:0; right:0; margin-right:5px;margin-bottom:-50px; position:absolute}
+#dPagLink span#pega {background: #d20e1c;border-radius:4px;padding:4px;color:#fff;cursor: pointer;}
+#dPagLink span.fm {position:absolute;right:0;margin-right:-5px;cursor:pointer;top:0;margin-top:-5px;background: #d20e1c;border-radius:50px;width:20px;height:20px;text-align:center;color:#fff;}
+#dPagLink input {padding: 0 5px;}
+/*Adicionar DiÃƒÂ¡rias*/
+#pineAddDi .modal-body ul {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 0;
+    flex-wrap: wrap;
+}
+#pineAddDi .modal-body ul li {
+    list-style:none;
+    width: 20%;
+    padding: 10px 5px;
+}
+#pineAddDi .modal-body ul li .dsContent {
+    background: #aebecc;
+    border: 1px solid #bac8d3;
+    color: rgb(255 255 255);
+    border-radius: 4px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding: 10px 10px;
+    cursor: pointer;
+}
+#pineAddDi .modal-body ul li  .ddia {
+    font-size: 20px;
+    font-weight: bold
+}
+#pineAddDi .modal-body ul li  .dsem {
+    font-size: 14px;
+    font-weight: 400
+}
+#pineAddDi .modal-body ul li.diActive .dsContent {
+    background: #2bc48a;
+    color:#fff;
+    border-color: #2bc48a;
+}
+/*addtopic*/
+.dforumadd input, .dforumadd textarea {float:left; clear:both; border:1px solid #ddd; margin-bottom:10px; position:relative !important; padding: 5px}
+.dforumadd textarea {width:400px;height: 100px;}
+.dforumadd input {width:260px;height: 36px;}
+.dforumadd input[type=submit] {width:auto;padding:4px 18px;float:right;background: #2278a7;color: #fff;border: none;border-radius: 4px !important;}
+.dforumadd form {width:auto;display:table;margin-top: 20px;padding:0;float: left;}
+.dforumadd {display:table !important;}
+.dforumadd label {position:absolute; left:0}
+.dforumadd span {position:relative; float:left; clear:both}
+.dforumadd input ~ label, .dforumadd textarea ~ label {padding:4px; font-weight:normal; color:#666; font-size:13px; transition:ease-in 0.3s}
+
+.criList {
+    border-bottom: 1px solid #dddddd;
+    width: 100%;
+    margin-left: -20px;
+    padding: 10px 10px 10px 20px;
+}
+.criList .bTCmais {
+    background:#6f287e;
+    border-radius: 4px;
+    text-align:center;
+    cursor:pointer;
+    padding: 4px 40px;
+    color:#fff;
+    transition: ease-in-out 0.3s
+}
+.criList .bTCmais:hover {
+    background:#fff;
+    color:#6f287e;
+    box-shadow: 0 0 0px 1px #6f287e;
+}
+.criList .bTCmais:before {
+    content:"\f055";
+    font-family: "FontAwesome";
+    margin-right:10px;
+    font-size:16px
+}
+.criList .criLinks li {
+    display:block !important;
+    position: relative;
+}
+.criList .criLinks li:hover a {
+    background: #79308a;
+    color:#fff;
+}
+.criList .criLinks li:hover a:before, .criList .criLinks li:hover .pRemov:before {
+    color:#d3a9dc
+}
+.criList .criLinks li a {
+    font-size: 16px;
+    background: #ddd;
+    display:block;
+    margin-bottom:5px;
+    padding: 5px 26px 5px 10px;
+    color: #6f287e;
+}
+.criList .criLinks li a:before {
+    content:"\f0a9";
+    font-family:"FontAwesome";
+    float:left;
+    margin-right:5px;
+    color:#6f287e
+}
+.criList .criLinks {
+    margin: 10px 0 !important
+}
+.criList .criLinks li .pRemov {
+    position: absolute;
+    font-size:0;
+    right: 0;
+    top: 50%;
+    margin-top: -12px;
+    cursor:pointer;
+}
+.criList .criLinks li .pRemov:before {
+    content:"\f1f8";
+    font-family:"FontAwesome";
+    font-size: 16px;
+    margin-right:10px;
+    color: #191919;
+}
+
+.pineModal {
+    z-index: 999999999999 !important;
+}
+#pineTermos .modal-dialog {
+    max-width: 800px !important
+}
+.modal-backdrop {
+    z-index: 99999 !important
+}
+.modal-header {
+    background:#6f287e;
+    color:#fff;
+    position:relative;
+}
+
+.modal-header .close {
+    /* position:absolute; */
+    /* right: 10px; */
+    /* top: 0; */
+    /* margin-top: 8px !important; */
+    color:#fff;
+    opacity:1;
+    font-size:30px;
+    font-weight:100;
+}
+/*********
+ Form Cadastro
+*********/
+.has-success .form-control-feedback:before {
+    content:"\f00c";
+    font-family:"FontAwesome";
+}
+.has-error .form-control-feedback:before {
+    content:"\f00d";
+    font-family:"FontAwesome";
+}
+
+/*************
+ Tranferencia
+**************/
+#pineFinaComTrans .btn {
+    padding: 7px 30px;
+}
+.col-md-6.info_transfA {
+    margin-bottom:20px !important
+}
+#pineFinaComTrans strong {
+    color:#6f287e
+}
+
+#pineFinaCom .modal-body {
+   padding: 60px 50px 100px 50px;
+}
+#pineFinaCom .execucart, #pineFinaCom .btn{
+    width: 100%;
+}
+@media screen and (min-width: 1200px)
+{
+    #dStore .dStoreItems .dStoreImg img {height: auto;}
+}
+@media screen and (max-width: 1200px)
+{
+    #dStore .dStoreItems {width:31%}
+    #dStore .dStoreItems .dStoreImg img {height:120px}
+    #dCart .dCartHeader span:nth-child(4), #dCart .dCartItem span:nth-child(4) {display:none}
+    #dCart .dCartHeader span, #dCart .dCartItem span {width:28%}
+    #dCart .dCartQnt {width:10% !important}
+    #dStoreItem .lPrice {
+        margin-top:10px !important;
+        text-align:center !important;
+    }
+    #dStoreItem .lBtnComprar {
+        float:inherit;
+    }
+}
+@media screen and (max-width: 997px)
+{
+    #dStore .dStoreItems {width: 47%}
+    #dStore .dStoreItems .dStoreImg img {height:140px}
+    #dCart .dCartHeader span, #dCart .dCartItem span {display:none}
+    #dCart .dCartCourse {display:block !important; width:90% !important}
+    #dCart .dCartDel {display:block !important; width:10% !important}
+    .dCartBottom .dEnPag {width:35%}
+    #dStoreItem .lBtnComprar {font-size:13px; padding:2px 20px}
+
+}
+@media screen and (max-width: 844px){
+    #dVideos iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
+    #dVideos .mVideos {margin-top: 40px;}
+    #dVideos .dluz {padding-bottom: 56.25%;}
+
+    #dVideos iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
+    #dVideos .mVideos {margin-top: 40px;}
+    #dVideos .dluz {padding-bottom: 56.25%;}
+    .ariQuizTimeCnt, .ariQuizProgressWrap {margin:0 auto !important; display:table; }
+    .dQuizHeader {text-align:center}
+    #dStore .dStoreItems {width:97%}
+    #dStore .dStoreItems .dStoreImg img {max-width: 100%;height: auto;}
+}
+
+.emerr {
+    color:red;
+}
+
+/***********
+Buscar
+************/
+.buscName {
+    position:relative;
+}
+.payBuscCri {
+    position:absolute;
+    width: 100%;
+    box-shadow: 0 3px 3px rgb(111, 40, 126);
+    background:#ffffff;
+}
+.payBuscCri a {
+    transition:ease-in 0.3s;
+    display: flex;
+    padding: 4px 10px;
+    background: #ffffff;
+    color:#6f287e;
+    cursor:pointer;
+    border-bottom: 1px solid #e6e6e6;
+}
+.payBuscCri a:last-child {
+    border:none;
+}
+.pinetermos {
+    border-top: 3px solid #6f287e;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+.pinetermos label {
+    font-weight: bold !important
+}
+.payBuscCri a:hover {
+    background:#6f287e;
+    color:#fff;
+}
+.lFormtransf {
+    width: 100%;
+    text-align:center;
+
+    color:#555;
+    text-transform:uppercase;
+       font-weight:600;
+}
+.lFormtransf:before {
+    content:"\f283";
+    font-family:"FontAwesome";
+    margin-right: 10px;
+    font-weight: 100
+}
+select#formPag {
+    margin-top:5px;
+    color:#6f287e;
+}
+@media screen and (max-width:997px)
+{
+    .dmenu .dmcourses, .dmenu .dmstore, .dmenu .dmlogin {padding: 0 6px;}
+    .dmenu .dmcourses:after, .dmenu .dmstore:after, .dmenu .dmlogin:after {border-left-color: #6f287e;}
+    .dmenu .dmcourses:before, .dmenu .dmstore:before, .dmenu .dmlogin:before {margin:0 !important}
+    .dmenu .breadCrumbBack {display: block}
+    .dStoreItem,.dStoreDetails, .dStoreItemImg {width:100% !important;max-width: 100% !important;}
+    .dStoreItemImg img {max-width:100% !important;width:100% !important;}
+    #dStoreItem {display:inherit}
+    .dStoreItem {border-right:none !important}
+    #dStoreItem .dStoreDetails {padding:0 !important;margin-top: 30px;}
+    #dStoreItem .criQnt, #dStoreItem .dStoreDetails ul li.lVideos span, #dStoreItem .lPrice {margin-left:0;}
+    #dStoreItem .dStoreDetails ul li.lVideos, #dStoreItem .lPrice { margin-left:0}
+    #dStoreItem .lBtnComprar {font-size:13px; padding:2px 20px}
+    .dlogin, .dregister {width:100% !important; border:none !important}
+    .criList {margin-left: -5px}
+    #dStoreItem .lPrice {margin-top:20px !important}
+    
+}
+@media screen and (max-width:660px)
+{
+    #dStore .dStoreItems .dStoreImg img {margin-top:0}
+    .dCartBottom a.dBtnCont, .dCartBottom .dBtnClear {line-height:16px;padding: 8px;margin-bottom: 10px;}
+    .dCartBottom a.dBtnCont:before, .dCartBottom .dBtnClear:before {font-size:16px;float:left;}
+    .dCartBottom .dEnPag {width:100%;margin-top:20px;text-align: center;padding: 15px;}
+    #dCart .dCartHeader span, #dCart .dCartItem span {height:auto}
+    .dCartBottom .dEnPag div.dPrice {
+        float: initial;
+        margin-top: 10px;
+        font-size: 2rem;
+        clear: both;
+    }
+    .voucher {
+   
+margin: 0 auto !important;
+   
+display: table;
+   
+float: initial;
+   
+}
+    #dCart .dCartHeader span, #dCart .dCartItem span {border:none}
+    .dCartBottom {margin-top:10px;}
+    .mcart span.scni, .mcart .dcartm {display:none;}
+    .mcart {height:40px}
+    .mcart .dmcartc .scnt {display:block !important}
+    .dloguser {font-size:0}
+    .dcartitems {/* width:100%; *//* clear:both; *//* float:left; */}
+    .btnlog {background:none !important; color:#da0404 !important;  padding:0; font-weight:400}
+    .dloguser:before {content:"\f007"; font-family:"FontAwesome"; float:left; font-size:15px;}
+    .dcartitems #login-form {position:fixed; background:rgba(98, 97, 96, 0.7); transition: ease-in 0.5s; margin-bottom:30% !important; margin-right:-36px !important; z-index:9999; padding:0 10px; right:0; bottom:0} 
+    .dcartitems #login-form:hover {margin-right:0 !important; background:rgba(98, 97, 96, 1);}
+    .dcartitems #login-form {color:whitesmoke !important}
+    .dcartitems #login-form .btnlog {color:#fff !important}
+    .pagdefault a {clear:both; margin-bottom:20px;  width:100%}
+    .pagdefault a:before {height:30px}
+    .dEnC {font-size: 1.5rem !important;margin: 0 auto !important;display:table !important;float: initial !important;margin-top: 4px !important;padding: 8px 20px !important;}
+    #dStoreItem .lBtnComprar {
+        width:100%;
+        padding: 6px 0;
+        margin-top:5px;
+        font-size: 1.9rem
+    }
+}

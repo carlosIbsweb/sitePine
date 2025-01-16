@@ -1,0 +1,144 @@
+/****
+ *Menu Tabs
+****/
+body {
+	background: #f1f1f1 !important
+}
+.com_s7dgallery #myTabTabs.nav-tabs {
+	float:left !important;
+	margin-bottom: 0 !important;
+	background: #fff;
+	width: 20%;
+	border-bottom: none !important;
+}
+.com_s7dgallery .control-group {
+	padding: 0 40px
+}
+.com_s7dgallery #myTabTabs.nav-tabs > .active > a, .com_s7dgallery #myTabTabs.nav-tabs > .active > a:hover, .com_s7dgallery #myTabTabs.nav-tabs > .active > a:focus {
+	border:none !important;
+	background: #5587a1 !important;
+	color: #fff !important;
+}
+.com_s7dgallery #myTabTabs.nav-tabs > .active, .com_s7dgallery #myTabTabs.nav-tabs > .active:hover, .com_s7dgallery #myTabTabs.nav-tabs > .active:focus {
+	border-color: #5587a1;
+}
+.com_s7dgallery #myTabTabs.nav-tabs > .active + li, .com_s7dgallery #myTabTabs.nav-tabs > .active:hover + li, #myTabTabs.nav-tabs > .active:focus + li {
+	border-top: none
+}
+.com_s7dgallery #myTabTabs.nav-tabs > li > a {
+	border:none !important;
+	border-radius: 0 !important;
+	margin: 0 !important;
+	padding: 12px !important;
+	color:#333;
+	display: block !important;
+}
+
+.com_s7dgallery #myTabTabs.nav-tabs li {
+	float: initial !important;
+	margin-bottom: 0 !important;
+	border: 1px solid #ccc;
+	border-bottom:none;
+}
+.com_s7dgallery #myTabTabs.nav > li > a:hover, .com_s7dgallery #myTabTabs.nav > li > a:focus {
+	background:#5587a1
+}
+.com_s7dgallery #myTabTabs.nav-tabs li:first-child, .com_s7dgallery #myTabTabs.nav-tabs li:first-child a {
+	border-radius: 4px 4px 0 0
+}
+.com_s7dgallery #myTabTabs.nav-tabs li:last-child, .com_s7dgallery #myTabTabs.nav-tabs li:last-child a {
+	border-bottom: 1px solid #ddd;
+	border-radius: 0 0 4px 4px
+}
+.com_s7dgallery .tab-content {
+	float: right !important;
+	width: 78%;
+	padding: 60px 0;
+	border: 3px solid #5587a1;
+	background: #fff;
+	border-left: 0;
+	border-right: 0;
+	border-radius: 10px;
+	box-shadow:0 0 1px #000;
+}
+.com_s7dgallery .form-horizontal .control-label {
+	clear:both;
+	float: inherit;
+}
+.com_s7dgallery .form-horizontal .control-label  label {
+	clear:both;
+	float:left;
+	width: 100%;
+}
+.com_s7dgallery .form-horizontal .controls {
+	margin-left: 0 !important;
+}
+.com_s7dgallery .form-horizontal {
+	width:100% !important;
+}
+.com_s7dgallery .tab-content *, .com_s7dgallery .tab-content *:befor, .tab-content *:after{
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*****
+ * Title
+*****/
+.com_s7dgallery .lvTitle {
+	max-width:600px !important;
+	width: 100%;
+	height: 26px !important;
+	border-color:#5587a1 !important;
+	font-size: 16px !important;
+}
+
+.com_s7dgallery input[type=text] {
+	width: 40%;
+	height: 26px;
+}
+.com_s7dgallery .editor {
+	width: 99%;
+	padding: 0 30px;
+}
+
+/*********
+*Menu
+********/
+.com_s7dgallery #myTabTabs.nav-tabs li a:before {
+	content:"";
+	font-family:"LineAwesome";
+	font-size: 20px;
+	margin-right: 10px;
+	float:left;
+}
+.com_s7dgallery #myTabTabs.nav-tabs li:nth-child(2) a:before {
+	content:"\f246";
+}
+
+.com_s7dgallery #myTabTabs.nav-tabs li:nth-child(1) a:before {
+	content:"\f1ec";
+}
+@media screen and (max-width: 1200px) {
+	.com_s7dgallery #myTabTabs.nav-tabs {
+		width: 30%;
+	}
+	.com_s7dgallery .tab-content {
+		width: 68%;
+		margin-right: 0 !important;
+	}
+	.com_s7dgallery .form-horizontal {
+		input {float:left}
+	}
+
+}
+
+@media screen and (max-width: 967px){
+	.com_s7dgallery .nav-tabs,.com_s7dgallery .tab-content {
+		width: 100% !important;
+		float: left !important;
+	}
+	.com_s7dgallery #myTabTabs.nav-tabs {
+		margin-bottom: 20px !important;
+
+	}
+}

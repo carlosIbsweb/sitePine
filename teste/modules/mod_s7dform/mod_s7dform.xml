@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+    type="module"
+    version="3.0"
+    client="site"
+    method="upgrade">
+    <name>S7D Form</name>
+    <author>Carlos</author>
+    <creationDate>Junho 2018</creationDate>
+    <copyright>Carlos</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>carlos@ibsweb.com</authorEmail>
+    <authorUrl>www.site7dias.com.br</authorUrl>
+    <version>1.5</version>
+    <description>MOD_S7DFORM_XML_DESCRIPTION</description>
+    <files>
+        <filename module="mod_s7dform">mod_s7dform.php</filename>
+        <folder>assets</folder>
+        <folder>elements</folder>
+        <folder>library</folder>
+        <folder>language</folder>
+        <folder>tmpl</folder>
+        <filename>helper.php</filename>
+        <filename>index.html</filename>     <filename>mod_s7dform.xml</filename>
+    </files>
+
+    <languages>
+        <language tag="pt-BR">language/pt-BR/pt-BR.mod_s7dform.ini</language>
+        <language tag="pt-BR">language/pt-BR/pt-BR.mod_s7dform.sys.ini</language>
+    </languages>
+
+    <updateservers>
+        <server type="extension" priority="1" name="WK Contact Update">http://update.site7dias.com.br/mod_s7dform_update.xml</server>
+    </updateservers>
+
+    <help key="JHELP_EXTENSIONS_MODULE_MANAGER_SYNDICATION_FEEDS" />
+    <config>
+        <fields name="params">
+            <fieldset name="basic" addfieldpath="/modules/mod_s7dform/elements" class="wkform">
+                        <field
+                        name="s7dform"
+                        type="s7dform"
+                        filter="safehtml"
+                        class="dins"
+                     />
+
+                     <field
+                        name="formdata"
+                        type="hidden"
+                        filter="safehtml"
+                        class="dins"
+                        default=""
+                     />
+
+                     <field
+                        name="form"
+                        type="hidden"
+                        filter="safehtml"
+                        class="dins"
+                     />
+
+                     <field
+                        name="cols"
+                        type="hidden"
+                        filter="safehtml"
+                        default="12"
+                        class="dins"
+                     />
+
+            </fieldset>
+
+            <fieldset name="wkform" class="wkform">
+                <field type="spacer" name="wkHeaderEmailAdmin" class="text paramsWkHeader" label="MOD_WKCONTACT_HEADEMAILADMIN_LABEL"/>
+                  <field name="activeEmail" type="radio" default="0" label="Enviar email" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">Ativar</option>
+                    <option value="0">Desativar</option>
+                    
+                </field>
+                 <field name="exAtta" type="radio" default="0" label="Anexo" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">Ativar</option>
+                    <option value="0">Desativar</option>
+                    
+                </field>
+                 <field
+                    name="emailsender"
+                    type="text"
+                    label="MOD_WKCONTACT_SEND_LABEL"
+                    description="MOD_WKCONTACT_SEND_DESCRIPTION" />
+                <field
+                    name="namesender"
+                    type="text"
+                    label="MOD_WKCONTACT_NAMESEND_LABEL"
+                    description="MOD_WKCONTACT_NAMESEND_DESCRIPTION" />
+                <field
+                    name="mail"
+                    type="text"
+                    label="Email"
+                    description="Um ou mais emails, separando por vírgula ex: (ex@ex.com,ex2@ex.com)" />
+
+                <field
+                    name="mailbcc"
+                    type="text"
+                    label="Cópia oculta"
+                    description="Um ou mais emails, separando por vírgula ex: (ex@ex.com,ex2@ex.com)" />
+
+                     <field
+                        name="subject"
+                        type="text"
+                        label="MOD_WKCONTACT_SUBJECTADMIN_LABEL"
+                        description="MOD_WKCONTACT_SUBJECTADMIN_DESCRIPTION"
+                     />
+
+
+                     <field type="spacer" name="wkHeaderEmailUser" class="text paramsWkHeader" label="MOD_WKCONTACT_HEADEMAILUSER_LABEL"/>
+
+                      <field name="mailuserativ" type="radio" default="0" label="MOD_WKMAILUSER_TITLE_LABEL" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">Ativar</option>
+                    <option value="0">Desativar</option>
+                    
+                </field>
+
+
+                <field
+                    name="mailuser"
+                    type="text"
+                    label="MOD_WKCONTACT_MAILUSERNAME_LABEL"
+                    description="MOD_WKCONTACT_MAILUSERNAME_DESCRIPTION"
+                />
+
+                 <field
+                    name="subjectuser"
+                    type="text"
+                    label="MOD_WKCONTACT_WKSUBJECTUSER_LABEL"
+                />
+            </fieldset>
+
+            <fieldset name="wkconfig">
+                 <field name="teste" type="radio" default="0" label="Modo Teste" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">Ativar</option>
+                    <option value="0">Desativar</option>
+                    
+                </field>
+                <field type="spacer" name="wkConfigModal" class="text paramsWkHeader" label="MOD_WKCONTACT_WKCONFIGMODAL_LABEL"/>
+
+                <field name="awType" type="list" default="fixed" label="MOD_WKCONTACT_WKCONTACTTYPE_LABEL" description="MOD_WKCONTACT_WKCONTACTTYPE_DESCRIPTION">
+                    <option value="fixed">MOD_WKCONTACT_WKCONTACTTYPE_OPTION_FIXED</option>
+                    <option value="modal">MOD_WKCONTACT_WKCONTACTTYPE_OPTION_MODAL</option>
+                </field>
+
+                <field type="spacer" name="wkTypeDesc" class="text wkTypeDesc" label="MOD_WKCONTACT_WKTYPEDESC_LABEL"/>
+
+                 <field
+                    name="mensucess"
+                    type="textarea"
+                    cols="60"
+                    filter="raw"
+                    rows="6"
+                    default="Obrigado por seu e-mail"
+                    description="MOD_AWSUCCESS"
+                    label="MOD_WKCONTACT_MENSUCESS_LABEL"
+                />
+
+                <field
+                    name="menfailure"
+                    type="textarea"
+                    filter="raw"
+                    cols="60"
+                    rows="6"
+                    default="Falha ao enviar e-mail!"
+                    label="MOD_WKCONTACT_MENFAILURE_LABEL"
+                />
+                
+                 <field name="redirect" type="radio" default="0" label="MOD_WKCONTACT_WKREDIRECT_LABEL" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">Ativar</option>
+                    <option value="0">Desativar</option>
+                    
+                </field>
+                <field
+                    name="menredirect"
+                    type="textarea"
+                    filter="raw"
+                    cols="60"
+                    rows="6"
+                    default=""
+                    label="Mensagem"
+                    showon="redirect:1"
+                />
+
+                <field name="redirectType" type="list" default="" label="Tipo de Redirecionamento" description="">
+                    <option value="">Selecione</option>
+                    <option value="url">Url</option>
+                    <option value="download">Download</option>
+                </field>
+
+                <field
+                    name="redirectUrl"
+                    type="text"
+                    label="MOD_WKCONTACT_REDIRECTURL_LABEL"
+                    showon="redirectType:url"
+                />
+                <field
+                    name="redirectDownload"
+                    type="text"
+                    label="Arquivo"
+                    description="Caminho para o arquivo. Ex: arquivo/arquivo.jpg"
+                    showon="redirectType:download"
+                />
+
+                  <field
+                    name="timeredirect"
+                    type="text"
+                    default="5000"
+                    label="MOD_WKCONTACT_TIMEREDIRECT_LABEL"
+                />
+
+
+                <field type="spacer" name="wkConfigDb" class="text paramsWkHeader" label="MOD_WKCONTACT_WKCONFIGDB_LABEL"/>
+
+                 <field name="activDb" type="radio" default="0" label="MOD_WKCONTACT_WKDBACTIV_LABEL" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">Ativar</option>
+                    <option value="0">Desativar</option>
+                    
+                </field>
+
+                <field
+                    name="db"
+                    type="text"
+                    hint="tablename"
+                    label="MOD_WKCONTACT_DB_LABEL"
+                    description="MOD_WKCONTACT_DB_DESCRIPITION"
+                />
+
+                <field
+                    name="dataDb"
+                    type="text"
+                    hint="name,email"
+                    label="MOD_WKCONTACT_VALIDFIELDS_LABEL"
+                />
+
+                <field
+                    name="validFields"
+                    type="text"
+                    hint="Name{name},E-mail{email}"
+                    label="MOD_WKCONTACT_DATADB_LABEL"
+                />
+                <field
+                    name="sDate"
+                    type="text"
+                    hint="texto, name, total de dias"
+                    label="Validação Data"
+                />
+
+                 <field type="spacer" name="awLimit" class="text paramsWkHeader" label="Limite de dados"/>
+                 <field
+                    name="setLimit"
+                    type="number"
+                    label="Limite de dados"
+                />
+
+                 <field
+                    name="menSetLimit"
+                    type="text"
+                    label="Mensagem de limite de dados"
+                />
+
+                  <field name="awexnot" type="radio" default="0" label="Notificação por email" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">Ativar</option>
+                    <option value="0">Desativar</option>
+                    
+                </field>
+
+                 <field
+                    name="notemail"
+                    type="text"
+                    label="E-mail"
+                />
+
+                 <field
+                    name="notsubject"
+                    type="text"
+                    label="Assunto"
+                />
+
+                <field
+                    name="notbody"
+                    type="textarea"
+                    label="Corpo e-mail"
+
+                />
+
+                <field type="spacer" name="awAnexo" class="text paramsWkHeader" label="Anexos"/>
+                  <field name="upload" type="radio" default="0" label="Upload de arquivos" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">Ativar</option>
+                    <option value="0">Desativar</option>
+                    
+                </field>
+                <field
+                    name="exMedia"
+                    type="text"
+                    description="Extensões permitidas"
+                    label="Extensões permitidas"
+                    hint="jpg,png..."
+                />
+               
+               <field type="spacer" name="wkSubmitDesc" class="text paramsWkHeader" label="Tabela Relacionada"/>
+               
+                <field name="dbRelated" type="radio" default="0" label="Inserir" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">Ativar</option>
+                    <option value="0">Desativar</option>
+                    
+                </field>
+
+                <field
+                    name="tableRelated"
+                    type="text"
+                    hint="#__tablename"
+                    label="Nome da Tabela"
+                     showon="dbRelated:1"
+                />
+
+                <field
+                    name="campoRelated"
+                    type="text"
+                    hint="campoId"
+                    label="Campo Relacionado"
+                     showon="dbRelated:1"
+                />
+
+                 <field
+                    name="camposRelated"
+                    type="text"
+                    label="Campos"
+                    hint="Ex: name:nameField"
+                    showon="dbRelated:1"
+                />
+
+                <field type="spacer" name="awCamp" class="text paramsWkHeader" label="Campos Especiais"/>
+
+                <field name="awJoomla" type="list" default="" label="Selecione" description="">
+                    <option value="">Selecione</option>
+                    <option value="password">Password</option>
+                </field>
+
+                <field 
+                    name="awJCampo" type="text"
+                    description=""
+                    label="Nome do campo"
+                    required="false"
+                    size="30"
+                />
+
+                <field type="spacer" name="awConfirmEmail" class="text paramsWkHeader" label="Confirmar E-mail"/>
+
+                <field
+                    name="menConfirmSucess"
+                    type="textarea"
+                    cols="60"
+                    filter="raw"
+                    rows="6"
+                    default="E-mail confirmado com sucesso!"
+                    description="Variável de token: tokenEmail(varchar 255), Variável de Link: confirmEmail(int 11)"
+                    label="Mensagem de confirmação"
+                />
+                
+    
+            </fieldset>
+
+            <fieldset name="wkbodyadmin">
+                <field
+                        name="bodyadmin"
+                        type="editor"
+                        label="Texto"
+                        filter="safehtml"
+                        default=""
+                     />
+    
+            </fieldset>
+
+            <fieldset name="wkbodyuser">
+                <field
+                        name="bodyuser"
+                        type="editor"
+                        label="Texto"
+                        filter="safehtml"
+                     />
+    
+            </fieldset>
+
+            <fieldset name="wkrecaptcha">
+                <field name="awcaptcha" type="radio" default="0" label="MOD_AWCAPTCHA_TITLE_LABEL" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">Ativar</option>
+                    <option value="0">Desativar</option>
+                    
+                </field>
+                 <field
+                    name="aritim"
+                    type="text"
+                    label="Variações permitidas"
+                    default="+,-"
+                    description="Variações separadas por virgula +,-,*"
+                />
+                <field
+                    name="vAdd"
+                    type="text"
+                    label="MOD_AWFORM_VADD_LABEL"
+                    default="20"
+                    description="MOD_WKCONTACT_SITEKEY_DESCRIPTION"
+                />
+                <field
+                    name="vSub"
+                    type="text"
+                    default="10"
+                    label="MOD_AWFORM_VSUB_LABEL"
+                    description="MOD_WKCONTACT_SECRETKEY_DESCRIPTION"
+                />
+                <field
+                    name="vMul"
+                    type="text"
+                    label="MOD_AWFORM_VMUL_LABEL"
+                    default="10"
+                    description="MOD_WKCONTACT_SITEKEY_DESCRIPTION"
+                />
+
+                <field name="cAlign" type="list" default="left" label="Posição">
+                    <option value="left">Left</option>
+                    <option value="right">Right</option>
+                    <option value="center">Center</option>
+                </field>
+
+            </fieldset>
+            <fieldset name="wkpayment"> 
+
+                <field name="payment" type="radio" default="0" label="MOD_WKPAYMENT_TITLE_LABEL" description="" class="btn-group btn-group-yesno radio" >
+                    <option value="1">Ativar</option>
+                    <option value="0">Desativar</option>
+                </field>
+                <field name="payType" type="list" default="payment" label="MOD_WKCONTACT_PAYTYPE_LABEL">
+                    <option value="payment">MOD_WKCONTACT_PAYTYPE_PAYMENT</option>
+                    <option value="donation">MOD_WKCONTACT_PAYTYPE_DONATION</option>
+                </field>
+                <field type="spacer" name="dconta" class="text"
+                    label="MOD_WKCONTACT_DADOSCONTA_LABEL"
+
+                />
+               
+                <field
+                    name="payToken"
+                    type="text"
+                    label="MOD_WKCONTACT_PAYTOKEN_LABEL"
+                    description="MOD_WKCONTACT_PAYTOKEN_DESCRIPTION"
+
+                />
+                <field
+                    name="payEmail"
+                    type="text"
+                    label="MOD_WKCONTACT_PAYEMAIL_LABEL"
+                    description="MOD_WKCONTACT_PAYEMAIL_DESCRIPTION"
+
+                />
+                <field
+                    name="payCurrency"
+                    type="text"
+                    label="MOD_WKCONTACT_PAYCURRENCY_LABEL"
+                    default="BRL"
+                    description="MOD_WKCONTACT_PAYCURRENCY_DESCRIPTION"
+
+                />
+                <field type="spacer" name="ditem" class="text"
+                    label="MOD_WKCONTACT_DADOSITEM_LABEL"
+                />
+                <field
+                    name="payReference"
+                    type="text"
+                    label="MOD_WKCONTACT_PAYREFERENCE_LABEL"
+                    description="MOD_WKCONTACT_PAYREFERENCE_DESCRIPTION"
+       
+                />
+                <field
+                    name="payDescription"
+                    type="textarea"
+                    label="MOD_WKCONTACT_PAYDESCRIPTION_LABEL"
+                    description="MOD_WKCONTACT_PAYDESCRIPTION_DESCRIPTION"
+        
+                />
+                <field
+                    name="payPrice"
+                    type="text"
+                    default="180.00"
+                    label="MOD_WKCONTACT_PAYPRICE_LABEL"
+                    description="MOD_WKCONTACT_PAYPRICe_DESCRIPTION"
+       
+                />
+
+
+                 <field type="spacer" name="dsender" class="text"
+                    label="MOD_WKCONTACT_DADOSSENDER_LABEL"
+                />
+                <field
+                    name="payName"
+                    type="text"
+                    hint="Name form"
+                    label="MOD_WKCONTACT_PAYNAME_LABEL"
+                    description="MOD_WKCONTACT_PAYNAME_DESCRIPTION"
+       
+                />
+
+                <field
+                    name="paySenderPhone"
+                    type="text"
+                    hint="Name form"
+                    label="MOD_WKCONTACT_PAYSENDERPHONE_LABEL"
+                    description="MOD_WKCONTACT_SENDERPHONE_DESCRIPTION"
+       
+                />
+                <field
+                    name="paySenderEmail"
+                    type="text"
+                    hint="Name form"
+                    label="MOD_WKCONTACT_PAYSENDEREMAIL_LABEL"
+                    description="MOD_WKCONTACT_PAYSENDEREMAIL_DESCRIPTION"
+       
+                />
+
+
+            </fieldset>
+
+            <fieldset name="wkbodypdf">
+                <field
+                        name="bodyPdf"
+                        type="editor"
+                        label="PDF Editor"
+                        filter="safehtml"
+                        default=""
+                     />
+    
+            </fieldset>
+
+            
+            <fieldset name="awUp" addfieldpath="/modules/mod_s7dform/elements" class="wkform">
+                  <field
+                    name="awUpTitle"
+                    type="text"
+                    default="Atualizar Dados"
+                    label="Título"
+                />
+
+                 <field type="spacer" name="wkHeaderEmailAdmin" class="text paramsWkHeader" label="Campo Extra"/>
+                 <field name="awUpDex" type="radio" default="0" label="Campo Extra" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">Ativar</option>
+                    <option value="0">Desativar</option>
+                    
+                </field>
+
+                <field
+                    name="awUpDbtn"
+                    type="text"
+                    default="Btn"
+                    label="Título do botão"
+                />
+
+                <field
+                    name="awUpDName"
+                    type="text"
+                    default=""
+                    label="Nome do campo"
+                />
+
+                <field
+                    name="awUpDValue"
+                    type="text"
+                    default="0"
+                    label="Valor do campo0"
+                />
+
+                <field
+                    name="awUpDconfirm"
+                    type="textarea"
+                    rows="4"
+                    default="Você deseja sair do grupo"
+                    label="Mensagem de confirmação"
+                />
+
+                <field
+                    name="awUpDsuccess"
+                    type="textarea"
+                    rows="4"
+                    default=""
+                    label="Mensagem Sucesso"
+                />
+
+                 <field name="awUpDblock" type="radio" default="0" label="Bloquear acesso após alteração" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
+                    
+                </field>
+
+            </fieldset>
+                <!--fieldset name="qwDb" addfieldpath="/modules/mod_s7dform/elements" class="wkform">
+                  <field
+                    name="apy"
+                    type="awdb"
+                    default="Obrigado, Aguardando..."
+                    label="Mensagem de Sucesso"
+
+                />
+
+            </fieldset-->
+            <!--fieldset name="wkpayment"> 
+
+                <field name="payment" type="radio" default="0" label="MOD_WKPAYMENT_TITLE_LABEL" description="" class="btn-group btn-group-yesno radio" >
+                    <option value="1">Ativar</option>
+                    <option value="0">Desativar</option>
+                </field>
+                 <field
+                    name="payMenSuccess"
+                    type="textarea"
+                    default="Obrigado, Aguardando..."
+                    label="Mensagem de Sucesso"
+
+                />
+                <field type="spacer" name="dconta" class="text"
+                    label="MOD_WKCONTACT_DADOSCONTA_LABEL"
+
+                />
+               
+                <field
+                    name="payToken"
+                    type="text"
+                    label="MOD_WKCONTACT_PAYTOKEN_LABEL"
+                    description="MOD_WKCONTACT_PAYTOKEN_DESCRIPTION"
+
+                />
+                <field
+                    name="payEmail"
+                    type="text"
+                    label="MOD_WKCONTACT_PAYEMAIL_LABEL"
+                    description="MOD_WKCONTACT_PAYEMAIL_DESCRIPTION"
+
+                />
+                <field
+                    name="payCurrency"
+                    type="text"
+                    label="MOD_WKCONTACT_PAYCURRENCY_LABEL"
+                    default="BRL"
+                    description="MOD_WKCONTACT_PAYCURRENCY_DESCRIPTION"
+
+                />
+                <field type="spacer" name="ditem" class="text"
+                    label="MOD_WKCONTACT_DADOSITEM_LABEL"
+                />
+                <field
+                    name="payReference"
+                    type="text"
+                    label="MOD_WKCONTACT_PAYREFERENCE_LABEL"
+                    description="MOD_WKCONTACT_PAYREFERENCE_DESCRIPTION"
+       
+                />
+                <field
+                    name="payDescription"
+                    type="textarea"
+                    label="MOD_WKCONTACT_PAYDESCRIPTION_LABEL"
+                    description="MOD_WKCONTACT_PAYDESCRIPTION_DESCRIPTION"
+        
+                />
+                <field
+                    name="payPrice"
+                    type="text"
+                    default="180.00"
+                    label="MOD_WKCONTACT_PAYPRICE_LABEL"
+                    description="MOD_WKCONTACT_PAYPRICe_DESCRIPTION"
+       
+                />
+
+
+                 <field type="spacer" name="dsender" class="text"
+                    label="MOD_WKCONTACT_DADOSSENDER_LABEL"
+                />
+                <field
+                    name="payName"
+                    type="text"
+                    hint="Name form"
+                    label="MOD_WKCONTACT_PAYNAME_LABEL"
+                    description="MOD_WKCONTACT_PAYNAME_DESCRIPTION"
+       
+                />
+
+                <field
+                    name="paySenderPhone"
+                    type="text"
+                    hint="Name form"
+                    label="MOD_WKCONTACT_PAYSENDERPHONE_LABEL"
+                    description="MOD_WKCONTACT_SENDERPHONE_DESCRIPTION"
+       
+                />
+                <field
+                    name="paySenderEmail"
+                    type="text"
+                    hint="Name form"
+                    label="MOD_WKCONTACT_PAYSENDEREMAIL_LABEL"
+                    description="MOD_WKCONTACT_PAYSENDEREMAIL_DESCRIPTION"
+       
+                />
+
+
+            </fieldset-->
+
+            <fieldset name="advanced">
+                 <field name="loadjquery" type="radio" default="0" label="MOD_WKCONTACT_LOADJQUERY_LABEL" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="loadboostrap" type="radio" default="0" label="MOD_WKCONTACT_LOADBOOSTRAP_LABEL" description="" class="btn-group btn-group-yesno radio">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <field
+                    name="moduleclass_sfx"
+                    type="text"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+                    icon="text_signature.png" />
+                
+            </fieldset>
+
+        </fields>
+    </config>
+</extension>

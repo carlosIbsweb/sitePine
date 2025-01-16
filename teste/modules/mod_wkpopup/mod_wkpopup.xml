@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.0"
+	client="site"
+	method="upgrade">
+	<name>WK Popup</name>
+	<author>Carlos </author>
+	<creationDate>Fevereiro 2017</creationDate>
+	<copyright>Carlos Web Keys</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>jcarloswk@gmail.com</authorEmail>
+	<authorUrl>www.webkeys.com.br</authorUrl>
+	<version>1.0.1</version>
+	<description>MOD_WKPOPUP_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_wkpopup">mod_wkpopup.php</filename>
+		<folder>assets</folder>
+		<folder>tmpl</folder>
+		<folder>language</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>		<filename>mod_wkpopup.xml</filename>
+	</files>
+	<updateservers>
+		<server type="extension" priority="1" name="WK Popup Update">http://update.webkeys.com.br/mod_wkpopup_update.xml</server>
+	</updateservers>
+	
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_SYNDICATION_FEEDS" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+                    name="image"
+                    type="media"
+                    label="MOD_WKPOPUP_TITLE_IMAGE_LABEL"
+                    description="MOD_WKPOPUP_IMAGE_DESCRIPTION" />
+				 <field
+                    name="video"
+                    type="text"
+                    hint="YouTube ou Vímeo Vídeo URL"
+                    label="MOD_WKPOPUP_TITLE_VIDEO_LABEL"
+                    description="MOD_WKPOPUP_VIDEO_DESCRIPTION" />
+
+                <field name="vplayer" type="radio" default="0" label="MOD_WKPOPUP_TITLE_VPLAYER_LABEL" description="" class="btn-group btn-group-yesno radio">
+					<option value="1">Ativar</option>
+  					<option value="0">Desativar</option>
+  					
+				</field>
+              
+                  <field
+                    name="link"
+                    type="text"
+                    label="MOD_WKPOPUP_LABEL_LINK"
+                    description="MOD_WKPOPUP_DESCRIPTION_LINK" />
+                <field name="target" type="list" default="_self" label="MOD_WKPOPUP_LABEL_TARGET" description="MOD_WKPOPUP_DESCRIPTION_TARGET">
+                	<option value="_blank">Nova Janela</option>
+                	<option value="_self">Janela Pai</option>
+                </field>
+
+                <field
+                    name="pSession"
+                    type="text"
+                    hint="Segundos"
+                    label="MOD_WKPOPUP_TITLE_SESSION_LABEL"
+                    description="MOD_WKPOPUP_SESSION_DESCRIPTION" />
+
+
+			</fieldset>
+
+			<fieldset name="wkcustom">
+				<field name="custom" type="editor" label="MOD_WKPOPUP_TITLE_LABEL" description="" width="300" height="300" class="wf-editor" filter="safehtml" />
+			</fieldset>
+
+			<fieldset name="wkstyle">
+				<field
+                    name="width"
+                    type="text"
+                    label="MOD_WKPOPUP_LABEL_WIDTH"
+                    default="560"
+                    description="MOD_WKPOPUP_DESCRIPTION_WIDTH" />
+
+				 <field name="shadow" type="radio" default="1" label="Box Shadow" description="" class="btn-group btn-group-yesno radio">
+                	<option value="1">Exibir</option>
+  					<option value="0">Ocultar</option>
+				</field>
+
+				<field name="bradius" type="radio" default="0" label="Border radius" description="" class="btn-group btn-group-yesno radio">
+					<option value="1">Exibir</option>
+  					<option value="0">Ocultar</option>
+  					
+				</field>
+
+				<field name="border" type="radio" default="1" label="Border" description="" class="btn-group btn-group-yesno radio">
+					<option value="1">Exibir</option>
+  					<option value="0">Ocultar</option>
+  					
+				</field>
+
+				<field name="bgmodal" type="list" default="black" label="MOD_WKPOPUP_LABEL_BGMODAL" description="">
+					<option value="black">Black</option>
+					<option value="white">White</option>
+					<option value="amethyst">Amethyst</option>
+					<option value="emerald">Emerald</option>
+					<option value="sunflower">Sun Flower</option>
+					<option value="wetasphalt">Wet Asphalt</option>
+					<option value="carrot">Carrot</option>
+					<option value="turquoise">Turquoise</option>
+					<option value="peterriver">Peter River</option>
+					<option value="alizarin">Alizarin</option>
+
+				</field>
+			</fieldset>
+
+			<fieldset name="wkefects">
+				<field name="animateIn" type="groupedlist" default="fadeInDown" label="MOD_WKPOPUP_LABEL_ENTRY_ANIMATION" description="">
+			        <group label="Attention Seekers">
+			          <option value="bounce">bounce</option>
+			          <option value="flash">flash</option>
+			          <option value="pulse">pulse</option>
+			          <option value="rubberBand">rubberBand</option>
+			          <option value="shake">shake</option>
+			          <option value="swing">swing</option>
+			          <option value="tada">tada</option>
+			          <option value="wobble">wobble</option>
+			          <option value="jello">jello</option>
+			        </group>
+
+			        <group label="Bouncing Entrances">
+			          <option value="bounceIn">bounceIn</option>
+			          <option value="bounceInDown">bounceInDown</option>
+			          <option value="bounceInLeft">bounceInLeft</option>
+			          <option value="bounceInRight">bounceInRight</option>
+			          <option value="bounceInUp">bounceInUp</option>
+			        </group>
+
+			        <group label="Fading Entrances">
+			          <option value="fadeIn">fadeIn</option>
+			          <option value="fadeInDown">fadeInDown</option>
+			          <option value="fadeInDownBig">fadeInDownBig</option>
+			          <option value="fadeInLeft">fadeInLeft</option>
+			          <option value="fadeInLeftBig">fadeInLeftBig</option>
+			          <option value="fadeInRight">fadeInRight</option>
+			          <option value="fadeInRightBig">fadeInRightBig</option>
+			          <option value="fadeInUp">fadeInUp</option>
+			          <option value="fadeInUpBig">fadeInUpBig</option>
+			        </group>
+
+			        <group label="Flippers">
+			          <option value="flip">flip</option>
+			          <option value="flipInX">flipInX</option>
+			          <option value="flipInY">flipInY</option>
+			        </group>
+
+			        <group label="Lightspeed">
+			          <option value="lightSpeedIn">lightSpeedIn</option>
+			        </group>
+
+			        <group label="Rotating Entrances">
+			          <option value="rotateIn">rotateIn</option>
+			          <option value="rotateInDownLeft">rotateInDownLeft</option>
+			          <option value="rotateInDownRight">rotateInDownRight</option>
+			          <option value="rotateInUpLeft">rotateInUpLeft</option>
+			          <option value="rotateInUpRight">rotateInUpRight</option>
+			        </group>
+
+			        <group label="Sliding Entrances">
+			          <option value="slideInUp">slideInUp</option>
+			          <option value="slideInDown">slideInDown</option>
+			          <option value="slideInLeft">slideInLeft</option>
+			          <option value="slideInRight">slideInRight</option>
+
+			        </group>
+			        
+			        <group label="Zoom Entrances">
+			          <option value="zoomIn">zoomIn</option>
+			          <option value="zoomInDown">zoomInDown</option>
+			          <option value="zoomInLeft">zoomInLeft</option>
+			          <option value="zoomInRight">zoomInRight</option>
+			          <option value="zoomInUp">zoomInUp</option>
+			        </group>
+
+			        <group label="Specials">
+			          <option value="hinge">hinge</option>
+			          <option value="rollIn">rollIn</option>
+			        </group>
+				</field>
+
+				<field name="animateOut" type="groupedlist" default="fadeOutUp" label="MOD_WKPOPUP_LABEL_EXIT_ANIMATION" description="">
+					<group label="Bouncing Exits">
+			          <option value="bounceOut">bounceOut</option>
+			          <option value="bounceOutDown">bounceOutDown</option>
+			          <option value="bounceOutLeft">bounceOutLeft</option>
+			          <option value="bounceOutRight">bounceOutRight</option>
+			          <option value="bounceOutUp">bounceOutUp</option>
+			        </group>
+				  <group label="Fading Exits">
+				    <option value="fadeOut">fadeOut</option>
+				    <option value="fadeOutDown">fadeOutDown</option>
+				    <option value="fadeOutDownBig">fadeOutDownBig</option>
+				    <option value="fadeOutLeft">fadeOutLeft</option>
+				    <option value="fadeOutLeftBig">fadeOutLeftBig</option>
+				    <option value="fadeOutRight">fadeOutRight</option>
+				    <option value="fadeOutRightBig">fadeOutRightBig</option>
+				    <option value="fadeOutUp">fadeOutUp</option>
+				    <option value="fadeOutUpBig">fadeOutUpBig</option>
+				  </group>
+
+				  <group label="Flippers">
+				    <option value="flipOutX">flipOutX</option>
+				    <option value="flipOutY">flipOutY</option>
+				  </group>
+
+				  <group label="Lightspeed">
+				    <option value="lightSpeedOut">lightSpeedOut</option>
+				  </group>
+
+				  <group label="Rotating Exits">
+				    <option value="rotateOut">rotateOut</option>
+				    <option value="rotateOutDownLeft">rotateOutDownLeft</option>
+				    <option value="rotateOutDownRight">rotateOutDownRight</option>
+				    <option value="rotateOutUpLeft">rotateOutUpLeft</option>
+				    <option value="rotateOutUpRight">rotateOutUpRight</option>
+				  </group>
+
+				  <group label="Sliding Exits">
+				    <option value="slideOutUp">slideOutUp</option>
+				    <option value="slideOutDown">slideOutDown</option>
+				    <option value="slideOutLeft">slideOutLeft</option>
+				    <option value="slideOutRight">slideOutRight</option>
+				    
+				  </group>
+				  
+				  <group label="Zoom Exits">
+				    <option value="zoomOut">zoomOut</option>
+				    <option value="zoomOutDown">zoomOutDown</option>
+				    <option value="zoomOutLeft">zoomOutLeft</option>
+				    <option value="zoomOutRight">zoomOutRight</option>
+				    <option value="zoomOutUp">zoomOutUp</option>
+				  </group>
+
+				  <group label="Specials">
+				    <option value="rollOut">rollOut</option>
+				  </group>
+				</field>
+
+				 <field
+                    name="durationIn"
+                    type="text"
+                    default="600"
+                    label="MOD_WKPOPUP_TITLE_DURATIONIN_LABEL"
+                    description="MOD_WKPOPUP_DURATIONIN_DESCRIPTION" />
+
+                <field
+                    name="durationOut"
+                    type="text"
+                    default="600"
+                    label="MOD_WKPOPUP_TITLE_DURATIONOUT_LABEL"
+                    description="MOD_WKPOPUP_DURATIONOUT_DESCRIPTION" />
+
+
+			</fieldset>
+
+		</fields>
+	</config>
+</extension>
