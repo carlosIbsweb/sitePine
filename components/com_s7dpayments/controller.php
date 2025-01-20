@@ -198,12 +198,13 @@ class s7dPayments
 
 	public static function setCourses($cartid)
 	{
+
 		$db =& JFactory::getDBO();
 
 		$user = JFactory::getUser();
-		$username = "'".$user->name."'";
-		$userid = "'".$user->id."'";
-		$date = "'".date('Y/m/d H:i:s')."'";
+		$username = $db->quote($user->name);
+		$userid = $db->quote($user->id);
+		$date = $db->quote(date('Y/m/d H:i:s'));
 		$total = $db->quote($_POST['priceTotal']);
 
 		/*******************
@@ -260,7 +261,16 @@ class s7dPayments
 
 		//Inserindo os dados do usúario;
         $query = "INSERT INTO `#__s7dpayments` (`name`,`userid`,`ref`,`items`,`state`,`date`,`status`,`form`,`total`)
-        VALUES ($username,$userid,$reference,$mycourses,'1',$date,$status,$formPagInsert,$total);";
+        VALUES (
+			$db->quote($username),
+			$db->quote($userid),
+			$db->quote($reference),
+			$db->quote($mycourses),
+			'1',
+			$db->quote($date),
+			$db->quote($status),
+			$db->quote($formPagInsert),
+			$db->quote($total));";
         $db->setQuery( $query );
 
         if($formPag == 'Pagar.me' && !isset($_SESSION['pineVip']))
@@ -317,6 +327,7 @@ class s7dPayments
             unset($_SESSION['pineVip']);
 
             unset($_SESSION['finalizarPagamento']);
+			
 		}
 
 		return true;
