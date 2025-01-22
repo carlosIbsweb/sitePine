@@ -45,10 +45,12 @@
          </div>
          <div class="dCartItems">
             <?php 
-            if(!json_decode(paymentsCart::getCart($cartid,'cartid','products'),true)){
-               echo 'Carrinho Vazio';
-               return;
-            }
+               if(!json_decode(paymentsCart::getCart($cartid,'cartid','products'),true)){
+                  echo '<p style="padding:20px; display:flex; justify-content:center; aligin-items:center">
+                     Carrinho Vazio
+                  </p>';
+                  return;
+               }
            
                if(is_array(json_decode(paymentsCart::getCart($cartid,'cartid','products'),true) )):
                   $priceTotal = 0;
