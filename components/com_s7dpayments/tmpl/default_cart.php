@@ -45,7 +45,12 @@
          </div>
          <div class="dCartItems">
             <?php 
-               if(is_array(json_decode(paymentsCart::getCart($cartid,'cartid','products'),true))):
+            if(!json_decode(paymentsCart::getCart($cartid,'cartid','products'),true)){
+               echo 'Carrinho Vazio';
+               return;
+            }
+           
+               if(is_array(json_decode(paymentsCart::getCart($cartid,'cartid','products'),true) )):
                   $priceTotal = 0;
                   $produtos   = [];
                   foreach(json_decode(paymentsCart::getCart($cartid,'cartid','products')) as $k => $items):
