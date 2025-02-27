@@ -8,6 +8,8 @@ class ModCheckinHelper
 
     public function __construct()
     {
+		// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
+		date_default_timezone_set('America/Sao_Paulo');
         $this->db = JFactory::getDbo();
     }
 
@@ -28,10 +30,10 @@ class ModCheckinHelper
         }
 
 
-			print_r(self::filtrarItensPorData($dadosCrianca,$code));
+		if(!self::filtrarItensPorData($dadosCrianca,$code)){
+			return ['error' => 'Criança fora da périodo.'];
+		}
 		
-		
-		exit;
 
         $crianca_id = $dadosCrianca->crianca_id;
 
@@ -85,6 +87,9 @@ class ModCheckinHelper
      */
     private function realizarCheckout($crianca_id)
     {
+		// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
+		date_default_timezone_set('America/Sao_Paulo');
+
         $data_checkout = date('Y-m-d H:i:s');
 
         $query = $this->db->getQuery(true)
@@ -109,6 +114,9 @@ class ModCheckinHelper
      */
     private function realizarCheckin($dadosCrianca)
     {
+		// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
+		date_default_timezone_set('America/Sao_Paulo');
+
         $userid = $dadosCrianca->userid;
         $crianca_id = $dadosCrianca->crianca_id;
         $nome = $dadosCrianca->nome;
