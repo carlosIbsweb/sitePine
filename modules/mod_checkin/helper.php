@@ -27,6 +27,12 @@ class ModCheckinHelper
             return ['error' => 'Criança não encontrada no sistema'];
         }
 
+
+			print_r(self::filtrarItensPorData($dadosCrianca,$code));
+		
+		
+		exit;
+
         $crianca_id = $dadosCrianca->crianca_id;
 
         // Se tem check-in ativo, faz check-out. Senão, faz check-in.
@@ -44,16 +50,18 @@ class ModCheckinHelper
     {
         $query = $this->db->getQuery(true)
             ->select([
-                'userid',
-                "JSON_UNQUOTE(JSON_EXTRACT(items, '$.criancas.{$code}.nome')) AS nome",
-                'ref AS ingresso_ref'
+				'userid',
+    'items',
+    'ref AS ingresso_ref', 
+    "JSON_UNQUOTE(JSON_EXTRACT(items, '$[0].criancas.".$code.".nome')) AS nome",
+    "JSON_UNQUOTE(JSON_EXTRACT(items, '$[0].periodo')) AS periodo",
+    "JSON_UNQUOTE(JSON_EXTRACT(items, '$[0].diarias')) AS diarias"
             ])
             ->from($this->db->quoteName('#__s7dpayments'))
-            ->where("JSON_UNQUOTE(JSON_EXTRACT(items, '$.criancas.{$code}.nome')) IS NOT NULL");
+            ->where("JSON_CONTAINS_PATH(items, 'one', '$[0].criancas.".$code."')");
 
         $this->db->setQuery($query);
-		print_r( $this->db->loadObjectList());
-		exit;
+
         return $this->db->loadObjectList();
     }
 
@@ -129,4 +137,91 @@ class ModCheckinHelper
             return ['error' => 'Erro ao salvar check-in: ' . $e->getMessage()];
         }
     }
+
+	function filtrarItensPorData($dadosArray, $code)
+{
+	// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
+    date_default_timezone_set('America/Sao_Paulo');
+
+    // Obter a data e hora de hoje
+    $hoje = date('d/m/Y');
+    $horaAtual = date('H:i'); // Exemplo: 14:30
+
+    // Array para armazenar os itens filtrados
+    $itensFiltrados = [];
+
+    // Percorrer cada objeto do array principal
+    foreach ($dadosArray as $dados) {
+        // Verificar se existe a chave "items" e se é um JSON válido
+        if (!isset($dados->items)) {
+            continue;
+        }
+
+        // Decodificar o JSON dentro de "items"
+        $itens = json_decode($dados->items, true);
+        if (!$itens) {
+            continue; // Se não for um JSON válido, pula para o próximo
+        }
+
+        foreach ($itens as $item) {
+            // Extrair os dados relevantes
+            $periodo = isset($item['periodo']) ? $item['periodo'] : '';
+            $diarias = isset($item['diarias']) ? $item['diarias'] : '';
+            $courseCode = isset($item['courseCode']) ? $item['courseCode'] : '';
+            $criancas = isset($item['criancas']) ? $item['criancas'] : [];
+
+            // Se a criança especificada não estiver no grupo, ignora o item
+            if (!isset($criancas[$code])) {
+                continue;
+            }
+
+            // Se houver diárias, verificar se a data de hoje está listada
+            if (!empty($diarias)) {
+                $diasDiarias = array_map('trim', explode(',', $diarias));
+                if (!in_array(date('d'), $diasDiarias)) {
+                    continue; // Se hoje não estiver em diarias, ignora este item
+                }
+            }
+
+            // Se não houver diárias, validar pelo período
+            $validarPeriodo = false;
+            if (!empty($periodo)) {
+                // Extrair a data de início e fim do período
+                $periodoParts = explode(' ', $periodo);
+                if (count($periodoParts) >= 2) {
+                    $dataInicio = DateTime::createFromFormat('d/m/Y', trim($periodoParts[0]));
+                    $dataFim = DateTime::createFromFormat('d/m/Y', trim($periodoParts[1]));
+                    $dataHoje = DateTime::createFromFormat('d/m/Y', $hoje);
+
+                    // Se a data de hoje estiver no intervalo, permite validar pelo horário
+                    if ($dataHoje >= $dataInicio && $dataHoje <= $dataFim) {
+                        $validarPeriodo = true;
+                    }
+                }
+            }
+
+            // Agora validar o horário
+            if ($validarPeriodo) {
+                $horarioInicio = null;
+                $horarioFim = null;
+
+                // Extrair horário do campo "courseCode"
+                if (preg_match('/(\d{1,2})h-(\d{1,2})h/', $courseCode, $matches)) {
+                    $horarioInicio = sprintf('%02d:00', $matches[1]); // Exemplo: "08:00"
+                    $horarioFim = sprintf('%02d:00', $matches[2]); // Exemplo: "12:00"
+                }
+
+                if ($horarioInicio && $horarioFim) {
+                    if ($horaAtual >= $horarioInicio && $horaAtual <= $horarioFim) {
+                        // Se a hora atual estiver dentro do horário do curso, adiciona ao resultado
+                        $itensFiltrados[] = $item;
+                    }
+                }
+            }
+        }
+    }
+
+    return $itensFiltrados;
+}
+
 }
