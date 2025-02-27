@@ -38,10 +38,10 @@ class ModCheckinHelper
         $crianca_id = $dadosCrianca->crianca_id;
 
         // Se tem check-in ativo, faz check-out. Senão, faz check-in.
-        if ($this->verificarCheckinAtivo($crianca_id)) {
-            return $this->realizarCheckout($crianca_id);
+        if ($this->verificarCheckinAtivo($code)) {
+            return $this->realizarCheckout($code);
         } else {
-            return $this->realizarCheckin($dadosCrianca);
+            return $this->realizarCheckin($dadosCrianca,$code);
         }
     }
 
@@ -112,13 +112,14 @@ class ModCheckinHelper
     /**
      * Realiza o check-in da criança inserindo um novo registro
      */
-    private function realizarCheckin($dadosCrianca)
+    private function realizarCheckin($dadosCrianca,$code)
     {
 		// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
 		date_default_timezone_set('America/Sao_Paulo');
 
+		$dadosCrianca = $dadosCrianca[0];
         $userid = $dadosCrianca->userid;
-        $crianca_id = $dadosCrianca->crianca_id;
+        $crianca_id = $code;
         $nome = $dadosCrianca->nome;
         $ingresso_ref = $dadosCrianca->ingresso_ref;
         $data_checkin = date('Y-m-d H:i:s');
