@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitor de QR Code - Check-in</title>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #preview {
+            width: 90vw;
+            max-width: 350px;
+            height: 90vw;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            display: none;
+            margin-top: 20px;
+            border: 5px solid #28a745;
+        }
+
+        #startScan {
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        #startScan:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Escaneie o QR Code</h2>
+    <video id="preview"></video>
+    <button id="startScan">Iniciar Leitura</button>
+
+    <script>
+        let scanner = new Instascan.Scanner({ 
+            video: document.getElementById('preview'),
+            mirror: false // Evita espelhamento
+        });
+
+        // Captura o QR Code e exibe um alert com o conteúdo
+        scanner.addListener('scan', function (qrCode) {
+            alert("QR Code Lido: " + qrCode); // Mostra o QR Code escaneado para teste
+
+            // Após exibir o alert, podemos enviar para o PHP
+            let deviceId = "MEU_CELULAR_ESPECIFICO"; // Substituir pelo ID do celular autorizado
+
+            fetch("processa_checkin.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `qrCode=${qrCode}&deviceId=${deviceId}`
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch(error => console.error("Erro:", error));
+        });
+
+        document.getElementById('startScan').addEventListener('click', function() {
+            Instascan.Camera.getCameras().then(cameras => {
+                if (cameras.length === 0) {
+                    alert("Nenhuma câmera encontrada!");
+                    return;
+                }
+
+                // Tenta encontrar a câmera traseira
+                let backCameras = cameras.filter(camera => camera.name.toLowerCase().includes('back') || camera.name.toLowerCase().includes('traseira'));
+                
+                let bestCamera = backCameras.length > 0 ? backCameras[0] : cameras[0];
+
+                scanner.start(bestCamera);
+                document.getElementById('preview').style.display = "block"; // Exibe o vídeo após iniciar
+            }).catch(error => console.error("Erro ao acessar a câmera:", error));
+        });
+    </script>
+
+</body>
+</html>
