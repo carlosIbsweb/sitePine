@@ -221,7 +221,7 @@ class ModCheckinHelper
                 }
 
                 if ($horarioInicio && $horarioFim) {
-                    if ($horaAtual >= $horarioInicio && $horaAtual <= $horarioFim) {
+                    if ($horarioInicio >= $horaAtual) {
                         // Se a hora atual estiver dentro do horário do curso, adiciona ao resultado
                         $itensFiltrados[] = $item;
                     }
