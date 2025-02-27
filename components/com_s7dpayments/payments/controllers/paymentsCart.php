@@ -222,7 +222,8 @@ class paymentsCart extends s7dPayments
         	"courseCode" => $courseCode,
         	"criancas" 	 => $criancas,
 			"diarias"    => $diariaD,
-			"semana"     => $list['semana']
+			"semana"     => $list['semana'],
+			"periodo"    => $dias
         );
 
         $jsonS = $complementos;
