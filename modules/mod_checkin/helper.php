@@ -34,12 +34,14 @@ class ModCheckinHelper
 			return ['error' => 'Criança fora da périodo.'];
 		}
 		
+        
 
         $crianca_id = $dadosCrianca->crianca_id;
 
         // Se tem check-in ativo, faz check-out. Senão, faz check-in.
         if ($this->verificarCheckinAtivo($code)) {
-            return $this->realizarCheckout($code);
+            $horaExtra = self::filtrarItensPorData($dadosCrianca, $code, true);
+            return $this->realizarCheckout($code,$horaExtra);
         } else {
             return $this->realizarCheckin($dadosCrianca,$code);
         }
@@ -85,7 +87,7 @@ class ModCheckinHelper
     /**
      * Realiza o check-out da criança
      */
-    private function realizarCheckout($crianca_id)
+    private function realizarCheckout($crianca_id,$horaExtra)
     {
 		// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
 		date_default_timezone_set('America/Sao_Paulo');
@@ -96,6 +98,7 @@ class ModCheckinHelper
             ->update($this->db->quoteName('#__colonia_check'))
             ->set($this->db->quoteName('data_checkout') . ' = ' . $this->db->quote($data_checkout))
             ->set($this->db->quoteName('status') . ' = ' . $this->db->quote('check-out'))
+            ->set($this->db->quoteName('hora_extra') . ' = ' . $this->db->quote($horaExtra))
             ->where($this->db->quoteName('crianca_id') . ' = ' . $this->db->quote($crianca_id))
             ->where($this->db->quoteName('data_checkout') . ' IS NULL');
 
@@ -147,7 +150,7 @@ class ModCheckinHelper
         }
     }
 
-	function filtrarItensPorData($dadosArray, $code)
+	function filtrarItensPorData($dadosArray, $code, $exibirHoraExtra = false)
 {
 	// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
     date_default_timezone_set('America/Sao_Paulo');
@@ -220,8 +223,25 @@ class ModCheckinHelper
                     $horarioFim = sprintf('%02d:00', $matches[2]); // Exemplo: "12:00"
                 }
 
+                $hora1 = new DateTime($horarioFim);
+                $hora2 = new DateTime($horaAtual);
+
+                $horaExtra = '00:00';
+
+                // Verifica se a hora atual é maior que a hora fim
+                if ($hora2 > $hora1) {
+                    // Calcular a diferença entre os horários
+                    $diferenca = $hora1->diff($hora2);
+                    $horaExtra = sprintf("%02d:%02d", $diferenca->h, $diferenca->i);
+                }
+
+                if($exibirHoraExtra){
+                    return $horaExtra;
+                }
+
                 if ($horarioInicio && $horarioFim) {
-                    if ($horarioInicio >= $horaAtual) {
+
+                    if ($horaAtual >= $horarioInicio && $horaAtual < $horarioFim) {
                         // Se a hora atual estiver dentro do horário do curso, adiciona ao resultado
                         $itensFiltrados[] = $item;
                     }
