@@ -37,6 +37,13 @@
         #startScan:hover {
             background-color: #218838;
         }
+
+        #loading {
+            display: none;
+            margin-top: 15px;
+            font-size: 18px;
+            color: #28a745;
+        }
     </style>
 </head>
 <body>
@@ -44,28 +51,37 @@
     <h2>Escaneie o QR Code</h2>
     <video id="preview"></video>
     <button id="startScan">Iniciar Leitura</button>
+    <p id="loading">⏳ Processando...</p>
 
     <script>
         let scanner = new Instascan.Scanner({ 
             video: document.getElementById('preview'),
-            mirror: false // Evita espelhamento
+            mirror: false 
         });
 
-        // Captura o QR Code e exibe um alert com o conteúdo
-        scanner.addListener('scan', function (qrCode) {
-            alert("QR Code Lido: " + qrCode); // Mostra o QR Code escaneado para teste
+        scanner.addListener('scan', function (qrCodeUrl) {
+            console.log("QR Code Lido:", qrCodeUrl);
+            
+            // Exibir loading enquanto processa
+            document.getElementById('loading').style.display = "block";
 
-            // Após exibir o alert, podemos enviar para o PHP
-            let deviceId = "MEU_CELULAR_ESPECIFICO"; // Substituir pelo ID do celular autorizado
-
-            fetch("processa_checkin.php", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: `qrCode=${qrCode}&deviceId=${deviceId}`
+            // Fazer requisição AJAX para a URL do QR Code
+            fetch(qrCodeUrl, {
+                method: "GET",
+                headers: { "Content-Type": "application/json" }
             })
             .then(response => response.json())
-            .then(data => alert(data.message))
-            .catch(error => console.error("Erro:", error));
+            .then(data => {
+                document.getElementById('loading').style.display = "none"; // Esconder loading
+                //if(data.error){
+                    alert(data.data.error)
+                //}
+            })
+            .catch(error => {
+                document.getElementById('loading').style.display = "none"; // Esconder loading
+                console.error("Erro:", error);
+                alert("Erro ao processar o QR Code.");
+            });
         });
 
         document.getElementById('startScan').addEventListener('click', function() {
@@ -75,13 +91,11 @@
                     return;
                 }
 
-                // Tenta encontrar a câmera traseira
                 let backCameras = cameras.filter(camera => camera.name.toLowerCase().includes('back') || camera.name.toLowerCase().includes('traseira'));
-                
                 let bestCamera = backCameras.length > 0 ? backCameras[0] : cameras[0];
 
                 scanner.start(bestCamera);
-                document.getElementById('preview').style.display = "block"; // Exibe o vídeo após iniciar
+                document.getElementById('preview').style.display = "block"; // Exibir a câmera
             }).catch(error => console.error("Erro ao acessar a câmera:", error));
         });
     </script>

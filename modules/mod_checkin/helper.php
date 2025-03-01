@@ -4,26 +4,38 @@ defined('_JEXEC') or die;
 
 class ModCheckinHelper
 {
-    protected $db;
+    protected static $db;
 
     public function __construct()
     {
 		// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
 		date_default_timezone_set('America/Sao_Paulo');
-        $this->db = JFactory::getDbo();
+        self::$db = JFactory::getDbo();
+    }
+
+    public function itemsAjax(){
+        
+$code = JFactory::getApplication()->input->getString('code', '');
+        // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
+		date_default_timezone_set('America/Sao_Paulo');
+        self::$db = JFactory::getDbo();
+
+        return self::processarCheckCrianca($code);
+        
+        exit();
     }
 
     /**
      * Método principal para processar check-in/check-out
      */
-    public function processarCheckCrianca($code)
+    public static function processarCheckCrianca($code)
     {
         if (!$code) {
             return ['error' => 'Código da criança não fornecido'];
         }
 
         // Buscar dados da criança no banco usando o código JSON
-        $dadosCrianca = $this->buscarDadosCrianca($code);
+        $dadosCrianca = self::buscarDadosCrianca($code);
 
         if (!$dadosCrianca) {
             return ['error' => 'Criança não encontrada no sistema'];
@@ -39,11 +51,11 @@ class ModCheckinHelper
         $crianca_id = $dadosCrianca->crianca_id;
 
         // Se tem check-in ativo, faz check-out. Senão, faz check-in.
-        if ($this->verificarCheckinAtivo($code)) {
+        if (self::verificarCheckinAtivo($code)) {
             $horaExtra = self::filtrarItensPorData($dadosCrianca, $code, true);
-            return $this->realizarCheckout($code,$horaExtra);
+            return self::realizarCheckout($code,$horaExtra);
         } else {
-            return $this->realizarCheckin($dadosCrianca,$code);
+            return self::realizarCheckin($dadosCrianca,$code);
         }
     }
 
@@ -52,7 +64,7 @@ class ModCheckinHelper
      */
     private function buscarDadosCrianca($code)
     {
-        $query = $this->db->getQuery(true)
+        $query = self::$db->getQuery(true)
             ->select([
 				'userid',
     'items',
@@ -61,12 +73,12 @@ class ModCheckinHelper
     "JSON_UNQUOTE(JSON_EXTRACT(items, '$[0].periodo')) AS periodo",
     "JSON_UNQUOTE(JSON_EXTRACT(items, '$[0].diarias')) AS diarias"
             ])
-            ->from($this->db->quoteName('#__s7dpayments'))
+            ->from(self::$db->quoteName('#__s7dpayments'))
             ->where("JSON_CONTAINS_PATH(items, 'one', '$[0].criancas.".$code."')");
 
-        $this->db->setQuery($query);
+        self::$db->setQuery($query);
 
-        return $this->db->loadObjectList();
+        return self::$db->loadObjectList();
     }
 
     /**
@@ -74,14 +86,14 @@ class ModCheckinHelper
      */
     private function verificarCheckinAtivo($crianca_id)
     {
-        $query = $this->db->getQuery(true)
+        $query = self::$db->getQuery(true)
             ->select('*')
-            ->from($this->db->quoteName('#__colonia_check'))
-            ->where($this->db->quoteName('crianca_id') . ' = ' . $this->db->quote($crianca_id))
-            ->where($this->db->quoteName('data_checkout') . ' IS NULL');
+            ->from(self::$db->quoteName('#__colonia_check'))
+            ->where(self::$db->quoteName('crianca_id') . ' = ' . self::$db->quote($crianca_id))
+            ->where(self::$db->quoteName('data_checkout') . ' IS NULL');
 
-        $this->db->setQuery($query);
-        return $this->db->loadObject();
+        self::$db->setQuery($query);
+        return self::$db->loadObject();
     }
 
     /**
@@ -94,18 +106,18 @@ class ModCheckinHelper
 
         $data_checkout = date('Y-m-d H:i:s');
 
-        $query = $this->db->getQuery(true)
-            ->update($this->db->quoteName('#__colonia_check'))
-            ->set($this->db->quoteName('data_checkout') . ' = ' . $this->db->quote($data_checkout))
-            ->set($this->db->quoteName('status') . ' = ' . $this->db->quote('check-out'))
-            ->set($this->db->quoteName('hora_extra') . ' = ' . $this->db->quote($horaExtra))
-            ->where($this->db->quoteName('crianca_id') . ' = ' . $this->db->quote($crianca_id))
-            ->where($this->db->quoteName('data_checkout') . ' IS NULL');
+        $query = self::$db->getQuery(true)
+            ->update(self::$db->quoteName('#__colonia_check'))
+            ->set(self::$db->quoteName('data_checkout') . ' = ' . self::$db->quote($data_checkout))
+            ->set(self::$db->quoteName('status') . ' = ' . self::$db->quote('check-out'))
+            ->set(self::$db->quoteName('hora_extra') . ' = ' . self::$db->quote($horaExtra))
+            ->where(self::$db->quoteName('crianca_id') . ' = ' . self::$db->quote($crianca_id))
+            ->where(self::$db->quoteName('data_checkout') . ' IS NULL');
 
-        $this->db->setQuery($query);
+        self::$db->setQuery($query);
 
         try {
-            $this->db->execute();
+            self::$db->execute();
             return ['success' => 'Check-out realizado com sucesso', 'crianca_id' => $crianca_id, 'data_checkout' => $data_checkout];
         } catch (Exception $e) {
             return ['error' => 'Erro ao realizar check-out: ' . $e->getMessage()];
@@ -128,22 +140,22 @@ class ModCheckinHelper
         $data_checkin = date('Y-m-d H:i:s');
         $status = 'check-in';
 
-        $queryInsert = $this->db->getQuery(true)
-            ->insert($this->db->quoteName('#__colonia_check'))
-            ->columns($this->db->quoteName(['userid', 'crianca_id', 'data_checkin', 'data_checkout', 'status', 'ingresso_ref']))
+        $queryInsert = self::$db->getQuery(true)
+            ->insert(self::$db->quoteName('#__colonia_check'))
+            ->columns(self::$db->quoteName(['userid', 'crianca_id', 'data_checkin', 'data_checkout', 'status', 'ingresso_ref']))
             ->values(implode(',', [
-                $this->db->quote($userid),
-                $this->db->quote($crianca_id),
-                $this->db->quote($data_checkin),
+                self::$db->quote($userid),
+                self::$db->quote($crianca_id),
+                self::$db->quote($data_checkin),
                 'NULL',
-                $this->db->quote($status),
-                $this->db->quote($ingresso_ref)
+                self::$db->quote($status),
+                self::$db->quote($ingresso_ref)
             ]));
 
-        $this->db->setQuery($queryInsert);
+        self::$db->setQuery($queryInsert);
 
         try {
-            $this->db->execute();
+            self::$db->execute();
             return ['success' => 'Check-in realizado com sucesso', 'crianca' => $nome, 'data_checkin' => $data_checkin];
         } catch (Exception $e) {
             return ['error' => 'Erro ao salvar check-in: ' . $e->getMessage()];

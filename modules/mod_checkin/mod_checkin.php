@@ -13,13 +13,4 @@ defined('_JEXEC') or die;
 JLoader::register('ModCheckinHelper', __DIR__ . '/helper.php');
 
 
-
-$code = JFactory::getApplication()->input->getString('code', '');
-
-$checkinHelper = new ModCheckinHelper();
-$result = $checkinHelper->processarCheckCrianca($code);
-
-// Exibir a resposta no módulo
-echo json_encode($result);
-
 require JModuleHelper::getLayoutPath('mod_checkin', $params->get('layout', 'default'));
