@@ -1,0 +1,87 @@
+#preview {
+    width: 90vw;
+    max-width: 350px;
+    height: 90vw;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: none;
+    margin-top: 20px;
+    border: 5px solid #28a745;
+}
+
+#startScan {
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+#startScan:hover {
+    background-color: #218838;
+}
+
+#loading {
+    display: none;
+    margin-top: 15px;
+    font-size: 18px;
+    color: #28a745;
+}
+
+
+/*Successo Checkin*/
+/* Cabeçalho fixo elegante */
+.header {
+    background-color: #198754; /* Verde Bootstrap */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Ícone do cabeçalho */
+.header i {
+    margin-left: 10px;
+    font-size: 1.8rem;
+}
+
+/* Conteúdo com rolagem caso necessário */
+.content {
+    flex: 1;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* Card elegante */
+.card-custom {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Rodapé fixo */
+.footer {
+    background-color: #198754;
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}

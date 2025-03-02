@@ -43,7 +43,7 @@ $code = JFactory::getApplication()->input->getString('code', '');
 
 
 		if(!self::filtrarItensPorData($dadosCrianca,$code)){
-			return ['error' => 'Criança fora da périodo.'];
+			return ['error' => 'Criança fora do périodo Isabella de Paula da conceição.'];
 		}
 		
         
@@ -156,7 +156,7 @@ $code = JFactory::getApplication()->input->getString('code', '');
 
         try {
             self::$db->execute();
-            return ['success' => 'Check-in realizado com sucesso', 'crianca' => $nome, 'data_checkin' => $data_checkin];
+            return ['success' => 'Check-in de '.$nome.' realizado com sucesso', 'crianca' => $nome, 'data_checkin' => $data_checkin];
         } catch (Exception $e) {
             return ['error' => 'Erro ao salvar check-in: ' . $e->getMessage()];
         }

@@ -61,6 +61,8 @@
 
         scanner.addListener('scan', function (qrCodeUrl) {
             console.log("QR Code Lido:", qrCodeUrl);
+
+            qrCodeUrl = 'https://pinetreefarm.com.br/index.php?option=com_ajax&module=checkin&method=items&format=json&code='+qrCodeUrl;
             
             // Exibir loading enquanto processa
             document.getElementById('loading').style.display = "block";
@@ -73,9 +75,12 @@
             .then(response => response.json())
             .then(data => {
                 document.getElementById('loading').style.display = "none"; // Esconder loading
-                //if(data.error){
+                if(data.data.error){
                     alert(data.data.error)
-                //}
+                }
+                if(data.data.success){
+                    alert(data.data.success)
+                }
             })
             .catch(error => {
                 document.getElementById('loading').style.display = "none"; // Esconder loading
