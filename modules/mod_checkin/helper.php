@@ -40,10 +40,12 @@ $code = JFactory::getApplication()->input->getString('code', '');
         if (!$dadosCrianca) {
             return ['error' => 'Criança não encontrada no sistema'];
         }
+        
 
-        return [
-            self::filtrarItensPorData($dadosCrianca,$code)
-        ];
+        $dadosCriancaFiltrado = self::filtrarItensPorData($dadosCrianca,$code);
+
+        return $dadosCriancaFiltrado;
+ 
 
 		if(!self::filtrarItensPorData($dadosCrianca,$code)){
 			return ['error' => 'Criança fora do périodo Isabella de Paula da conceição.'];
@@ -54,9 +56,9 @@ $code = JFactory::getApplication()->input->getString('code', '');
         // Se tem check-in ativo, faz check-out. Senão, faz check-in.
         if (self::verificarCheckinAtivo($code)) {
             $horaExtra = self::filtrarItensPorData($dadosCrianca, $code, true);
-            return self::realizarCheckout($dadosCrianca,$code,$horaExtra);
+            return self::realizarCheckout($dadosCriancaFiltrado,$code,$horaExtra);
         } else {
-            return self::realizarCheckin($dadosCrianca,$code);
+            return self::realizarCheckin($dadosCriancaFiltrado,$code);
         }
     }
 
