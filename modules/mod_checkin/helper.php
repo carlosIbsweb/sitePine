@@ -77,7 +77,8 @@ $code = JFactory::getApplication()->input->getString('code', '');
     "JSON_UNQUOTE(JSON_EXTRACT(items, '$[0].diarias')) AS diarias"
             ])
             ->from(self::$db->quoteName('#__s7dpayments'))
-            ->where("JSON_CONTAINS_PATH(items, 'one', '$[0].criancas.".$code."')");
+            ->where("JSON_CONTAINS_PATH(items, 'one', '$[0].criancas.".$code."')")
+            ->where(self::$db->quoteName('status')." IN(3,4) ");
 
         self::$db->setQuery($query);
 
