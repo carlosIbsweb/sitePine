@@ -28,16 +28,20 @@ jQuery(function($) {
                     $('#loading').hide(); // Esconder loading
 
                     // Se houver erro, exibe alerta
-                    /*if (data.data.error) {
+                    if (data.data.error) {
                         alert(data.data.error);
                         return;
-                    }*/
+                    }
 
                     // Se for sucesso, carrega a página de check-in
                    // if (data.data.success) {
                         $('.check').load('modules/mod_checkin/tmpl/_checkin.php', function() {
                             exibeOcultaCheck()
-                            $('.check-nome').html(data.data.error)
+                            let dado = data.data
+                           
+                           $('.check-nome').html(dado.success)
+                           alert(JSON.stringify(dado))
+                           $('.check-colonia').html(dado.colonia)
                         });
                     //}
                 },
@@ -85,7 +89,7 @@ jQuery(function($) {
                 check.hide();
             }else{
                 startCheckin.hide();
-                check.show()
+                check.show().css('display','flex')
             }
         }
         

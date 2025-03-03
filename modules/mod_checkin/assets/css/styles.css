@@ -1,3 +1,10 @@
 body {
     display:none;
 }
+.check {
+    height: 100%;
+    margin:0;
+    display:none;
+    flex-direction: column;
+    background-color: #f8f9fa;
+}

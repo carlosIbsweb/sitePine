@@ -41,19 +41,20 @@ $code = JFactory::getApplication()->input->getString('code', '');
             return ['error' => 'Criança não encontrada no sistema'];
         }
 
+        return [
+            self::filtrarItensPorData($dadosCrianca,$code)
+        ];
 
 		if(!self::filtrarItensPorData($dadosCrianca,$code)){
 			return ['error' => 'Criança fora do périodo Isabella de Paula da conceição.'];
 		}
-		
-        
 
         $crianca_id = $dadosCrianca->crianca_id;
 
         // Se tem check-in ativo, faz check-out. Senão, faz check-in.
         if (self::verificarCheckinAtivo($code)) {
             $horaExtra = self::filtrarItensPorData($dadosCrianca, $code, true);
-            return self::realizarCheckout($code,$horaExtra);
+            return self::realizarCheckout($dadosCrianca,$code,$horaExtra);
         } else {
             return self::realizarCheckin($dadosCrianca,$code);
         }
@@ -99,8 +100,10 @@ $code = JFactory::getApplication()->input->getString('code', '');
     /**
      * Realiza o check-out da criança
      */
-    private function realizarCheckout($crianca_id,$horaExtra)
+    private function realizarCheckout($dadosCrianca,$code,$horaExtra)
     {
+        $dadosCrianca =  self::filtrarItensPorData($dadosCrianca, $code);
+
 		// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
 		date_default_timezone_set('America/Sao_Paulo');
 
@@ -111,14 +114,19 @@ $code = JFactory::getApplication()->input->getString('code', '');
             ->set(self::$db->quoteName('data_checkout') . ' = ' . self::$db->quote($data_checkout))
             ->set(self::$db->quoteName('status') . ' = ' . self::$db->quote('check-out'))
             ->set(self::$db->quoteName('hora_extra') . ' = ' . self::$db->quote($horaExtra))
-            ->where(self::$db->quoteName('crianca_id') . ' = ' . self::$db->quote($crianca_id))
+            ->where(self::$db->quoteName('crianca_id') . ' = ' . self::$db->quote($code))
             ->where(self::$db->quoteName('data_checkout') . ' IS NULL');
 
         self::$db->setQuery($query);
 
         try {
             self::$db->execute();
-            return ['success' => 'Check-out realizado com sucesso', 'crianca_id' => $crianca_id, 'data_checkout' => $data_checkout];
+            return [
+                'success' => 'Check-out realizado com sucesso', 
+                'crianca_id' => $crianca_id, 
+                'data_checkout' => $data_checkout,
+                'crianca' => $dadosCrianca, 
+            ];
         } catch (Exception $e) {
             return ['error' => 'Erro ao realizar check-out: ' . $e->getMessage()];
         }
@@ -142,7 +150,7 @@ $code = JFactory::getApplication()->input->getString('code', '');
 
         $queryInsert = self::$db->getQuery(true)
             ->insert(self::$db->quoteName('#__colonia_check'))
-            ->columns(self::$db->quoteName(['userid', 'crianca_id', 'data_checkin', 'data_checkout', 'status', 'ingresso_ref']))
+            ->columns(self::$db->quoteName(['userid', 'crianca_id', 'data_checkin', 'data_checkout', 'status', 'pedido_ref']))
             ->values(implode(',', [
                 self::$db->quote($userid),
                 self::$db->quote($crianca_id),
@@ -156,7 +164,11 @@ $code = JFactory::getApplication()->input->getString('code', '');
 
         try {
             self::$db->execute();
-            return ['success' => 'Check-in de '.$nome.' realizado com sucesso', 'crianca' => $nome, 'data_checkin' => $data_checkin];
+            return [
+                'success' => 'Check-in de '.$nome.' realizado com sucesso', 
+                'crianca' => $dadosCrianca, 
+                'data_checkin' => $data_checkin
+            ];
         } catch (Exception $e) {
             return ['error' => 'Erro ao salvar check-in: ' . $e->getMessage()];
         }
