@@ -208,7 +208,8 @@ class paymentsCart extends s7dPayments
 
 		/*************************************-------------------------------- */
 		//
-		$reference = 'REF-'.$cartid.'PTF';
+		$getCartId = self::getCart($cartid,'cartid','id');
+		$reference = 'REF-'.$getCartId.'PTF';
 
         $complementos = Array
         (
