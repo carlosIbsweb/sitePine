@@ -208,6 +208,7 @@ class paymentsCart extends s7dPayments
 
 		/*************************************-------------------------------- */
 		//
+		$reference = 'REF-'.$cartid.'PTF';
 
         $complementos = Array
         (
@@ -223,7 +224,8 @@ class paymentsCart extends s7dPayments
         	"criancas" 	 => $criancas,
 			"diarias"    => $diariaD,
 			"semana"     => $list['semana'],
-			"periodo"    => $dias
+			"periodo"    => $dias,
+			"referencia" => $reference
         );
 
         $jsonS = $complementos;
