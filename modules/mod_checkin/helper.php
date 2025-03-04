@@ -41,18 +41,17 @@ $code = JFactory::getApplication()->input->getString('code', '');
             return ['error' => 'Criança não encontrada no sistema'];
         }
         
+        if(!self::filtrarItensPorData($dadosCrianca,$code)){
+            return ['error' => 'Criança fora do périodo Isabella de Paula da conceição.'];
+        }
 
         $dadosCriancaFiltrado = self::filtrarItensPorData($dadosCrianca,$code);
- 
-
-		if(!self::filtrarItensPorData($dadosCrianca,$code)){
-			return ['error' => 'Criança fora do périodo Isabella de Paula da conceição.'];
-		}
+        $dadosCheckin = self::verificarCheckinAtivo($code,$dadosCriancaFiltrado);
 
         $crianca_id = $dadosCrianca->crianca_id;
 
         // Se tem check-in ativo, faz check-out. Senão, faz check-in.
-        if ($dadosCheckin = self::verificarCheckinAtivo($code,$dadosCriancaFiltrado)) {
+        if ($dadosCheckin) {
             $horaExtra = self::filtrarItensPorData($dadosCrianca, $code, true, $dadosCheckin );
             return self::realizarCheckout($dadosCriancaFiltrado,$code,$horaExtra);
         } else {
@@ -282,9 +281,14 @@ $code = JFactory::getApplication()->input->getString('code', '');
                     return $horaExtra;
                 }
 
+                
+                $itensFiltradosParaCheckin[] = $item;
+                $dadosCheckin = self::verificarCheckinAtivo($code,$itensFiltradosParaCheckin);
+
+                
                 if ($horarioInicio && $horarioFim) {
 
-                    if ($horaAtual >= $horarioInicio && $horaAtual < $horarioFim) {
+                    if (($horaAtual >= $horarioInicio && $horaAtual < $horarioFim) || ($dadosCheckin)) {
                         // Se a hora atual estiver dentro do horário do curso, adiciona ao resultado
                         $itensFiltrados[] = $item;
                     }
