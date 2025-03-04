@@ -52,8 +52,8 @@ $code = JFactory::getApplication()->input->getString('code', '');
         $crianca_id = $dadosCrianca->crianca_id;
 
         // Se tem check-in ativo, faz check-out. Senão, faz check-in.
-        if (self::verificarCheckinAtivo($code,$dadosCriancaFiltrado)) {
-            $horaExtra = self::filtrarItensPorData($dadosCrianca, $code, true);
+        if ($dadosCheckin = self::verificarCheckinAtivo($code,$dadosCriancaFiltrado)) {
+            $horaExtra = self::filtrarItensPorData($dadosCrianca, $code, true, $dadosCheckin );
             return self::realizarCheckout($dadosCriancaFiltrado,$code,$horaExtra);
         } else {
             return self::realizarCheckin($dadosCriancaFiltrado,$code);
@@ -192,7 +192,7 @@ $code = JFactory::getApplication()->input->getString('code', '');
         }
     }
 
-	function filtrarItensPorData($dadosArray, $code, $exibirHoraExtra = false)
+	function filtrarItensPorData($dadosArray, $code, $exibirHoraExtra = false, $dadosCheckin = [])
 {
 	// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
     date_default_timezone_set('America/Sao_Paulo');
@@ -265,8 +265,9 @@ $code = JFactory::getApplication()->input->getString('code', '');
                     $horarioFim = sprintf('%02d:00', $matches[2]); // Exemplo: "12:00"
                 }
 
-                $hora1 = new DateTime($horarioFim);
-                $hora2 = new DateTime($horaAtual);
+                $dataCheckin = date('Y-m-d',strtotime($dadosCheckin->data_checkin));
+                $hora1 = new DateTime($dataCheckin.' '.$horarioFim);
+                $hora2 = new DateTime(date('Y-m-d').' '.$horaAtual);
 
                 $horaExtra = '00:00';
 
