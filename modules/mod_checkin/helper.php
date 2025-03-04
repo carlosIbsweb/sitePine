@@ -43,8 +43,6 @@ $code = JFactory::getApplication()->input->getString('code', '');
         
 
         $dadosCriancaFiltrado = self::filtrarItensPorData($dadosCrianca,$code);
-
-        return $dadosCriancaFiltrado;
  
 
 		if(!self::filtrarItensPorData($dadosCrianca,$code)){
@@ -54,7 +52,7 @@ $code = JFactory::getApplication()->input->getString('code', '');
         $crianca_id = $dadosCrianca->crianca_id;
 
         // Se tem check-in ativo, faz check-out. Senão, faz check-in.
-        if (self::verificarCheckinAtivo($code)) {
+        if (self::verificarCheckinAtivo($code,$dadosCriancaFiltrado)) {
             $horaExtra = self::filtrarItensPorData($dadosCrianca, $code, true);
             return self::realizarCheckout($dadosCriancaFiltrado,$code,$horaExtra);
         } else {
@@ -88,12 +86,17 @@ $code = JFactory::getApplication()->input->getString('code', '');
     /**
      * Verifica se a criança já tem um check-in ativo (sem data de check-out)
      */
-    private function verificarCheckinAtivo($crianca_id)
+    private function verificarCheckinAtivo($code,$dadosCrianca)
     {
+        $dadosCrianca = $dadosCrianca[0];
+
         $query = self::$db->getQuery(true)
             ->select('*')
             ->from(self::$db->quoteName('#__colonia_check'))
-            ->where(self::$db->quoteName('crianca_id') . ' = ' . self::$db->quote($crianca_id))
+            ->where(self::$db->quoteName('crianca_id') . ' = ' . self::$db->quote($code))
+            ->where(self::$db->quoteName('catid') . ' = ' . self::$db->quote($dadosCrianca['catid']))
+            ->where(self::$db->quoteName('pedido_ref') . ' = ' . self::$db->quote($dadosCrianca['referencia']))
+            ->where(self::$db->quoteName('userid') . ' = ' . self::$db->quote($dadosCrianca['userid']))
             ->where(self::$db->quoteName('data_checkout') . ' IS NULL');
 
         self::$db->setQuery($query);
@@ -105,10 +108,16 @@ $code = JFactory::getApplication()->input->getString('code', '');
      */
     private function realizarCheckout($dadosCrianca,$code,$horaExtra)
     {
-        $dadosCrianca =  self::filtrarItensPorData($dadosCrianca, $code);
 
 		// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
 		date_default_timezone_set('America/Sao_Paulo');
+
+        $dadosCrianca = $dadosCrianca[0];
+        $userid = $dadosCrianca['userid'];
+        $crianca_id = $code;
+        $nome = $dadosCrianca['nome'];
+        $ingresso_ref = $dadosCrianca['referencia'];
+        $catid = $dadosCrianca['catid'];
 
         $data_checkout = date('Y-m-d H:i:s');
 
@@ -118,6 +127,9 @@ $code = JFactory::getApplication()->input->getString('code', '');
             ->set(self::$db->quoteName('status') . ' = ' . self::$db->quote('check-out'))
             ->set(self::$db->quoteName('hora_extra') . ' = ' . self::$db->quote($horaExtra))
             ->where(self::$db->quoteName('crianca_id') . ' = ' . self::$db->quote($code))
+            ->where(self::$db->quoteName('userid') . ' = ' . self::$db->quote($userid))
+            ->where(self::$db->quoteName('pedido_ref') . ' = ' . self::$db->quote($ingresso_ref))
+            ->where(self::$db->quoteName('catid') . ' = ' . self::$db->quote($catid))
             ->where(self::$db->quoteName('data_checkout') . ' IS NULL');
 
         self::$db->setQuery($query);
@@ -144,23 +156,25 @@ $code = JFactory::getApplication()->input->getString('code', '');
 		date_default_timezone_set('America/Sao_Paulo');
 
 		$dadosCrianca = $dadosCrianca[0];
-        $userid = $dadosCrianca->userid;
+        $userid = $dadosCrianca['userid'];
         $crianca_id = $code;
-        $nome = $dadosCrianca->nome;
-        $ingresso_ref = $dadosCrianca->ingresso_ref;
+        $nome = $dadosCrianca['nome'];
+        $ingresso_ref = $dadosCrianca['referencia'];
+        $catid = $dadosCrianca['catid'];
         $data_checkin = date('Y-m-d H:i:s');
         $status = 'check-in';
 
         $queryInsert = self::$db->getQuery(true)
             ->insert(self::$db->quoteName('#__colonia_check'))
-            ->columns(self::$db->quoteName(['userid', 'crianca_id', 'data_checkin', 'data_checkout', 'status', 'pedido_ref']))
+            ->columns(self::$db->quoteName(['userid', 'crianca_id', 'data_checkin', 'data_checkout', 'status', 'pedido_ref','catid']))
             ->values(implode(',', [
                 self::$db->quote($userid),
                 self::$db->quote($crianca_id),
                 self::$db->quote($data_checkin),
                 'NULL',
                 self::$db->quote($status),
-                self::$db->quote($ingresso_ref)
+                self::$db->quote($ingresso_ref),
+                self::$db->quote($catid)
             ]));
 
         self::$db->setQuery($queryInsert);
@@ -169,7 +183,8 @@ $code = JFactory::getApplication()->input->getString('code', '');
             self::$db->execute();
             return [
                 'success' => 'Check-in de '.$nome.' realizado com sucesso', 
-                'crianca' => $dadosCrianca, 
+                'crianca' => $dadosCrianca,
+                'colonia' => self::getCategoryHierarchy($catid),
                 'data_checkin' => $data_checkin
             ];
         } catch (Exception $e) {
@@ -278,6 +293,30 @@ $code = JFactory::getApplication()->input->getString('code', '');
     }
 
     return $itensFiltrados;
+}
+
+public static function getCategoryHierarchy($categoryId) {
+    
+    $db = self::$db;
+    $query = self::$db->getQuery(true);
+
+    // Define a consulta SQL com prefixo dinâmico
+    $query = $db->getQuery(true)
+        ->select([
+            'per.title AS periodo',
+            'sem.title AS semana',
+            'col.title AS colonia'
+        ])
+        ->from($db->quoteName("#__categories", 'per'))
+        ->leftJoin($db->quoteName("#__categories", 'sem') . ' ON sem.id = per.parent_id')
+        ->leftJoin($db->quoteName("#__categories", 'col') . ' ON col.id = sem.parent_id')
+        ->where($db->quoteName('per.id') . ' = ' . (int) $categoryId);
+
+    // Prepara e executa a consulta
+    $db->setQuery($query);
+
+    // Retorna o resultado como um objeto associativo
+    return $db->loadAssoc();
 }
 
 }

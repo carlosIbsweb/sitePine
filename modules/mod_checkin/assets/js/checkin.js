@@ -40,8 +40,10 @@ jQuery(function($) {
                             let dado = data.data
                            
                            $('.check-nome').html(dado.success)
-                           alert(JSON.stringify(dado))
-                           $('.check-colonia').html(dado.colonia)
+                           $('.check-colonia').html(dado.colonia.colonia)
+                           $('.check-semana').html(dado.colonia.semana)
+                           $('.check-periodo').html(dado.colonia.periodo)
+                           
                         });
                     //}
                 },

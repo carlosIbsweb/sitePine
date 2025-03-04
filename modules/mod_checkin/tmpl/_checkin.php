@@ -1,3 +1,4 @@
+
  <!-- Cabeçalho Fixo -->
  <div class="header">
         <span class="check-nome"></span>
@@ -9,9 +10,9 @@
         <div class="card card-custom">
             <div class="card-body">
                 <h5 class="card-title text-success">🎫 Ingresso</h5>
-                <p class="card-text"><strong>Colônia:</strong> <span class="check-ingresso"></span></p>
-                <p class="card-text"><strong>Curso:</strong> <span class="check-course"></span></p>
-                <p class="card-text"><strong>Categoria:</strong> <span class="check-cattitle"></span></p>
+                <p class="card-text"><strong>Colônia:</strong> <span class="check-colonia"></span></p>
+                <p class="card-text"><strong>Semana:</strong> <span class="check-semana"></span></p>
+                <p class="card-text"><strong>Período:</strong> <span class="check-periodo"></span></p>
 
                 <hr>
 
