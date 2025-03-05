@@ -191,7 +191,7 @@ $code = JFactory::getApplication()->input->getString('code', '');
         }
     }
 
-	function filtrarItensPorData($dadosArray, $code, $exibirHoraExtra = false, $dadosCheckin = [])
+	function filtrarItensPorData($dadosArray, $code, $exibirHoraExtra = false)
 {
 	// DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
     date_default_timezone_set('America/Sao_Paulo');
@@ -264,27 +264,28 @@ $code = JFactory::getApplication()->input->getString('code', '');
                     $horarioFim = sprintf('%02d:00', $matches[2]); // Exemplo: "12:00"
                 }
 
+                $itensFiltradosParaCheckin[] = $item;
+                $dadosCheckin = self::verificarCheckinAtivo($code,$itensFiltradosParaCheckin);
+
                 $dataCheckin = date('Y-m-d',strtotime($dadosCheckin->data_checkin));
+
                 $hora1 = new DateTime($dataCheckin.' '.$horarioFim);
                 $hora2 = new DateTime(date('Y-m-d').' '.$horaAtual);
+            
 
                 $horaExtra = '00:00';
 
                 // Verifica se a hora atual é maior que a hora fim
                 if ($hora2 > $hora1) {
                     // Calcular a diferença entre os horários
-                    $diferenca = $hora1->diff($hora2);
-                    $horaExtra = sprintf("%02d:%02d", $diferenca->h, $diferenca->i);
+                    $diff = $hora1->diff($hora2);
+                    $total_hours = ($diff->days * 24) + $diff->h;
+                    $horaExtra = sprintf("%02d:%02d", $total_hours, $diff->i);
                 }
 
                 if($exibirHoraExtra){
                     return $horaExtra;
                 }
-
-                
-                $itensFiltradosParaCheckin[] = $item;
-                $dadosCheckin = self::verificarCheckinAtivo($code,$itensFiltradosParaCheckin);
-
                 
                 if ($horarioInicio && $horarioFim) {
 
