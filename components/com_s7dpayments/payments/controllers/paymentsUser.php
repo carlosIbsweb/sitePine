@@ -190,4 +190,70 @@ class paymentsUser extends s7dPayments
     public function login(){
         require_once JPATH_SITE . '/components/com_users/helpers/route.php';
     }
+
+    public static function getColoniaFutura()
+    {
+        // Pega o banco de dados do Joomla
+        $db = JFactory::getDbo();
+
+        $userid = JFactory::getUser()->id;
+
+        // Query SQL para obter os dados
+        $query = $db->getQuery(true)
+            ->select([
+                's.userid',
+                's.ref',
+                's.items',
+                'JSON_UNQUOTE(JSON_EXTRACT(s.items, "$[0].periodo")) AS periodo',
+                'JSON_UNQUOTE(JSON_EXTRACT(s.items, "$[0].diarias")) AS diarias',
+                'JSON_UNQUOTE(JSON_EXTRACT(s.items, "$[0].catid")) AS catid',
+                'JSON_UNQUOTE(JSON_EXTRACT(s.items, "$[0].course")) AS course',
+                'colonia.title AS colonia',
+                'sem.title AS semana',
+                'per.title AS periodo_nome'
+            ])
+            ->from($db->quoteName('depaula_s7dpayments', 's'))
+            ->leftJoin($db->quoteName('depaula_categories', 'per') . ' ON per.id = JSON_UNQUOTE(JSON_EXTRACT(s.items, "$[0].catid"))')
+            ->leftJoin($db->quoteName('depaula_categories', 'sem') . ' ON sem.id = per.parent_id')
+            ->leftJoin($db->quoteName('depaula_categories', 'colonia') . ' ON colonia.id = sem.parent_id')
+            ->where($db->quoteName('s.userid') . ' = ' . (int) $userid)
+            ->where('STR_TO_DATE(SUBSTRING_INDEX(JSON_UNQUOTE(JSON_EXTRACT(s.items, "$[0].periodo")), " ", -1), "%d/%m/%Y") >= CURDATE()')
+            ->where($db->quoteName('s.status') . ' IN (3,4)');
+
+        // Executar a consulta
+        $db->setQuery($query);
+        $resultados = $db->loadObjectList();
+
+        // Se não houver resultados, retorna um array vazio
+        if (!$resultados) {
+            return [];
+        }
+
+        // Processando as crianças dentro do JSON
+        $coloniaData = [];
+        foreach ($resultados as $resultado) {
+            // Decodificando JSON das crianças
+            $items = json_decode($resultado->items, true);
+            
+            if (isset($items[0]['criancas']) && is_array($items[0]['criancas'])) {
+                foreach ($items[0]['criancas'] as $child_key => $child_data) {
+                    $coloniaData[] = [
+                        'userid' => $resultado->userid,
+                        'ref' => $resultado->ref,
+                        'crianca_id' => $child_key,
+                        'nome_crianca' => $child_data['nome'] ?? '',
+                        'periodo' => $resultado->periodo,
+                        'diarias' => $resultado->diarias,
+                        'catid' => $resultado->catid,
+                        'colonia' => $resultado->colonia,
+                        'semana' => $resultado->semana,
+                        'periodo_nome' => $resultado->periodo_nome,
+                        'course' => $resultado->course,
+                    ];
+                }
+            }
+        }
+
+        return $coloniaData;
+    }
 }
