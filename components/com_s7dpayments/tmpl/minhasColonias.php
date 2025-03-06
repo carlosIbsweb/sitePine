@@ -21,7 +21,7 @@ $doc->addStyleSheet('https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/a
 $doc->addStyleSheet('https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css');
 
 // Adiciona seu CSS personalizado
-$doc->addStyleSheet(JURI::base() . 'components/com_s7dpayments/assets/css/usuario.css'); // Altere para o caminho correto do CSS
+$doc->addStyleSheet(JURI::base() . 'components/com_s7dpayments/assets/css/usuario.css?'.uniqid()); // Altere para o caminho correto do CSS
 
 
 // Adiciona a biblioteca de QR Code
@@ -46,12 +46,13 @@ jQuery(function($){
         $.each(pessoas, function(index, pessoa) {
             let card = $(`
                 <div class="qrcode-card">
-                    <h5><b>${pessoa.colonia}</b></h5>
-                    <p><strong>Nome:</strong> ${pessoa.nome_crianca}</p>
-                    <p><strong>Ingresso:</strong> ${pessoa.course}</p>
-                    <p><strong>Semana:</strong>  - ${pessoa.semana}</p>
-                    <p><strong>Período:</strong> ${pessoa.periodo_nome || "N/A"}</p>
+                    <h5><b>${pessoa.nome_crianca}</b></h5>
+                    
                     <div class="qrcode-container" id="qrcode-${index}"></div>
+                    <p><h6><b><i class="fa fa-users"></i> ${pessoa.colonia}</b></h6></p>
+                    <p><b><i class="fa fa-ticket"></i></b> ${pessoa.course}</p>
+                    <p><span class="bg-green"><b><i class="fa fa-calendar"></i> ${pessoa.semana}</b></span></p>
+                    <p><span class="color-green"><b><i class="fa fa-clock-o"></i> ${pessoa.periodo_nome || "N/A"}</span></b></p>
                 </div>
             `);
     
@@ -98,8 +99,8 @@ jQuery(function($){
             
             new QRCode(qrElement, {
                 text: `${pessoas[idx].crianca_id}`,
-                width: 180,
-                height: 180
+                width: 220,
+                height: 220
             });
         }
     }
