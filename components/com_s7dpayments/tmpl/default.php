@@ -67,7 +67,7 @@ elseif(isset($_GET['cart'])):
 	require('default_cart.php');
 elseif(isset($_GET['courses'])):
 	require('default_pag_list.php');
-elseif(isset($_GET['minhas-colonias'])):
+elseif(isset($_GET['minhas-inscricoes'])):
 	require_once('minhasColonias.php');
 elseif(isset($_GET['user']) and $_GET['user'] == 'login'):
 	require('default_login.php');

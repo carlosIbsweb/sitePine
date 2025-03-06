@@ -13,32 +13,18 @@ $subitem =
 	);
 ?>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light menu-colonia container">
-    <a class="navbar-brand dmstore" href="<?= $menuAlias;?>"><?= $menuTitle ?? $subitem;?><br><span class="navbar-subtitle small"><?= $menuTitle ? $subitem : '';?></span></a>
+  <nav class="navbar navbar-light bg-light menu-colonia container">
+    <a class="navbar-brand dmstore" href="<?= $baseColonia;?>"><?= $menuTitle ?? $subitem;?><br><span class="navbar-subtitle small"><?= $menuTitle ? $subitem : '';?></span></a>
 
     <?php if($user->name): ?>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"><i class="material-icons">menu</i></span>
-    </button>
-
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        
-        	<li class="nav-item">
-          		<a class="nav-link" href="#">Olá, <?= explode(" ",$user->name)[0]; ?></a>
-        	</li>
-    	
-        <li class="nav-item dropdown"><?php include('cart.php');?></li>
-      </ul>
-    </div>
-<?php endif;?>
+	  <?php include('cart.php');?>
+	<?php endif;?>
   </nav>
 
 
 <div class="dmenu">
 	<?php if(!isset($_GET['user'])): ?>
-		<a href="<?= $menuAlias;?>" class="dmstore"><span class="hidden-xs"><?= $menuTitle;?></span></a>
+		<a href="<?= $baseColonia;?>" class="dmstore"><span class="hidden-xs"><?= $menuTitle;?></span></a>
 		<div class="dmmais col-md-5">
 		<a <?= isset($_GET['courseId']) ? 'href="'.$menuLink.'"' : null;?>><?= $catTitle;?></a>
 		</div>
@@ -48,12 +34,12 @@ $subitem =
 		<div class="col-md-5" style="float:right"><?php require_once('cart.php'); ?></div>
 		
 	<?php elseif(isset($_GET['user']) && $_GET['user'] == 'register'): ?>
-		<a href="<?= $menuAlias;?>" class="dmstore"><span class="hidden-xs"><?= $menuTitle;?></span></a>
+		<a href="<?= $baseColonia;?>" class="dmstore"><span class="hidden-xs"><?= $menuTitle;?></span></a>
 		<div class="dmmais">
 			<a>Cadastrar</a>
 		</div>
 	<?php elseif(isset($_GET['user']) && $_GET['user'] == 'login'): ?>
-		<a href="<?= $menuAlias;?>" class="dmstore"><span><?= $menuTitle;?></span></a>
+		<a href="<?= $baseColonia;?>" class="dmstore"><span><?= $menuTitle;?></span></a>
 		<div class="dmmais">
 		<a> Entrar ou Registrar</a>
 		</div>

@@ -19,3 +19,5 @@
 2025-01-31T12:26:01+00:00	INFO 177.134.132.192	joomlafailure	Nome de usuário e senha incorretos ou você ainda não possui uma conta.
 2025-02-27T13:16:42+00:00	INFO 177.96.223.203	joomlafailure	Nome de usuário e senha incorretos ou você ainda não possui uma conta.
 2025-03-06T00:15:26+00:00	INFO 201.182.152.145	joomlafailure	Nome de usuário e senha incorretos ou você ainda não possui uma conta.
+2025-03-06T12:12:16+00:00	INFO 201.182.152.145	joomlafailure	Nome de usuário e senha incorretos ou você ainda não possui uma conta.
+2025-03-06T12:12:41+00:00	INFO 201.182.152.145	joomlafailure	Nome de usuário e senha incorretos ou você ainda não possui uma conta.

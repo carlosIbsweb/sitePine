@@ -38,9 +38,11 @@ endif;
 
 /*********************/
 
-$pUrl = explode($mAlias,JUri::current());
+$pUrl = array_filter(explode($mAlias,JUri::current()));
 endif;
 $baseUrl = str_replace("/","",$pUrl[1]);
+
+$baseColonia = explode('/',$menuLink)[0];
 
 
 $url = JRoute::_('index.php?option=com_s7dpayments');

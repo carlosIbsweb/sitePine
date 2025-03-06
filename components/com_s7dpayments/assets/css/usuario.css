@@ -1,0 +1,52 @@
+
+.container {
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.qrcode-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    /* width: 300px; */
+    margin: auto;
+}
+
+.qrcode-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.qrcode-container {
+    margin: 10px auto;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ajuste do Owl Carousel */
+.owl-nav {
+    margin-top: 10px;
+}
+
+.owl-prev, .owl-next {
+    background: #007bff !important;
+    color: white !important;
+    padding: 10px 15px !important;
+    border-radius: 50% !important;
+    font-size: 20px !important;
+}
+
+.owl-prev:hover, .owl-next:hover {
+    background: #0056b3 !important;
+}
