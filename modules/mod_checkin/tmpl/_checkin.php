@@ -47,5 +47,5 @@
 
     <!-- Rodapé Fixo -->
     <div class="footer">
-        <button class="btn btn-light w-100 novo-checkin">➕ Novo Check-in</button>
+        <button class="btn btn-light w-100 novo-checkin">➕ Novo Scanner</button>
     </div>

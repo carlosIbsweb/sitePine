@@ -5,6 +5,7 @@ jQuery(function($) {
             mirror: false 
         });
 
+
         scanner.addListener('scan', function(qrCodeUrl) {
             // Se o loading estiver visível, não processa outro QR Code
             if ($('#loading').is(':visible')) {
@@ -68,7 +69,7 @@ jQuery(function($) {
                 }
             });
         });
-
+        startScan()
         $('#startScan').on('click', function() {
             startScan()
         });

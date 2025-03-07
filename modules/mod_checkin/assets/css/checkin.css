@@ -1,35 +1,114 @@
-#preview {
-    width: 90vw;
-    max-width: 350px;
-    height: 90vw;
-    max-height: 350px;
-    object-fit: cover;
-    border-radius: 15px;
-    display: none;
-    margin-top: 20px;
-    border: 5px solid #28a745;
+#pine-checkin {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
+/* O vídeo cobre toda a tela */
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Escurece tudo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* Criando o recorte real sem deformação */
+.overlay {
+    mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
+    -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    padding: calc(50vh - 175px) calc(50vw - 150px); /* Mantém o quadrado fixo */
+}
+
+
+
+/* Texto acima do quadrado */
+h2 {
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white !important;
+    font-size: 22px;
+    text-align: center;
+    color: #e5e5e5 !important;
+    z-index: 1;
+    font-size: 22px !important;
+}
+
+/* Animação de scanner (linha verde) */
+.scanner-line {
+    position: absolute;
+    width: 220px;
+    height: 4px;
+    background: #0f0;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #0f0;
+    animation: moveScanner 2s infinite alternate;
+}
+
+@keyframes moveScanner {
+    from { top: 40%; }
+    to { top: 60%; }
+}
+
+/* Loading oculto por padrão */
+#loading {
+    display: none;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #0f0;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Botão iniciar leitura */
 #startScan {
-    padding: 12px 20px;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border: none;
+    background: #0f0;
+    color: white;
     font-size: 16px;
     cursor: pointer;
-    background-color: #28a745;
-    color: white;
-    border: none;
     border-radius: 5px;
-    margin-top: 15px;
+    transition: 0.3s;
 }
 
 #startScan:hover {
-    background-color: #218838;
-}
-
-#loading {
-    display: none;
-    margin-top: 15px;
-    font-size: 18px;
-    color: #28a745;
+    background: #00cc00;
 }
 
 

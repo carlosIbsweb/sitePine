@@ -21,9 +21,11 @@ $document->addScript(Juri::base(true).'/modules/mod_checkin/assets/js/checkin.js
 <div id="pine-checkin">
     <div class="check"></div>
     <div class="start-checkin">
-<h2>Escaneie o QR Code</h2>
-    <video id="preview"></video>
-    <button id="startScan">Iniciar Leitura</button>
-    <p id="loading">⏳ Processando...</p>
+        <h2>Escaneie o QR Code</h2>
+        <video id="preview" autoplay></video>
+        <div class="overlay"></div>
+        <div class="scanner-line"></div>
+        <p id="loading"></p> <!-- Loading oculto -->
+    </div>
 </div>
-</div>
+
