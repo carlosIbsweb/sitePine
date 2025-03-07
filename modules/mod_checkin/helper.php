@@ -42,7 +42,7 @@ $code = JFactory::getApplication()->input->getString('code', '');
         }
         
         if(!self::filtrarItensPorData($dadosCrianca,$code)){
-            return ['error' => 'Criança fora do périodo Isabella de Paula da conceição.'];
+            return ['error' => 'Criança fora do périodo'];
         }
 
         $dadosCriancaFiltrado = self::filtrarItensPorData($dadosCrianca,$code);
@@ -53,8 +53,21 @@ $code = JFactory::getApplication()->input->getString('code', '');
         // Se tem check-in ativo, faz check-out. Senão, faz check-in.
         if ($dadosCheckin) {
             $horaExtra = self::filtrarItensPorData($dadosCrianca, $code, true, $dadosCheckin );
+
+            //Verificar se existe um checkin no intervalo de 30 minutos
+            if($restam = self::getFilteredColoniaCheck('data_checkin', $dadosCriancaFiltrado,$code)){
+                return [
+                    'error' => 'Criança já fez o check-in aguarde '.$restam.' minutos para realizar o check-out'
+                ];
+            }
             return self::realizarCheckout($dadosCriancaFiltrado,$code,$horaExtra);
         } else {
+            //Verificar se existe um checkin no intervalo de 30 minutos
+            if($restam = self::getFilteredColoniaCheck('data_checkout', $dadosCriancaFiltrado,$code)){
+                return [
+                    'error' => 'Criança já fez o check-out aguarde '.$restam.' minutos para realizar um novo check-in'
+                ];
+            }
             return self::realizarCheckin($dadosCriancaFiltrado,$code);
         }
     }
@@ -86,6 +99,26 @@ $code = JFactory::getApplication()->input->getString('code', '');
      * Verifica se a criança já tem um check-in ativo (sem data de check-out)
      */
     private function verificarCheckinAtivo($code,$dadosCrianca)
+    {
+        $dadosCrianca = $dadosCrianca[0];
+
+        $query = self::$db->getQuery(true)
+            ->select('*')
+            ->from(self::$db->quoteName('#__colonia_check'))
+            ->where(self::$db->quoteName('crianca_id') . ' = ' . self::$db->quote($code))
+            ->where(self::$db->quoteName('catid') . ' = ' . self::$db->quote($dadosCrianca['catid']))
+            ->where(self::$db->quoteName('pedido_ref') . ' = ' . self::$db->quote($dadosCrianca['referencia']))
+            ->where(self::$db->quoteName('userid') . ' = ' . self::$db->quote($dadosCrianca['userid']))
+            ->where(self::$db->quoteName('data_checkout') . ' IS NULL');
+
+        self::$db->setQuery($query);
+        return self::$db->loadObject();
+    }
+
+    /**
+     * Verifica se a criança já tem um check-in ou check-out
+     */
+    private function verificarCheck($code,$dadosCrianca)
     {
         $dadosCrianca = $dadosCrianca[0];
 
@@ -189,9 +222,6 @@ $code = JFactory::getApplication()->input->getString('code', '');
 
         try {
             self::$db->execute();
-            if(self::$db->setQuery($queryInsert)){
-                return $userid;
-            }
             return [
                 'success' => 'Check-in de '.$nome.' realizado com sucesso',
                 'responsavel' => [
@@ -343,5 +373,50 @@ public static function getCategoryHierarchy($categoryId) {
     // Retorna o resultado como um objeto associativo
     return $db->loadAssoc();
 }
+    
+    //Verificar se já passou mais de 30 minutos, entre checkin ou checkout
+    public static function getFilteredColoniaCheck($campoData, $dadosCrianca,$code) 
+    {
+        $dadosCrianca = $dadosCrianca[0];
 
+        // Verifica se o campo fornecido é válido
+        if (!in_array($campoData, ['data_checkin', 'data_checkout'])) {
+            return "Erro: Campo inválido. Use 'data_checkin' ou 'data_checkout'.";
+        }
+
+        // Query para selecionar registros com tempo maior que 30 minutos
+        $query = self::$db->getQuery(true)
+            ->select('*')
+            ->from(self::$db->quoteName('#__colonia_check'))
+            ->where("$campoData > (NOW() - INTERVAL 30 MINUTE)")
+            ->where(self::$db->quoteName('crianca_id') . ' = ' . self::$db->quote($code))
+            ->where(self::$db->quoteName('catid') . ' = ' . self::$db->quote($dadosCrianca['catid']))
+            ->where(self::$db->quoteName('pedido_ref') . ' = ' . self::$db->quote($dadosCrianca['referencia']))
+            ->where(self::$db->quoteName('userid') . ' = ' . self::$db->quote($dadosCrianca['userid']));
+
+        // Define a query e executa
+        self::$db->setQuery($query);
+
+        try {
+            $item = self::$db->loadObjectList()[0];
+            return $item ? self::intervalo($item->{$campoData},date('Y-m-d H:i:s')) : false;
+
+        } catch (Exception $e) {
+            return "Erro ao executar a consulta: " . $e->getMessage();
+        }
+    }
+
+
+    public static function intervalo($dataI,$dataT,$minutos = 30)
+    {
+        $date1 = new DateTime($dataI); // Data inicial
+        $date2 = new DateTime($dataT); // Data final
+
+        $interval = $date1->diff($date2);
+        $totalMinutos = ($interval->days * 24 * 60) + ($interval->h * 60) + $interval->i;
+
+        $faltaPara30 = max($minutos - $totalMinutos, 0);
+
+        return $faltaPara30;
+    }
 }
