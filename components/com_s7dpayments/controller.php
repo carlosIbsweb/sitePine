@@ -287,7 +287,7 @@ class s7dPayments
 			];
 
 			//Notificação de compra Administrador coloniapinetreefarm@gmail.com,.
-            self::sendEmail(JPATH_SITE.'/components/com_s7dpayments/tmpl/default_emailAdminCompra.php','NOVA PEDIDO - Pagar.me','contato@pinetreefarm.com.br','Pine Tree Farm','carlos@ibsweb.com.br,coloniapinetreefarm@gmail.com',$dados);
+           #desativandoNotificacao self::sendEmail(JPATH_SITE.'/components/com_s7dpayments/tmpl/default_emailAdminCompra.php','NOVA PEDIDO - Pagar.me','contato@pinetreefarm.com.br','Pine Tree Farm','carlos@ibsweb.com.br,coloniapinetreefarm@gmail.com',$dados);
 
 			
             //Removendo prodF
@@ -314,7 +314,7 @@ class s7dPayments
 			];
 
 			//Notificação de compra Administrador.
-            self::sendEmail(JPATH_SITE.'/components/com_s7dpayments/tmpl/default_emailAdminCompra.php','NOVO PEDIDO - Voucher VIP','contato@pinetreefarm.com.br','Pine Tree Farm','coloniapinetreefarm@gmail.com,carlos@ibsweb.com.br',$dados);
+           #desativandoNotificacao self::sendEmail(JPATH_SITE.'/components/com_s7dpayments/tmpl/default_emailAdminCompra.php','NOVO PEDIDO - Voucher VIP','contato@pinetreefarm.com.br','Pine Tree Farm','coloniapinetreefarm@gmail.com,carlos@ibsweb.com.br',$dados);
 
             //Notificação de compra Usuário.
             self::notCli($user->name,$user->username);
@@ -343,7 +343,7 @@ class s7dPayments
 				"nome" 		=> $nome,
 			];
 					//Notificação de compra Administrador.
-		            self::sendEmail(JPATH_SITE.'/components/com_s7dpayments/tmpl/default_emailNotification.php','Inscrição Pine Tree Farm','contato@pinetreefarm.com.br','Pine Tree Farm',$myemail,$dados);
+		            #desativandoNotificacao self::sendEmail(JPATH_SITE.'/components/com_s7dpayments/tmpl/default_emailNotification.php','Inscrição Pine Tree Farm','contato@pinetreefarm.com.br','Pine Tree Farm',$myemail,$dados);
 
 		            return true;
 	}
