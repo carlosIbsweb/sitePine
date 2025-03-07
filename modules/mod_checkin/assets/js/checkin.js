@@ -34,19 +34,32 @@ jQuery(function($) {
                     }
 
                     // Se for sucesso, carrega a página de check-in
-                   // if (data.data.success) {
+                    if (data.data.success) {
                         $('.check').load('modules/mod_checkin/tmpl/_checkin.php', function() {
                             exibeOcultaCheck()
                             let dado = data.data
                            
-                           $('.check-nome').html(dado.success)
+                           $('.check-success').html(dado.success)
+                           $('.check-nome').html(dado.crianca.nome)
                            $('.check-colonia').html(dado.colonia.colonia)
+                           $('.check-ingresso').html(dado.course)
                            $('.check-semana').html(dado.colonia.semana)
                            $('.check-periodo').html(dado.colonia.periodo)
+                           $('.check-possuidoenca').html(dado.crianca.possuidoenca)
+                           $('.check-medicamento').html(dado.crianca.medicamento)
+                           $('.check-alergia').html(dado.crianca.alergia)
                            $('.check-nascimento').html(dado.crianca.nascimento)
+                           $('.check-autorizada').html(dado.crianca.autorizada)
+
+                           //Responsável
+                           $('.check-responsavel-nome').html(dado.responsavel.name)
+                           $('.check-responsavel-email').html(dado.responsavel.email)
+                           $('.check-responsavel-telefone').html(dado.responsavel.telefone)
+                           $('.check-responsavel-cpf').html(dado.responsavel.cpf)
+
                            
                         });
-                    //}
+                    }
                 },
                 error: function(xhr, status, error) {
                     $('#loading').hide(); // Esconder loading

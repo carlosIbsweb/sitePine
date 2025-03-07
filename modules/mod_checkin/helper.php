@@ -117,6 +117,7 @@ $code = JFactory::getApplication()->input->getString('code', '');
         $nome = $dadosCrianca['nome'];
         $ingresso_ref = $dadosCrianca['referencia'];
         $catid = $dadosCrianca['catid'];
+        $responsavel = JFactory::getUser($userid);
 
         $data_checkout = date('Y-m-d H:i:s');
 
@@ -136,10 +137,17 @@ $code = JFactory::getApplication()->input->getString('code', '');
         try {
             self::$db->execute();
             return [
-                'success' => 'Check-out realizado com sucesso', 
-                'crianca_id' => $crianca_id, 
-                'data_checkout' => $data_checkout,
-                'crianca' => $dadosCrianca, 
+                'success' => 'Check-out realizado com sucesso',
+                'responsavel' => [
+                    'name' => $responsavel->name,
+                    'email' => $responsavel->email,
+                    'telefone' => $responsavel->telefone,
+                    'cpf' => $responsavel->cpf
+                ],
+                'course' => $dadosCrianca['course'],
+                'crianca' => $dadosCrianca['criancas'][$code],
+                'colonia' => self::getCategoryHierarchy($catid),
+                'data_checkin' => $data_checkin
             ];
         } catch (Exception $e) {
             return ['error' => 'Erro ao realizar check-out: ' . $e->getMessage()];
@@ -162,6 +170,7 @@ $code = JFactory::getApplication()->input->getString('code', '');
         $catid = $dadosCrianca['catid'];
         $data_checkin = date('Y-m-d H:i:s');
         $status = 'check-in';
+        $responsavel = JFactory::getUser($userid);
 
         $queryInsert = self::$db->getQuery(true)
             ->insert(self::$db->quoteName('#__colonia_check'))
@@ -180,9 +189,19 @@ $code = JFactory::getApplication()->input->getString('code', '');
 
         try {
             self::$db->execute();
+            if(self::$db->setQuery($queryInsert)){
+                return $userid;
+            }
             return [
-                'success' => 'Check-in de '.$nome.' realizado com sucesso', 
-                'crianca' => $dadosCrianca,
+                'success' => 'Check-in de '.$nome.' realizado com sucesso',
+                'responsavel' => [
+                    'name' => $responsavel->name,
+                    'email' => $responsavel->email,
+                    'telefone' => $responsavel->telefone,
+                    'cpf' => $responsavel->cpf
+                ],
+                'course' => $dadosCrianca['course'],
+                'crianca' => $dadosCrianca['criancas'][$code],
                 'colonia' => self::getCategoryHierarchy($catid),
                 'data_checkin' => $data_checkin
             ];
