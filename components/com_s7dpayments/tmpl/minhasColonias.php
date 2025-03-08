@@ -65,7 +65,7 @@ jQuery(function($){
     let carousel = $(".owl-carousel");
 
     carousel.owlCarousel({
-        loop: true,
+        loop: false,
         margin: 10,
         nav: false,
         items: 1, // Apenas um item por slide
