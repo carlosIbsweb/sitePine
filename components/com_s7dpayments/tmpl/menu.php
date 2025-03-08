@@ -16,9 +16,8 @@ $subitem =
   <nav class="navbar navbar-light bg-light menu-colonia container">
     <a class="navbar-brand dmstore" href="<?= $baseColonia;?>"><?= $menuTitle ?? $subitem;?><br><span class="navbar-subtitle small"><?= $menuTitle ? $subitem : '';?></span></a>
 
-    <?php if($user->name): ?>
-	  <?php include('cart.php');?>
-	<?php endif;?>
+	<?php include('cart.php');?>
+
   </nav>
 
 

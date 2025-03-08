@@ -8,11 +8,13 @@
 defined('_JEXEC') or die;
 
 $return = base64_encode(JUri::base().$menuLink.'?user=login');
+$user = JFactory::getUser();
+$userid = $user->id;
 
 ?>
 
 <form action="" method="post" id="login-form" class="form-inline">
-		<input type="submit" name="Submit" class="btnlog dropdown-item" value="<?php echo JText::_('JLOGOUT'); ?>" />
+		<input type="submit" name="Submit" class="btnlog dropdown-item" value="<?= $userid ? JText::_('JLOGOUT'): 'Login'; ?>" />
 		<input type="hidden" name="option" value="com_users" />
 		<input type="hidden" name="task" value="user.logout" />
 		<input type="hidden" name="return" value="<?php echo $return; ?>" />
