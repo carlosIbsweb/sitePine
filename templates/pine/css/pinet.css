@@ -4,7 +4,7 @@
  *@copyright Copyright (c) 2010 - 2018 JoomShaper
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 or Later
  */
-body, .sp-preloader {
+ body, .sp-preloader {
   background-color: #fff;
   color: #252525;
 }
@@ -21,20 +21,29 @@ body, .sp-preloader {
   position:absolute !important;
   top: 100px;
   display: table;
-  z-index: 999;
+  z-index: 1;
   width: auto;
 }
 #sp-menu #offcanvas-toggler {
   height:0;
 }
 .sp-megamenu-parent > li {
-  padding: 10px 0
+  padding: 10px
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item:hover {
+  background: #398f28;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item:hover > a, .sp-megamenu-parent .sp-dropdown li.sp-menu-item:hover > span {
+  color:#fff !important
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item {
+  padding: 5px 15px  !important;
 }
 #sp-menu a {
   display:flex;
-  align-items:center;
-  justify-content:center;
-  justify-self: center;
+  /* align-items:center; */
+  /* justify-content:center; */
+  /* justify-self: center; */
   line-height: inherit;
   padding: ;
 }
@@ -113,6 +122,7 @@ a:hover, a:focus, a:active {
 }
 .sp-megamenu-parent .sp-dropdown .sp-dropdown-inner {
   background: #fff;
+  padding: 20px 0 !important;!i;!;
 }
 .sp-megamenu-parent .sp-dropdown li.sp-menu-item > a {
   color: #252525;
