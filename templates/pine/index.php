@@ -247,8 +247,8 @@ if ($custom_js = $this->params->get('custom_js'))
     <?php endif; ?>
 
     <?php if ($this->countModules('floating')) : ?>
-        <a href="https://pinetreefarm.com.br/temporada-2024-2025" target="_blank" class="floating-button">
-          Não Fique de Fora: Inscreva-se para a Temporada 2024/2025!
+        <a href="https://wa.me/556199093099?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20col%C3%B4nia." target="_blank" class="floating-button">
+          Para mais informações, entre em contato conosco!
         </a>
     <?php endif;?>
    
