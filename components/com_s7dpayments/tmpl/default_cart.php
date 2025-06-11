@@ -60,20 +60,33 @@
                      $cartItemLink = $menuAlias.'/'.s7dPayments::getCategory(s7dPayments::getCategory($items->catid,'parent_id'),'alias'); 
                      $cartItemTitle = s7dPayments::getCategory(s7dPayments::getCategory($items->catid,'parent_id'),'title');
                
-                     if($items->discount){
-                        //Preço com desconto
-                        $originalPrice    = $items-> price;
-                        $finalPrice = $items->price - ($items->price * ($items-> discount/100));
-               
-                     }else{
-                        $finalPrice = $items-> price;
+                     // Primeiro calculamos o valor total de crianças
+                     foreach($items->criancas as $qntCri){
+                        $valor = $valor + count($qntCri);
                      }
                
-                     $finalPrice = $cDiscount ? ($finalPrice / (100 - $cDiscount)) * 100 : $finalPrice;
-                     
+                     // Depois calculamos o preço base com desconto do produto
+                     if($items->discount){
+                        $originalPrice = $items->price;
+                        $finalPrice = round($items->price - ($items->price * ($items->discount/100)), 2);
+                     } else {
+                        $finalPrice = $items->price;
+                     }
+               
+                     // Agora calculamos o preço do item multiplicando pelo número de crianças
+                     $itemPrice = $finalPrice * $valor;
+               
+                     // Por fim, aplicamos o desconto do voucher se existir
+                     if ($cDiscount) {
+                        if ($cDiscount >= 100) {
+                           $itemPrice = 0.00;
+                        } else {
+                           $itemPrice = round($itemPrice - ($itemPrice * ($cDiscount/100)), 2);
+                        }
+                     }
+               
                   ?>
-            <?php foreach($items->criancas as $qntCri){$valor = $valor + count($qntCri);}?>
-            <?php $itemPrice = $finalPrice * $valor;?>
+            <?php $itemPrice = $itemPrice;?>
             <div class="dCartItem<?=$_SESSION['ltem'][$items->id] == $items->id ? ' ltem' : null;?>">
                <span class="dCartCourse">
                   <a href="<?= $url;?>?store=course&cat=<?= $items->catid;?>&courseId=<?= $items->id; ?>" class="dSbtn">
@@ -99,11 +112,20 @@
             <?php
                //echo $originalPrice; 
                $priceTotal = $priceTotal + $itemPrice;
-               $priceDiscount = $priceTotal * ($cDiscount/100);
-               $priceDiscountTotal = $priceTotal - ($priceTotal * ($cDiscount/100));
                
+               //Cálculo do total e desconto do voucher
+               if ($cDiscount) {
+                  $priceDiscount = round($priceTotal * ($cDiscount/100), 2);
+                  if ($cDiscount >= 100) {
+                     $priceDiscountTotal = 0.00;
+                  } else {
+                     $priceDiscountTotal = $priceTotal - $priceDiscount;
+                  }
+               } else {
+                  $priceDiscount = 0;
+                  $priceDiscountTotal = $priceTotal;
+               }
                
-               //$priceTotal = $cDiscount ?  $priceTotal - ($priceTotal * ($cDiscount/100)) : $priceTotal; 
                $itemCart = '<td style="padding: 5px 10px;border: 1px solid #ddd;"><strong style="color:#0b7798">'.$cartItemTitle.'</strong> - '.$items->course.'</td>'.'<td style="padding: 5px 10px;border: 1px solid #ddd;">'.$items->cattitle.'</td><td style="padding: 5px 10px;border: 1px solid #ddd; text-align:center">'.$valor.'</td><td style="padding: 5px 10px;border: 1px solid #ddd;"> R$ '.number_format( $itemPrice , 2, ',', '.').'</td>';
                array_push($produtos,$itemCart);
                
