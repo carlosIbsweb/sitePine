@@ -67,6 +67,28 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 }
 ?>
 
+  <!-- Modal -->
+  <div class="modal fade" id="coloniaModal" tabindex="-1" role="dialog" aria-labelledby="coloniaModalLabel" aria-hidden="true" style="z-index: 999999">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!-- Cabeçalho do Modal -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- Corpo do Modal -->
+        <div class="modal-body"> </div>
+        <!-- Rodapé do Modal -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <a href="" class="btn btn-primary btnOk" target="_blank">Ok</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <div class="coloniaPine" style="display: none">
 	<div class="dist">
 		<?= JHtml::_('content.prepare', '{loadposition colonia-top}');?>
@@ -76,15 +98,31 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 		<?= JHtml::_('content.prepare', '{loadposition colonia-title}');?>
 		
 		<div class="coloniaPageItems container">
-			<?php foreach(paymentsCart::getCat() as $k=> $item): ?>
+			<?php foreach(paymentsCart::getCat() as $k=> $item): 
+				$params = json_decode($item->params);
+				$link = $params->porLink ? 'href="#"' : 'href="'.$itemAlias.'/'.$item->alias.'"';
+				$tipoDeLink = $params->porLink ? '
+					data-toggle="modal" 
+					data-target="#coloniaModal" 
+					data-link="'.$params->porLinkLink.'"
+					data-title="'.$params->porLinkTitle.'"
+					data-titlebutton="'.$params->porLinkTitleButton.'"
+				'  : '';
+				?>
 				<div class="coloniaPageItemcContent" data-back="<?= json_decode($item->params)->image;?>" data-color="<?= json_decode($item->params)->image_alt;?>">
-					<a href="<?= $itemAlias.'/'.$item->alias;?>" class="<?= $item-> alias; ?>"  title="<?= $items->title;?>">
+					<a <?= $link;?> class="<?= $item-> alias; ?>"  <?= $tipoDeLink;?> title="<?= $items->title;?>">
 						<span class="cpitop"></span>
 						<span class="cpibottom"></span>
 
 						<span class="cpiData">
 							<?= trim($item->title);?>
 						</span>
+
+						<?php if($params->porLink): ?>
+							<div class="coloniaModalContent" style="display:none">
+								<?= $item->description;?>
+							</div>
+						<?php endif;?>
 			
 					</a>
 				</div>
@@ -189,6 +227,21 @@ function sepMes(mes,del = true){
 document.addEventListener('DOMContentLoaded',function(){
 	document.querySelector('.coloniaPine').removeAttribute('style')
 })
+
+jQuery(function($){
+
+    $('#coloniaModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+      var conteudo = button.find('.coloniaModalContent').html();
+      
+      var modal = $(this)
+      modal.find('.modal-body').html(conteudo)
+	  modal.find('.btnOk').attr('href',button.data('link'))
+	  modal.find('.btnOk').html(button.data('titlebutton'))
+	  modal.find('.modal-title').html(button.data('title'))
+    })
+})
+
 </script>
 
  

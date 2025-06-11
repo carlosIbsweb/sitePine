@@ -88,6 +88,18 @@
       <option value="0">Não</option>
     </field>
   </fieldset>
+
+  <fieldset
+    name="colonia" label="Colônia">
+    <field name="porLink" type="radio" default="0" label="Pagamento por link" description="Desativa o fluxo original para pagamento via link, ou encaminhamento." class="btn-group btn-group-yesno">
+      <option value="1">Sim</option>
+      <option value="0">Não</option>
+    </field>
+    <field name="porLinkTitle" type="text" label="Título" />
+    <field name="porLinkLink" type="text" label="Link" />
+    <field name="porLinkTitleButton" type="text" label="Título do Link" />
+    
+  </fieldset>
 </fields> 
 
 </form>

@@ -1,13 +1,13 @@
 [
     {
-        "title":"09 a 12 de Março",
-        "id":796,
+        "title":"04 a 08 de Agosto",
+        "id":815,
         "menutype":"hidden",
-        "diarias":"09/3/2025 12/3/2025",
+        "diarias":"04/8/2025 08/8/2025",
         "divisao":4,
         "tipodevenda":1,
         "diaspermitido":3,
-        "menuid": 522,
+        "menuid": 529,
         "imageSequence":8,
         "textPayment": "Por",
         "exibirDadosCrianca": "1",
@@ -25,14 +25,14 @@
                 [
                     {
                         "title": "Manhã - Crianças de 2 a 3 anos",
-                        "price": 706.47,
+                        "price": 762.98,
                         "discount":0,
                         "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
                         "ordem":1
                     },
                     {
                         "title": "Manhã - Crianças de 4 a 14 anos",
-                        "price": 604.82,
+                        "price": 653.20,
                         "discount":0,
                         "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
                         "ordem":2
@@ -46,14 +46,14 @@
                 [
                     {
                         "title": "Soneca - Crianças de 2 a 3 anos",
-                        "price": 864.03,
+                        "price": 933.15,
                         "discount":0,
                         "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Almoço;</li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
                         "ordem":1
                     },
                     {
                         "title": "Soneca - Crianças de 4 a 14 anos",
-                        "price": 742.05,
+                        "price": 801.41,
                         "discount":0,
                         "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Almoço;</li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
                         "ordem":2
@@ -67,14 +67,14 @@
                 [
                     {
                         "title": "Tarde - Crianças de 2 a 3 anos",
-                        "price": 833.53,
+                        "price": 900.21,
                         "discount":0,
                         "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da tarde com frutas e uma fonte de proteínas e carboidratos;</li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
                         "ordem":1
                     },
                     {
                         "title": "Tarde - Crianças de 4 a 14 anos",
-                        "price": 706.47,
+                        "price": 762.98,
                         "discount":0,
                         "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da tarde com frutas e uma fonte de proteínas e carboidratos;</li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
                         "ordem":2
@@ -88,14 +88,14 @@
                 [
                     {
                         "title": "Semi Integral - Crianças de 2 a 3 anos",
-                        "price": 1646.73,
+                        "price": 1778.46,
                         "discount":0,
                         "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Almoço;<li>Lanche da tarde com frutas e uma fonte de proteínas e carboidratos;</li></li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
                         "ordem":1
                     },
                     {
                         "title": "Semi Integral - Crianças de 4 a 14 anos",
-                        "price": 1412.94,
+                        "price": 1525.97,
                         "discount":0,
                         "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Almoço;<li>Lanche da tarde com frutas e uma fonte de proteínas e carboidratos;</li></li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
                         "ordem":2
@@ -109,14 +109,14 @@
                 [
                     {
                         "title": "Integral - Crianças de 2 a 3 anos",
-                        "price": 1722.97,
+                        "price": 1860.80,
                         "discount":0,
                         "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Almoço;<li>Lanche da tarde com frutas e uma fonte de proteínas e carboidratos;</li></li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
                         "ordem":1
                     },
                     {
                         "title": "Integral - Crianças de 4 a 14 anos",
-                        "price": 1514.59,
+                        "price": 1635.75,
                         "discount":0,
                         "description" : "<p>Pacote semanal inclui:</p><ul><li>Lanche da manhã com frutas e uma fonte de proteínas e carboidratos;</li><li>Almoço;<li>Lanche da tarde com frutas e uma fonte de proteínas e carboidratos;</li></li><li>Hidratação, dindin de frutas e sucos naturais;</li><li>Materiais pedagógicos e recreativos.</li></ul>",
                         "ordem":2

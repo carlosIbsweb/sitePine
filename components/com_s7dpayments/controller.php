@@ -145,7 +145,7 @@ class s7dPayments
 		 
 		// Select all records from the user profile table where key begins with "custom.".
 		// Order it by the ordering field.
-		$query->select($db->quoteName(array('title','id','alias','params')));
+		$query->select($db->quoteName(array('title','id','alias','params','description')));
 		$query->from($db->quoteName('#__categories'));
 		$query->where($db->quoteName('published') . ' = '. $db->quote(1));
 		$query->where($db->quoteName('extension') . ' = '. $db->quote('com_s7dpayments'));
@@ -287,7 +287,7 @@ class s7dPayments
 			];
 
 			//Notificação de compra Administrador coloniapinetreefarm@gmail.com,.
-           #desativandoNotificacao self::sendEmail(JPATH_SITE.'/components/com_s7dpayments/tmpl/default_emailAdminCompra.php','NOVA PEDIDO - Pagar.me','contato@pinetreefarm.com.br','Pine Tree Farm','carlos@ibsweb.com.br,coloniapinetreefarm@gmail.com',$dados);
+            self::sendEmail(JPATH_SITE.'/components/com_s7dpayments/tmpl/default_emailAdminCompra.php','NOVA PEDIDO - Pagar.me','contato@pinetreefarm.com.br','Pine Tree Farm','carlos@ibsweb.com.br,coloniapinetreefarm@gmail.com',$dados);
 
 			
             //Removendo prodF
@@ -314,7 +314,7 @@ class s7dPayments
 			];
 
 			//Notificação de compra Administrador.
-           #desativandoNotificacao self::sendEmail(JPATH_SITE.'/components/com_s7dpayments/tmpl/default_emailAdminCompra.php','NOVO PEDIDO - Voucher VIP','contato@pinetreefarm.com.br','Pine Tree Farm','coloniapinetreefarm@gmail.com,carlos@ibsweb.com.br',$dados);
+           self::sendEmail(JPATH_SITE.'/components/com_s7dpayments/tmpl/default_emailAdminCompra.php','NOVO PEDIDO - Voucher VIP','contato@pinetreefarm.com.br','Pine Tree Farm','coloniapinetreefarm@gmail.com,carlos@ibsweb.com.br',$dados);
 
             //Notificação de compra Usuário.
             self::notCli($user->name,$user->username);

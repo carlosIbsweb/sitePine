@@ -540,7 +540,7 @@ class paymentsCart extends s7dPayments
 	{
 		/*Voucher Unico*/
 		if(self::getDiscontUniq($discountId)){
-			echo '<div class="alert alert-danger cf-alert" role="alert">Voucher inválidoa!</div>';
+			echo '<div class="alert alert-danger cf-alert" role="alert">Voucher inválido!</div>';
 			return false;
 		}
 

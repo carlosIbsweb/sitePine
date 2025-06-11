@@ -514,10 +514,19 @@ ul.social-icons > li a:hover {
 @media screen and (max-width:992px)
 {
   #sp-logo {
-    top: 10px
+    top: 10px;
+    position: relative !important;!i;!;
+  }
+  #sp-logo img {
+    height: 150px
   }
   #sp-menu {
-    margin-top:30px !important
+    margin-top:30px !important;
+    background: none;
+    justify-content: flex-end;
+  }
+  #sp-menu #offcanvas-toggler  {
+    
   }
   #sp-header {
     background: transparent;

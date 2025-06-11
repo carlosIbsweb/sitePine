@@ -388,7 +388,7 @@ public static function getCategoryHierarchy($categoryId) {
         $query = self::$db->getQuery(true)
             ->select('*')
             ->from(self::$db->quoteName('#__colonia_check'))
-            ->where("$campoData > (NOW() - INTERVAL 30 MINUTE)")
+            ->where("$campoData > (NOW() - INTERVAL 0 MINUTE)")
             ->where(self::$db->quoteName('crianca_id') . ' = ' . self::$db->quote($code))
             ->where(self::$db->quoteName('catid') . ' = ' . self::$db->quote($dadosCrianca['catid']))
             ->where(self::$db->quoteName('pedido_ref') . ' = ' . self::$db->quote($dadosCrianca['referencia']))

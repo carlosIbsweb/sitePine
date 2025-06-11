@@ -15,6 +15,15 @@ $base = JUri::base(true);
 //get the active menu item id
 $app = JFactory::getApplication();
 $menu   = $app->getMenu();
+
+$paramsCurrentCategory = paymentsCart::getCategory($menu->getActive()->query['catid'],'params');
+$paramsCurrentCategory = json_decode($paramsCurrentCategory);
+
+if($paramsCurrentCategory->porLink) {
+
+	echo '<div class="alert alert-danger"> Venda somente através do link.</div>';
+	return;
+}
 $active   = $menu->getActive();
 $level = $active->level;
 
@@ -23,7 +32,6 @@ if($level == 1){
 	return;
 }
 ?>
-
 
 <link rel="stylesheet" type="text/css" href="<?= $base?>/components/com_s7dpayments/assets/css/component.css?5" />
 <script src="<?= $base?>/components/com_s7dpayments/assets/js/modernizr.custom.js"></script>
